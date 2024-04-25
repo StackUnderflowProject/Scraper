@@ -2,9 +2,11 @@ import it.skrape.core.htmlDocument
 import it.skrape.fetcher.HttpFetcher
 import it.skrape.fetcher.response
 import it.skrape.fetcher.skrape
+import it.skrape.selects.html5.div
 import it.skrape.selects.html5.table
 import it.skrape.selects.html5.tbody
 import model.*
+import util.ImageUtil
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 import java.util.*
@@ -43,13 +45,84 @@ object PLTScraper {
         return teamMap
     }
 
+    fun getTeams(teamMap: Map<String, String>): Teams {
+        val baseUrl = "https://www.prvaliga.si/tekmovanja/default.asp?action=klub&id_menu=217&id_kluba="
+        val teams = Teams()
+
+        println("Getting teams...")
+        try {
+            teamMap.forEach { entry ->
+                val (name, id) = entry
+                val teamUrl = "$baseUrl$id"
+                var imageFetchUrl = "https://www.prvaliga.si"
+                
+
+                skrape(HttpFetcher) {
+                    request {
+                        url = teamUrl
+                    }
+                    response {
+                        htmlDocument {
+                            div {
+                                withClass = "col-md-4.col-xs-12.text-center"
+                                imageFetchUrl += findFirst("img").attribute("src").trimStart('.').replace(" ", "%20")
+                            }
+                        }
+                    }
+                }
+
+                val logoPath = "src/main/resources/${name}_logo.png"
+                ImageUtil.downloadImage(imageFetchUrl, logoPath)
+
+                skrape(HttpFetcher) {
+                    request {
+                        url = teamUrl
+                    }
+
+                    response {
+                        htmlDocument {
+                            table {
+                                tbody {
+                                    val rows = findAll("tr")
+                                    val president = rows[1].findFirst("td").text.split(":")[1].trim()
+                                    val director = rows[2].findFirst("td").text.split(":")[1].trim()
+
+                                    val coachRow = rows.find { it.text.contains("Glavni trener") }
+                                    val coach = coachRow?.findFirst("td")?.text?.split(":")?.get(1)?.trim() ?: ""
+
+
+
+                                    teams.add(
+                                        Team(
+                                            name = name,
+                                            president = president,
+                                            director = director,
+                                            coach = coach,
+                                            logoPath = logoPath
+                                        )
+                                    )
+                                }
+
+                            }
+                        }
+                    }
+                }
+            }
+            println("Teams fetched successfully")
+            return teams
+        } catch (e: Exception) {
+            println("Error fetching teams: ${e.message}")
+            return teams
+        }
+    }
+
     fun getStandings(season: Int): Standings {
         println("Getting standings...")
-        val teamsUrl = "https://www.prvaliga.si/tekmovanja/default.asp?action=lestvica&id_menu=102&id_sezone=$season"
+        val searchURL = "https://www.prvaliga.si/tekmovanja/default.asp?action=lestvica&id_menu=102&id_sezone=$season"
         val standings = Standings()
         skrape(HttpFetcher) {
             request {
-                url = teamsUrl
+                url = searchURL
             }
 
             response {
@@ -93,6 +166,81 @@ object PLTScraper {
         return standings
     }
 
+    fun getStadiums(teamMap: Map<String, String>): Stadiums {
+        val baseUrl = "https://www.prvaliga.si/tekmovanja/default.asp?action=klub&id_menu=217&id_kluba="
+        val viewUrl = "&prikaz=3"
+        val stadiums = Stadiums()
+        println("Getting stadiums...")
+        try {
+            teamMap.forEach { entry ->
+                val (name, id) = entry
+                val stadiumUrl = "$baseUrl$id$viewUrl"
+                var imageFetchUrl = "https://www.prvaliga.si"
+
+                skrape(HttpFetcher) {
+                    request {
+                        url = stadiumUrl
+                    }
+                    response {
+                        htmlDocument {
+                            div {
+                                withClass = "row"
+                                div {
+                                    withClass = "row"
+                                    var stadiumName = ""
+                                    var buildYear = 0.toUShort()
+                                    var capacity = 0.toUShort()
+                                    var location = ""
+                                    val stadiumPath = "src/main/resources/${name}_stadium.png"
+                                    div {
+                                        withClass = "col-md-9.col-xs-12"
+                                        imageFetchUrl += findFirst("img").attribute("src").trimStart('.').replace(" ", "%20")
+                                        ImageUtil.downloadImage(imageFetchUrl, stadiumPath)
+                                        table {
+                                            tbody {
+                                                val rows = findAll("tr")
+                                                stadiumName = try {
+                                                    rows[0].findAll("th")[1].text
+                                                } catch (e: Exception) {
+                                                    rows[0].findAll("td")[1].text
+                                                }
+                                                buildYear = rows[1].findAll("td")[1].text.toUShort()
+                                                capacity = rows[2].findAll("td")[1].text.split(' ')[0].replace(".", "")
+                                                    .toUShort()
+                                            }
+                                        }
+                                    }
+                                    div {
+                                        withClass = "col-md-3.col-xs-12"
+                                        table {
+                                            tbody {
+                                                location = findAll("tr")[1].findFirst("td").text.split("tel:")[0].trim()
+                                            }
+                                        }
+                                    }
+                                    stadiums.add(
+                                        Stadium(
+                                            name = stadiumName,
+                                            capacity = capacity,
+                                            location = location,
+                                            buildYear = buildYear,
+                                            imagePath = stadiumPath
+                                        )
+                                    )
+                                }
+                            }
+                        }
+                    }
+                }
+
+            }
+            return stadiums
+        } catch (e: Exception) {
+            println("Error fetching stadiums: ${e.message}")
+            return stadiums
+        }
+    }
+
     @Throws(IllegalArgumentException::class)
     fun getTeam(teamMap: Map<String, String>): String {
         for (key in teamMap.keys) {
@@ -111,7 +259,7 @@ object PLTScraper {
 
     fun getCssSelector(teamId: String, matchTypeArg: String? = null): String {
         var matchType = matchTypeArg ?: ""
-        if(matchType.isEmpty()) {
+        if (matchType.isEmpty()) {
             println("model.Match type:\n1. Played\n2. Upcoming\n3. All")
             matchType = when (readln().toIntOrNull()) {
                 1 -> "played"
@@ -249,9 +397,9 @@ object PLTScraper {
                     throw IllegalArgumentException("Invalid match type: $value. Please provide one of played, upcoming, or all.")
                 }
             }
-            
+
             "team" -> {
-                if (value.first().isLowerCase()){
+                if (value.first().isLowerCase()) {
                     throw IllegalArgumentException("Invalid team name: $value. Please provide a team name starting with an uppercase letter.")
                 }
             }
