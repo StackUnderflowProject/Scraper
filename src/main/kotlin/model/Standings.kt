@@ -2,7 +2,7 @@ package model
 
 import java.io.File
 
-class Standings : ArrayList<FootballStanding>() {
+class Standings : ArrayList<IStanding>() {
     fun writeToCSV() {
         val csv = this.joinToString("\n") { it.toCSV() }
         File("standings.csv").writeText(csv)

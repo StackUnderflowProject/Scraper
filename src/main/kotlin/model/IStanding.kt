@@ -2,7 +2,7 @@ package model
 
 import java.util.*
 
-interface IStandings {
+interface IStanding {
     val place: UShort
     val team: String
     val gamesPlayed: UShort

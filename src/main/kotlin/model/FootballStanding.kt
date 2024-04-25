@@ -13,7 +13,7 @@ data class FootballStanding (
     override val goalsConceded: UShort,
     override val points: UShort,
     override val id: UUID = UUID.randomUUID()
-): IStandings {
+): IStanding {
     
     private val goalDiff = (goalsScored - goalsConceded).toShort()
     

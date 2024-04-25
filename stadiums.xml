@@ -1,0 +1,72 @@
+            <stadiums>
+                <stadium id="4544deba-85b7-4fb6-a0a5-a2b6a7463b4d">
+    <name>Stadion Z'dežele</name>
+    <capacity>13600</capacity>
+    <location>Opekarniška cesta 15a 3000 Celje</location>
+    <buildYear>2003</buildYear>
+    <imageUrl>src/main/resources/Celje_stadium.png</imageUrl>
+</stadium>
+<stadium id="2b63c060-927a-42c3-a43f-6feae942e72f">
+    <name>ŠRC Stožice</name>
+    <capacity>15507</capacity>
+    <location>Dunajska 159 1000 Ljubljana</location>
+    <buildYear>2010</buildYear>
+    <imageUrl>src/main/resources/Olimpija Ljubljana_stadium.png</imageUrl>
+</stadium>
+<stadium id="f96ee9a4-2978-48f8-a8da-1975870a2534">
+    <name>Ljudski vrt</name>
+    <capacity>11671</capacity>
+    <location>Mladinska ulica 29 2000 Maribor</location>
+    <buildYear>1952</buildYear>
+    <imageUrl>src/main/resources/Maribor_stadium.png</imageUrl>
+</stadium>
+<stadium id="43e278df-b7be-443e-9231-bad89156dbb4">
+    <name>Športni park Šiška</name>
+    <capacity>2308</capacity>
+    <location>Milčinskega 2 1000 Ljubljana</location>
+    <buildYear>1953</buildYear>
+    <imageUrl>src/main/resources/Bravo Kostel_stadium.png</imageUrl>
+</stadium>
+<stadium id="c3c37810-b1d6-48e2-a3f8-4021dc3ae3fc">
+    <name>ŠRC Bonifika</name>
+    <capacity>4010</capacity>
+    <location>Ljubljanska cesta 2 6000 Koper - Capodistria</location>
+    <buildYear>1947</buildYear>
+    <imageUrl>src/main/resources/Koper_stadium.png</imageUrl>
+</stadium>
+<stadium id="9bd4924e-5a20-4768-9766-17bfdd77f6fb">
+    <name>Športni park Domžale</name>
+    <capacity>3100</capacity>
+    <location>Kopališka cesta 4 1230 Domžale</location>
+    <buildYear>1948</buildYear>
+    <imageUrl>src/main/resources/Domžale_stadium.png</imageUrl>
+</stadium>
+<stadium id="dd88b07a-7f48-4f90-906b-a28e01e51e1a">
+    <name>Mestni stadion Fazanerija</name>
+    <capacity>3782</capacity>
+    <location>Kopališka ulica 45 9000 Murska Sobota</location>
+    <buildYear>1983</buildYear>
+    <imageUrl>src/main/resources/Mura_stadium.png</imageUrl>
+</stadium>
+<stadium id="68791887-dd2d-4ea2-8036-7f6c24a88994">
+    <name>Športni center Rogaška Slatina</name>
+    <capacity>2023</capacity>
+    <location>Sotelska cesta 55 3250 Rogaška Slatina</location>
+    <buildYear>1948</buildYear>
+    <imageUrl>src/main/resources/Rogaška_stadium.png</imageUrl>
+</stadium>
+<stadium id="b08aac39-67e0-4d03-9ea0-1702de80aecc">
+    <name>Športni park Aluminij</name>
+    <capacity>2017</capacity>
+    <location>Kajuhova 16 2325 Kidričevo</location>
+    <buildYear>1950</buildYear>
+    <imageUrl>src/main/resources/Aluminij_stadium.png</imageUrl>
+</stadium>
+<stadium id="c8eb2039-0277-41d4-85f0-f38eaf064c34">
+    <name>Stadion</name>
+    <capacity>3100</capacity>
+    <location>Prešernova cesta 43 1235 Radomlje</location>
+    <buildYear>1948</buildYear>
+    <imageUrl>src/main/resources/Kalcer Radomlje_stadium.png</imageUrl>
+</stadium>
+            </stadiums>
