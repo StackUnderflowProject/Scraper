@@ -13,6 +13,7 @@ dependencies {
     testImplementation(kotlin("test"))
     implementation("it.skrape:skrapeit:1.1.5")
     implementation("it.skrape:skrapeit-http-fetcher:1.1.5")
+    implementation("org.seleniumhq.selenium:selenium-java:4.20.0")
 }
 
 tasks.test {

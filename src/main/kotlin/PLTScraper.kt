@@ -49,7 +49,7 @@ object PLTScraper {
         val baseUrl = "https://www.prvaliga.si/tekmovanja/default.asp?action=klub&id_menu=217&id_kluba="
         val teams = Teams()
 
-        println("Getting teams...")
+        println("Fetching teams...")
         try {
             teamMap.forEach { entry ->
                 val (name, id) = entry
@@ -93,7 +93,7 @@ object PLTScraper {
 
 
                                     teams.add(
-                                        Team(
+                                        FootballTeam(
                                             name = name,
                                             president = president,
                                             director = director,

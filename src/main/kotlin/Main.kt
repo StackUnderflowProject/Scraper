@@ -1,6 +1,9 @@
-fun main(){
-    val stadiums = PLTScraper.getStadiums(PLTScraper.getTeamMap(2024))
-    stadiums.writeToJSON()
-    stadiums.writeToXML()
-    stadiums.writeToCSV()
+fun main() {
+    val teamIds = KZSScraper.getTeamIdGeneral()
+    val teamMap = KZSScraper.getTeamMap(teamIds = teamIds)
+    val teams = KZSScraper.getTeams(teamMap)
+
+    teams.writeToJSON()
+    teams.writeToXML()
+    teams.writeToCSV()
 }
