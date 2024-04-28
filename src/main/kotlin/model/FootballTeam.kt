@@ -2,9 +2,9 @@ package model
 
 import java.util.UUID
 
-data class Team(
+data class FootballTeam(
     override val name: String,
-    override val president: String,
+    val president: String,
     override val director: String,
     override val coach: String,
     override val logoPath: String,
