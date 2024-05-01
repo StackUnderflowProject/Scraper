@@ -2,11 +2,7 @@ import it.skrape.core.htmlDocument
 import it.skrape.fetcher.HttpFetcher
 import it.skrape.fetcher.response
 import it.skrape.fetcher.skrape
-import it.skrape.selects.html5.select
-import it.skrape.selects.text
-import model.BasketballTeam
-import model.HandballTeam
-import model.Teams
+import model.*
 import org.openqa.selenium.By.ByCssSelector
 import org.openqa.selenium.By.ByTagName
 import org.openqa.selenium.chrome.ChromeDriver
@@ -15,6 +11,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions
 import org.openqa.selenium.support.ui.WebDriverWait
 import util.ImageUtil
 import java.time.Duration
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 
 object RZSScraper {
     fun getTeams(): Teams {
@@ -24,8 +22,8 @@ object RZSScraper {
         val coachPattern = """.*Trener:\s(([\wšđčćž]+\s*){2})(\s*.*)?""".toRegex(RegexOption.IGNORE_CASE)
         val presidentPattern = """.*Predsednik:\s(([\wšđčćž]+\s*){2})(\s*.*)?""".toRegex(RegexOption.IGNORE_CASE)
         val directorPattern = """.*Direktor:\s(([\wšđčćž]+\s*){2})(\s*.*)?""".toRegex(RegexOption.IGNORE_CASE)
-        
-        
+
+
         skrape(HttpFetcher) {
             request {
                 url = searchUrl
@@ -52,10 +50,11 @@ object RZSScraper {
             }
         }
 
+        getTeamLogos(teams)
         return teams
     }
-    
-    fun getTeamLogos(teams: Teams = Teams()) {
+
+    private fun getTeamLogos(teams: Teams) {
         val teamsUrl = "https://livestat.rokometna-zveza.si/#/liga/1155/sezona/70/ekipe"
         val driver = ChromeDriver(
             ChromeOptions().apply {
@@ -63,11 +62,11 @@ object RZSScraper {
             })
 
         driver.get(teamsUrl)
-        
+
         val table = WebDriverWait(driver, Duration.ofSeconds(10)).until(
             ExpectedConditions.presenceOfElementLocated(ByCssSelector("tbody"))
         )
-        
+
         val rows = table.findElements(ByCssSelector("tr"))
         rows.forEach { row ->
             val teamName = row.findElement(ByTagName("h6")).text
@@ -79,5 +78,72 @@ object RZSScraper {
             }
         }
         driver.quit()
+    }
+
+    fun getMatches(team: String = ""): Matches {
+        val matchesUrl = "https://livestat.rokometna-zveza.si/#/liga/1155/sezona/70/razpored"
+        val datePattern = """.*-\s(\d{2}\.\d{2}\.\d{4}\s\d{2}:\d{2}).*""".toRegex(RegexOption.IGNORE_CASE)
+        val dateFormatter = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm")
+        val matches = Matches()
+
+        val chrome = ChromeDriver(
+            ChromeOptions().apply {
+                addArguments("--headless")
+            })
+
+        chrome.get(matchesUrl)
+
+        val matchLegContainers = WebDriverWait(chrome, Duration.ofSeconds(10)).until(
+            ExpectedConditions.presenceOfAllElementsLocatedBy(ByCssSelector("aside.widget.widget--sidebar.card.card--has-table.widget-leaders"))
+        )
+
+        matchLegContainers.forEach { matchLegContainer ->
+            val matchList = matchLegContainer.findElements(ByCssSelector("li.widget-results__item"))
+            matchList.forEach { match ->
+                try {
+                    val home =
+                        match.findElement(ByCssSelector("div.widget-results__team--first > div > h5.widget-results__team-name")).text
+
+                    val away =
+                        match.findElement(ByCssSelector("div.widget-results__team--second > div > h5.widget-results__team-name")).text
+
+                    if(team.isNotEmpty() && (home != team && away != team)) {
+                        return@forEach
+                    }
+
+                    val dateStr =
+                        datePattern.find(match.findElement(ByCssSelector("div.widget-results__title strong")).text)
+                            ?.groups?.get(1)?.value ?: throw Exception("Date not found")
+
+                    val date = LocalDateTime.from(dateFormatter.parse(dateStr))
+
+                    val arena = match.findElement(ByCssSelector("div.widget-results__title > strong:nth-child(2)")).text
+
+                    val score = match.findElement(ByCssSelector("div.widget-results__score div")).text
+
+                    val played = score != "0 - 0"
+
+                    val time = String.format("%02d:%02d", date.hour, date.minute)
+                    matches.add(
+                        Match(
+                            date = date.toLocalDate(),
+                            stadium = arena,
+                            home = home,
+                            away = away,
+                            score = score,
+                            location = arena,
+                            time = time,
+                            played = played
+                        )
+                    )
+
+                } catch (e: Exception) {
+                    println(e)
+                }
+            }
+        }
+
+        chrome.quit()
+        return matches
     }
 }

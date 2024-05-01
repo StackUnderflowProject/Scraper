@@ -3,29 +3,29 @@ package model
 import java.time.LocalDate
 import java.util.UUID
 
-data class Match (
-    val home: String,
-    val score: String?,
-    val time: String?,
-    val away: String,
-    val played: Boolean = false,
-    val date: LocalDate,
-    val location: String,
-    val stadium: String,
-    val id: UUID = UUID.randomUUID()
-) {
+data class Match(
+    override val home: String,
+    override val score: String?,
+    override val time: String?,
+    override val away: String,
+    override val played: Boolean = false,
+    override val date: LocalDate,
+    override val location: String,
+    override val stadium: String,
+    override val id: UUID = UUID.randomUUID()
+) : IMatch {
     override fun toString(): String {
-        return when(played) {
+        return when (played) {
             true -> "$date -> $home vs $away $score @ $location, $stadium"
             false -> "$date $time -> $home vs $away @ $location, $stadium"
         }
     }
-    
-    fun toCSV(): String {
+
+    override fun toCSV(): String {
         return "$date;${time ?: ""};$home;$away;${score ?: ""};$location;$stadium"
     }
-    
-    fun toXML(): String {
+
+    override fun toXML(): String {
         return """
             <match id="$id">
                 <date>$date</date>
@@ -38,8 +38,8 @@ data class Match (
             </match>
         """.trimIndent()
     }
-    
-    fun toJSON(): String {
+
+    override fun toJSON(): String {
         return """
               {
                 "id": "$id",
