@@ -7,7 +7,7 @@ data class FootballTeam(
     val president: String,
     override val director: String,
     override val coach: String,
-    override val logoPath: String,
+    override var logoPath: String,
     override val id: UUID = UUID.randomUUID(),
 ): ITeam {
 

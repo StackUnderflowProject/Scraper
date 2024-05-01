@@ -1,11 +1,16 @@
+import it.skrape.core.htmlDocument
 import it.skrape.fetcher.*
+import it.skrape.selects.html5.table
+import it.skrape.selects.html5.tbody
 import model.BasketballTeam
+import model.Standings
 import model.Teams
 import org.openqa.selenium.By.*
 import org.openqa.selenium.chrome.ChromeDriver
 import org.openqa.selenium.chrome.ChromeOptions
 import org.openqa.selenium.support.ui.ExpectedConditions
 import org.openqa.selenium.support.ui.WebDriverWait
+import util.ImageUtil
 import java.time.Duration
 import java.util.*
 
@@ -89,6 +94,8 @@ object KZSScraper {
 
             val logoUrl = urlPattern.find(logoContainer.getAttribute("innerHTML"))
                 ?.groupValues?.get(1) ?: throw Exception("Logo URL not found")
+            
+            
 
             val data = WebDriverWait(driver, Duration.ofSeconds(10)).until(
                 ExpectedConditions.presenceOfElementLocated(ByCssSelector("div.content-container"))
@@ -101,12 +108,15 @@ object KZSScraper {
             val coachIdx = data.indexOfFirst { it.contains("Glavni trener:") }
             val coach = if (coachIdx >= 0) data[coachIdx + 1] else "/"
 
+            val logoPath = "src/main/resources/basketball_team_logos/${teamName}_logo.png"
+            ImageUtil.downloadImage(logoUrl, logoPath)
+            
             teams.add(
                 BasketballTeam(
                     name = teamName,
                     director = director,
                     coach = coach,
-                    logoPath = logoUrl
+                    logoPath = logoPath
                 )
             )
         }
@@ -114,5 +124,27 @@ object KZSScraper {
         return teams
     }
 
+    
+    fun getStandings(): Standings {
+        // TODO: Implement this method
+        val standings = Standings()
+
+        val standingsUrl =
+            "https://www.google.com/search?q=liga+nova+kbm+lestvica&oq=liga+nova+kbm+lestvica&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIGCAEQLhhA0gEJMTAzMzJqMGoxqAIIsAIB&sourceid=chrome&ie=UTF-8#sie=t;/m/02wbgdz;3;;st;fp;1;;;"
+
+        skrape(HttpFetcher) {
+            request {
+                url = standingsUrl
+            }
+            response { 
+                htmlDocument { 
+                    println(this)
+                }
+            }
+        }
+        
+        
+        return standings
+    }
 
 }

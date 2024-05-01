@@ -71,7 +71,7 @@ object PLTScraper {
                     }
                 }
 
-                val logoPath = "src/main/resources/${name}_logo.png"
+                val logoPath = "src/main/resources/football_team_logos/${name}_logo.png"
                 ImageUtil.downloadImage(imageFetchUrl, logoPath)
 
                 skrape(HttpFetcher) {
@@ -191,7 +191,7 @@ object PLTScraper {
                                     var buildYear = 0.toUShort()
                                     var capacity = 0.toUShort()
                                     var location = ""
-                                    val stadiumPath = "src/main/resources/${name}_stadium.png"
+                                    val stadiumPath = "src/main/resources/football_stadiums/${name}_stadium.png"
                                     div {
                                         withClass = "col-md-9.col-xs-12"
                                         imageFetchUrl += findFirst("img").attribute("src").trimStart('.').replace(" ", "%20")

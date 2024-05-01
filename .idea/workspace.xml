@@ -5,15 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a0b95b29-e440-474c-989b-32b0aa5f3605" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/KZSScraper.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/model/BasketballTeam.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/RZSScraper.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/model/BasketballStanding.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/model/HandballTeam.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/default_logo.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/KZSScraper.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/KZSScraper.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Main.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/PLTScraper.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/PLTScraper.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/model/BasketballTeam.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/model/BasketballTeam.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/model/FootballTeam.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/model/FootballTeam.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/model/ITeam.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/model/ITeam.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/model/Team.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/model/FootballTeam.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/model/Teams.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/model/Teams.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,7 +31,12 @@
       <state>
         <projects_view>
           <tree_state>
-            <expand />
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Scraper" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
             <select />
           </tree_state>
         </projects_view>
@@ -41,9 +47,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Kotlin File" />
-        <option value="Kotlin Data Class" />
         <option value="Kotlin Interface" />
         <option value="Kotlin Object" />
+        <option value="Kotlin Data Class" />
         <option value="Kotlin Class" />
       </list>
     </option>
@@ -67,18 +73,22 @@
   &quot;associatedIndex&quot;: 2
 }</component>
   <component name="ProjectId" id="2fYLj9lVwMkjVuVjlDOVTW6wtWs" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
     &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;Gradle.Build Scraper.executor&quot;: &quot;Run&quot;,
     &quot;Kotlin.MainKt.executor&quot;: &quot;Run&quot;,
     &quot;Kotlin.PLTScraperCLIKt.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;SCRUM-9-basketball-teams&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;SCRUM-10-handball-teams&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/Mic/IdeaProjects/Scraper/src/main/kotlin&quot;,
@@ -153,6 +163,11 @@
       <workItem from="1714231868305" duration="3330000" />
       <workItem from="1714235580993" duration="8021000" />
       <workItem from="1714315359103" duration="3484000" />
+      <workItem from="1714329221579" duration="1131000" />
+      <workItem from="1714400752363" duration="1070000" />
+      <workItem from="1714410138031" duration="4204000" />
+      <workItem from="1714575826736" duration="206000" />
+      <workItem from="1714576049605" duration="873000" />
     </task>
     <servers />
   </component>
@@ -163,5 +178,8 @@
     <option featureType="dependencySupport" implementationName="executable:docker" />
     <option featureType="dependencySupport" implementationName="java:org.seleniumhq.selenium:selenium-java" />
     <option featureType="dependencySupport" implementationName="executable:kubectl" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
 </project>
