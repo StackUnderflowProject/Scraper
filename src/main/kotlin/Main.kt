@@ -1,3 +1,4 @@
 fun main() {
-    PLTScraper.getStadiums(PLTScraper.getTeamMap(2024))
+    val matches = RZSScraper.getMatches("MRK LJUBLJANA")
+    matches.forEach(::println)
 }
