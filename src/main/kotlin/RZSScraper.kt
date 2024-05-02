@@ -99,7 +99,7 @@ object RZSScraper {
 
         matchLegContainers.forEach { matchLegContainer ->
             val matchList = matchLegContainer.findElements(ByCssSelector("li.widget-results__item"))
-            matchList.forEach { match ->
+            matchLoop@ for (match in matchList) {
                 try {
                     val home =
                         match.findElement(ByCssSelector("div.widget-results__team--first > div > h5.widget-results__team-name")).text
@@ -108,7 +108,7 @@ object RZSScraper {
                         match.findElement(ByCssSelector("div.widget-results__team--second > div > h5.widget-results__team-name")).text
 
                     if(team.isNotEmpty() && (home != team && away != team)) {
-                        return@forEach
+                        break@matchLoop
                     }
 
                     val dateStr =
@@ -146,4 +146,7 @@ object RZSScraper {
         chrome.quit()
         return matches
     }
+    
+    
+    
 }
