@@ -143,7 +143,7 @@ object PLTScraper {
                                     val goalDiff = columns[9].text
                                     val points = columns[10].text.toUShort()
                                     standings.add(
-                                        FootballStanding(
+                                        DrawableStanding(
                                             place = place,
                                             team = team,
                                             gamesPlayed = gamesPlayed,

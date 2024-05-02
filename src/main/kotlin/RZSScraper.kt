@@ -99,7 +99,7 @@ object RZSScraper {
 
         matchLegContainers.forEach { matchLegContainer ->
             val matchList = matchLegContainer.findElements(ByCssSelector("li.widget-results__item"))
-            matchList.forEach { match ->
+            matchLoop@ for (match in matchList) {
                 try {
                     val home =
                         match.findElement(ByCssSelector("div.widget-results__team--first > div > h5.widget-results__team-name")).text
@@ -108,7 +108,7 @@ object RZSScraper {
                         match.findElement(ByCssSelector("div.widget-results__team--second > div > h5.widget-results__team-name")).text
 
                     if(team.isNotEmpty() && (home != team && away != team)) {
-                        return@forEach
+                        break@matchLoop
                     }
 
                     val dateStr =
@@ -146,4 +146,53 @@ object RZSScraper {
         chrome.quit()
         return matches
     }
+    
+    fun getStandings(): Standings {
+        val standings = Standings()
+        val standingsUrl = "https://livestat.rokometna-zveza.si/#/liga/1155/sezona/70/lestvica"
+
+        val chrome = ChromeDriver(
+            ChromeOptions().apply {
+                addArguments("--headless")
+            })
+        
+        chrome.get(standingsUrl)
+        
+        val table = WebDriverWait(chrome, Duration.ofSeconds(10)).until(
+            ExpectedConditions.presenceOfElementLocated(ByCssSelector("tbody"))
+        )
+        
+        val rows = table.findElements(ByCssSelector("tr"))
+        rows.forEach {row ->
+            val place = row.findElement(ByCssSelector("td.game-player-result__date > h6")).text.toInt()
+            val team = row.findElement(ByCssSelector("td.game-player-result__vs > a > div > div > h6.team-meta__name")).text
+            val gamesPlayed = row.findElement(ByCssSelector("td.game-player-result__score")).text.toInt()
+            val wins = row.findElement(ByCssSelector("td.game-player-result__min")).text.toInt()
+            val draws = row.findElement(ByCssSelector("td.game-player-result__ts")).text.toInt()
+            val losses = row.findElement(ByCssSelector("td.game-player-result__tg")).text.toInt()
+            val goalData = row.findElement(ByCssSelector("td.game-player-result__st")).text.split(":")
+            val goalsScored = goalData[0].toInt()
+            val goalsConceded = goalData[1].toInt()
+            val points = row.findElement(ByCssSelector("td.game-player-result__ga > span.team-info__value")).text.toInt()
+            
+            standings.add(
+                DrawableStanding(
+                    place = place.toUShort(),
+                    team = team,
+                    gamesPlayed = gamesPlayed.toUShort(),
+                    wins = wins.toUShort(),
+                    draws = draws.toUShort(),
+                    losses = losses.toUShort(),
+                    goalsScored = goalsScored.toUShort(),
+                    goalsConceded = goalsConceded.toUShort(),
+                    points = points.toUShort()
+                )
+            )
+        }
+        
+        chrome.quit()
+        
+        return standings
+    }
+    
 }

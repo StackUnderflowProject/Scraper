@@ -1,4 +1,4 @@
 fun main() {
-    val matches = RZSScraper.getMatches("MRK LJUBLJANA")
-    matches.forEach(::println)
+    val standings = RZSScraper.getStandings()
+    standings.forEach(::println)
 }

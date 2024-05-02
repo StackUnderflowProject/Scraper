@@ -2,7 +2,7 @@ package model
 
 import java.util.*
 
-data class FootballStanding (
+data class DrawableStanding (
     override val place: UShort,
     override val team: String,
     override val gamesPlayed: UShort,

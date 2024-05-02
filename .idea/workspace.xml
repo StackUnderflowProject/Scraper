@@ -5,11 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a0b95b29-e440-474c-989b-32b0aa5f3605" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/model/IMatch.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Main.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/RZSScraper.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/RZSScraper.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/model/Match.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/model/Match.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,7 +81,7 @@
     "Kotlin.MainKt.executor": "Run",
     "Kotlin.PLTScraperCLIKt.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "SCRUM-64-handball-matches",
+    "git-widget-placeholder": "SCRUM-65-handball-standings",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/Mic/IdeaProjects/Scraper/src/main/kotlin",
@@ -95,6 +93,7 @@
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.25632185",
+    "settings.editor.selected.configurable": "terminal",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -163,6 +162,7 @@
       <workItem from="1714410138031" duration="4204000" />
       <workItem from="1714575826736" duration="206000" />
       <workItem from="1714576049605" duration="873000" />
+      <workItem from="1714671156991" duration="1330000" />
     </task>
     <servers />
   </component>
@@ -176,5 +176,9 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
