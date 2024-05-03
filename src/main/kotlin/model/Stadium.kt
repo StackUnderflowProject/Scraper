@@ -1,5 +1,6 @@
 package model
 
+import interfaces.IStadium
 import java.util.UUID
 
 data class Stadium(

@@ -1,5 +1,6 @@
 package model
 
+import interfaces.ITeam
 import java.util.*
 
 class HandballTeam(
@@ -11,15 +12,32 @@ class HandballTeam(
     override var logoPath: String = "src/main/resources/default_logo.png"
 ): ITeam {
     override fun toCSV(): String {
-        TODO("Not yet implemented")
+        return "$id;$name;$director;$president;$coach;$logoPath"
     }
 
     override fun toXML(): String {
-        TODO("Not yet implemented")
+        return """
+            <team id="$id">
+                <name>$name</name>
+                <director>$director</director>
+                <president>$president</president>
+                <coach>$coach</coach>
+                <logoPath>$logoPath</logoPath>
+            </team>
+        """.trimIndent()
     }
 
     override fun toJSON(): String {
-        TODO("Not yet implemented")
+        return """
+            {
+                "id": "$id",
+                "name": "$name",
+                "director": "$director",
+                "president": "$president",
+                "coach": "$coach",
+                "logoPath": "$logoPath"
+            },
+        """.trimIndent()
     }
 
 }

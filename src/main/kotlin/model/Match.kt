@@ -1,5 +1,6 @@
 package model
 
+import interfaces.IMatch
 import java.time.LocalDate
 import java.util.UUID
 

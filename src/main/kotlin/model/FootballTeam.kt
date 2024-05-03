@@ -1,5 +1,6 @@
 package model
 
+import interfaces.ITeam
 import java.util.UUID
 
 data class FootballTeam(

@@ -1,6 +1,6 @@
 import it.skrape.selects.html5.*
 import model.*
-import kotlin.system.exitProcess
+import scrapers.PLTScraper
 
 
 @Throws(IllegalArgumentException::class)

@@ -1,5 +1,6 @@
 package model
 
+import interfaces.ITeam
 import java.util.*
 
 data class BasketballTeam(

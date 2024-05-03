@@ -1,5 +1,6 @@
 package model
 
+import interfaces.IStanding
 import java.util.*
 
 data class DrawableStanding (

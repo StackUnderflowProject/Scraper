@@ -1,5 +1,6 @@
 package model
 
+import interfaces.IStanding
 import java.util.*
 
 data class BasketballStanding(
@@ -21,15 +22,46 @@ data class BasketballStanding(
     
     
     override fun toCSV(): String {
-        TODO("Not yet implemented")
+        return "$place;$team;$gamesPlayed;$wins;$losses;$points;$goalsScored;$goalsConceded;$homeWins;$homeLosses;$awayWins;$awayLosses"
     }
 
     override fun toXML(): String {
-        TODO("Not yet implemented")
+        return """
+            <standing id="$id">
+                <place>$place</place>
+                <team>$team</team>
+                <gamesPlayed>$gamesPlayed</gamesPlayed>
+                <wins>$wins</wins>
+                <losses>$losses</losses>
+                <points>$points</points>
+                <goalsScored>$goalsScored</goalsScored>
+                <goalsConceded>$goalsConceded</goalsConceded>
+                <homeWins>$homeWins</homeWins>
+                <homeLosses>$homeLosses</homeLosses>
+                <awayWins>$awayWins</awayWins>
+                <awayLosses>$awayLosses</awayLosses>
+            </standing>
+        """.trimIndent()
     }
 
     override fun toJSON(): String {
-        TODO("Not yet implemented")
+        return """
+              {
+                "id": "$id",
+                "place": "$place",
+                "team": "$team",
+                "gamesPlayed": "$gamesPlayed",
+                "wins": "$wins",
+                "losses": "$losses",
+                "points": "$points",
+                "goalsScored": "$goalsScored",
+                "goalsConceded": "$goalsConceded",
+                "homeWins": "$homeWins",
+                "homeLosses": "$homeLosses",
+                "awayWins": "$awayWins",
+                "awayLosses": "$awayLosses"
+            },
+        """.trimIndent()
     }
 
 }

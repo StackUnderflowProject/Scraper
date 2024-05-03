@@ -1,5 +1,6 @@
 package model
 
+import interfaces.ITeam
 import java.io.File
 
 class Teams : ArrayList<ITeam>() {

@@ -1,7 +1,7 @@
+package scrapers
+
 import it.skrape.core.htmlDocument
 import it.skrape.fetcher.*
-import it.skrape.selects.html5.table
-import it.skrape.selects.html5.tbody
 import model.BasketballTeam
 import model.Standings
 import model.Teams
@@ -75,7 +75,6 @@ object KZSScraper {
         return teamMap
     }
 
-
     fun getTeams(teamMap: Map<String, String>): Teams {
         val urlPattern = """.*url\((.*)\).*\n.*""".toRegex()
         val teams = Teams()
@@ -123,7 +122,6 @@ object KZSScraper {
         println("Fetched ${teams.size} teams")
         return teams
     }
-
     
     fun getStandings(): Standings {
         // TODO: Implement this method

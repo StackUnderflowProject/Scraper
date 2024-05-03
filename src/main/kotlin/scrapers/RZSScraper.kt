@@ -1,3 +1,5 @@
+package scrapers
+
 import it.skrape.core.htmlDocument
 import it.skrape.fetcher.HttpFetcher
 import it.skrape.fetcher.response
