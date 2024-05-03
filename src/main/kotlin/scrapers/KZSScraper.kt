@@ -2,6 +2,7 @@ package scrapers
 
 import it.skrape.core.htmlDocument
 import it.skrape.fetcher.*
+import model.BasketballStanding
 import model.BasketballTeam
 import model.Standings
 import model.Teams
@@ -124,23 +125,52 @@ object KZSScraper {
     }
     
     fun getStandings(): Standings {
-        // TODO: Implement this method
         val standings = Standings()
 
         val standingsUrl =
-            "https://www.google.com/search?q=liga+nova+kbm+lestvica&oq=liga+nova+kbm+lestvica&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIGCAEQLhhA0gEJMTAzMzJqMGoxqAIIsAIB&sourceid=chrome&ie=UTF-8#sie=t;/m/02wbgdz;3;;st;fp;1;;;"
+            "https://www.sofascore.com/tournament/basketball/slovenia/liga-novakbm/745#id:54732"
 
-        skrape(HttpFetcher) {
-            request {
-                url = standingsUrl
-            }
-            response { 
-                htmlDocument { 
-                    println(this)
-                }
-            }
+        val flashscore = "https://www.flashscore.com/basketball/slovenia/liga-nova-kbm/standings/#/CEL29zLf/table/overall"
+        
+        val chrome = ChromeDriver(
+            ChromeOptions().apply {
+                addArguments("--headless")
+            })
+        
+        chrome.get(flashscore)
+        
+        val standingsContainer = WebDriverWait(chrome, Duration.ofSeconds(10)).until(
+            ExpectedConditions.presenceOfElementLocated(ByCssSelector("div.ui-table__body"))
+        )
+        
+        val rows = standingsContainer.findElements(ByCssSelector("div.ui-table__row"))
+        rows.forEach { row ->
+            val place = row.findElement(ByCssSelector("div.table__cell:nth-child(1)")).text.split(".")[0].toUShort()
+            val team = row.findElement(ByCssSelector("div.table__cell:nth-child(2)")).text
+            val gamesPlayed = row.findElement(ByCssSelector("span.table__cell.table__cell--value")).text.toUShort()
+            val wins = row.findElement(ByCssSelector("span.table__cell.table__cell--value + span")).text.toUShort()
+            val losses = row.findElement(ByCssSelector("span.table__cell.table__cell--value + span + span")).text.toUShort()
+            val goalStats = row.findElement(ByCssSelector("span.table__cell--totalPoints")).text.split(":")
+            val goalsScored = goalStats[0].toUShort()
+            val goalsConceded = goalStats[1].toUShort()
+            
+            val points = row.findElement(ByCssSelector("span.table__cell--points")).text.toUShort()
+            
+            standings.add(
+                BasketballStanding(
+                    place = place,
+                    team = team,
+                    gamesPlayed = gamesPlayed,
+                    wins = wins,
+                    losses = losses,
+                    goalsScored = goalsScored,
+                    goalsConceded = goalsConceded,
+                    points = points
+                )
+            )
         }
         
+        chrome.quit()
         
         return standings
     }

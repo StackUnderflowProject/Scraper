@@ -12,17 +12,12 @@ data class BasketballStanding(
     override val points: UShort,
     override val goalsScored: UShort,
     override val goalsConceded: UShort,
-    val homeWins: UShort,
-    val homeLosses: UShort,
-    val awayWins: UShort,
-    val awayLosses: UShort,
-    override val id: UUID
+    override val id: UUID = UUID.randomUUID(),
 ) : IStanding {
-    val goalDiff = (goalsScored - goalsConceded).toShort()
-    
+    private val goalDiff = (goalsScored - goalsConceded).toShort()
     
     override fun toCSV(): String {
-        return "$place;$team;$gamesPlayed;$wins;$losses;$points;$goalsScored;$goalsConceded;$homeWins;$homeLosses;$awayWins;$awayLosses"
+        return "$place;$team;$gamesPlayed;$wins;$losses;$points;$goalsScored;$goalsConceded;$goalDiff"
     }
 
     override fun toXML(): String {
@@ -36,10 +31,7 @@ data class BasketballStanding(
                 <points>$points</points>
                 <goalsScored>$goalsScored</goalsScored>
                 <goalsConceded>$goalsConceded</goalsConceded>
-                <homeWins>$homeWins</homeWins>
-                <homeLosses>$homeLosses</homeLosses>
-                <awayWins>$awayWins</awayWins>
-                <awayLosses>$awayLosses</awayLosses>
+                <goalDiff>$goalDiff</goalDiff>
             </standing>
         """.trimIndent()
     }
@@ -56,10 +48,7 @@ data class BasketballStanding(
                 "points": "$points",
                 "goalsScored": "$goalsScored",
                 "goalsConceded": "$goalsConceded",
-                "homeWins": "$homeWins",
-                "homeLosses": "$homeLosses",
-                "awayWins": "$awayWins",
-                "awayLosses": "$awayLosses"
+                "goalDiff": "$goalDiff"
             },
         """.trimIndent()
     }

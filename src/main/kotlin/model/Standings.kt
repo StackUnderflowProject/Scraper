@@ -4,17 +4,17 @@ import interfaces.IStanding
 import java.io.File
 
 class Standings : ArrayList<IStanding>() {
-    fun writeToCSV() {
+    fun writeToCSV(path: String = "standings.csv") {
         val csv = this.joinToString("\n") { it.toCSV() }
-        File("standings.csv").writeText(csv)
+        File(path).writeText(csv)
     }
 
-    fun writeToXML() {
+    fun writeToXML(path: String = "standings.xml") {
         val xml = "<standings>\n" + this.joinToString("\n") { it.toXML() } + "\n</standings>"
-        File("standings.xml").writeText(xml)
+        File(path).writeText(xml)
     }
 
-    fun writeToJSON() {
+    fun writeToJSON(path: String = "standings.json") {
         val json = """
 {
     "standings": [
@@ -29,6 +29,6 @@ class Standings : ArrayList<IStanding>() {
         }
     ]
 }""".trimIndent()
-        File("standings.json").writeText(json)
+        File(path).writeText(json)
     }
 }
