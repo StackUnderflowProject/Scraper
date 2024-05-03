@@ -3,21 +3,21 @@ package model
 import java.io.File
 
 class Stadiums : ArrayList<Stadium>() {
-    fun writeToCSV() {
+    fun writeToCSV(path: String = "stadiums.csv") {
         val csv = this.joinToString("\n") { it.toCSV() }
-        File("stadiums.csv").writeText(csv)
+        File(path).writeText(csv)
     }
 
-    fun writeToXML() {
+    fun writeToXML(path: String = "stadiums.xml") {
         val xml = """
             <stadiums>
                 ${this.joinToString("\n") { it.toXML() }}
             </stadiums>
         """.trimIndent()
-        File("stadiums.xml").writeText(xml)
+        File(path).writeText(xml)
     }
 
-    fun writeToJSON(){
+    fun writeToJSON(path: String = "stadiums.json"){
         val json = """
 {
     "stadiums": [
@@ -33,6 +33,6 @@ class Stadiums : ArrayList<Stadium>() {
     ]
 }
         """.trimIndent()
-        File("stadiums.json").writeText(json)
+        File(path).writeText(json)
     }
 }

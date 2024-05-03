@@ -3,17 +3,17 @@ package model
 import java.io.File
 
 class Matches : ArrayList<Match>() {
-    fun writeToCSV() {
+    fun writeToCSV(path: String = "matches.csv") {
         val csv = this.joinToString("\n") { it.toCSV() }
-        File("matches.csv").writeText(csv)
+        File(path).writeText(csv)
     }
 
-    fun writeToXML() {
+    fun writeToXML(path: String = "matches.xml") {
         val xml = "<matches>\n" + this.joinToString("\n") { it.toXML() } + "\n</matches>"
-        File("matches.xml").writeText(xml)
+        File(path).writeText(xml)
     }
 
-    fun writeToJSON() {
+    fun writeToJSON(path: String = "matches.json") {
         val json = """
 {
     "matches": [
@@ -28,7 +28,7 @@ class Matches : ArrayList<Match>() {
         }
     ]
 }""".trimIndent()
-        File("matches.json").writeText(json)
+        File(path).writeText(json)
     }
 
 }
