@@ -5,7 +5,6 @@ import java.util.*
 
 data class BasketballStanding(
     override val place: UShort,
-    val teamName: String,
     override val gamesPlayed: UShort,
     override val wins: UShort,
     override val losses: UShort,

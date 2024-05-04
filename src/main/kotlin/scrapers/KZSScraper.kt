@@ -1,179 +1,193 @@
 package scrapers
 
+import com.sun.jdi.event.LocatableEvent
+import it.skrape.core.htmlDocument
 import it.skrape.fetcher.*
-import model.BasketballStanding
-import model.BasketballTeam
-import model.Standings
-import model.Teams
+import it.skrape.selects.html5.div
+import it.skrape.selects.html5.table
+import it.skrape.selects.html5.tbody
+import model.*
+import net.bytebuddy.asm.Advice.Local
 import org.openqa.selenium.By.*
 import org.openqa.selenium.chrome.ChromeDriver
 import org.openqa.selenium.chrome.ChromeOptions
 import org.openqa.selenium.support.ui.ExpectedConditions
 import org.openqa.selenium.support.ui.WebDriverWait
 import util.ImageUtil
+import java.text.SimpleDateFormat
 import java.time.Duration
+import java.time.LocalDate
+import java.time.ZoneId
 import java.util.*
 
 object KZSScraper {
-    @Throws(Exception::class)
-    fun getTeamIdGeneral(): List<String> {
-        val idPattern = Regex("""/ekipa/(\d+).*""")
-        val teamsUrl =
-            "https://www.kzs.si/tekmovanja/ligaska-tekmovanja/liga-nova-kbm?tab=ekipe&tekmovanje=liga-nova-kbm"
-
-        println("Fetching team IDs from $teamsUrl")
-        val driver = ChromeDriver(
-            ChromeOptions().apply {
-                addArguments("--headless")
-            })
-
-        driver.get(teamsUrl)
-
-        val grid = WebDriverWait(driver, Duration.ofSeconds(10)).until(
-            ExpectedConditions.presenceOfElementLocated(ByCssSelector(".grid.grid-cols-2.gap-2"))
-        )
-
-        val teamIds = mutableListOf<String>()
-        grid.findElements(ByTagName("a")).forEach {
-            val href = it.getAttribute("href")
-            val id = idPattern.find(href)?.groupValues?.get(1) ?: throw Exception("Team ID not found")
-            teamIds.add(id)
-        }
-
-        driver.quit()
-        println("Fetched ${teamIds.size} team IDs")
-
-        return teamIds
-    }
-
-    fun getTeamMap(teamIds: List<String> = getTeamIdGeneral()): Map<String, String> {
-        println("Fetching team page links from team IDs. This may take a while.")
-        val teamMap = mutableMapOf<String, String>()
-        teamIds.forEach { id ->
-            val queryUrl = "https://www.kzs.si/ekipa/$id?tekmovanje=478&tab=splosno"
-
-            val driver = ChromeDriver(
-                ChromeOptions().apply {
-                    addArguments("--headless")
-                })
-
-            driver.get(queryUrl)
-
-            val anchor = WebDriverWait(driver, Duration.ofSeconds(10)).until(
-                ExpectedConditions.presenceOfElementLocated(ByCssSelector("a.cursor-pointer"))
-            )
-
-
-            val teamName = anchor.text.trim(' ')
-            val link = anchor.getAttribute("href")
-            teamMap[teamName] = link
-            driver.quit()
-
-        }
-        println("Fetched ${teamMap.size} team page links")
-        return teamMap
-    }
-
-    fun getTeams(teamMap: Map<String, String> = getTeamMap(), downloadImage: Boolean = false): Teams {
-        val urlPattern = """.*url\((.*)\).*\n.*""".toRegex()
+    fun getTeams(): Teams {
+        val teamsUrl = "https://www.eurobasket.com/Slovenia/basketball-Liga-Nova-KBM-Teams.aspx"
+        println("Fetching teams from $teamsUrl")
         val teams = Teams()
-        
-        println("Fetching team data from team pages. This may take a while.")
-        teamMap.forEach { (teamName, link) ->
-            val driver = ChromeDriver(
-                ChromeOptions().apply {
-                    addArguments("--headless")
-                })
-            driver.get(link)
-            
-            val teamNameElement = WebDriverWait(driver, Duration.ofSeconds(10)).until(
-                ExpectedConditions.presenceOfElementLocated(ByCssSelector("h1.text-condensed"))
-            )
-
-            val logoContainer = WebDriverWait(driver, Duration.ofSeconds(10)).until(
-                ExpectedConditions.presenceOfElementLocated(ByCssSelector("div.mb-8"))
-            )
-
-            val logoUrl = urlPattern.find(logoContainer.getAttribute("innerHTML"))
-                ?.groupValues?.get(1) ?: throw Exception("Logo URL not found")
-            
-
-            val data = WebDriverWait(driver, Duration.ofSeconds(10)).until(
-                ExpectedConditions.presenceOfElementLocated(ByCssSelector("div.content-container"))
-            ).text.split("\n")
-
-            val directorIdx = data.indexOfFirst { it.contains("Direktor:") }
-            val director = if (directorIdx >= 0) data[directorIdx + 1] else "/"
-
-            val coachIdx = data.indexOfFirst { it.contains("Glavni trener:") }
-            val coach = if (coachIdx >= 0) data[coachIdx + 1] else "/"
-
-            var logoPath = logoUrl
-            if(downloadImage) {
-                logoPath = "src/main/resources/basketball_team_logos/${teamName}_logo.png"
-                ImageUtil.downloadImage(logoUrl, logoPath)
+        skrape(HttpFetcher) {
+            request {
+                url = teamsUrl
             }
-            
-            teams.add(
-                BasketballTeam(
-                    name = teamNameElement.text,
-                    director = director,
-                    coach = coach,
-                    logoPath = logoPath
-                )
-            )
-            driver.quit()
+            response {
+                htmlDocument {
+                    div {
+                        withClass = "BasketBallTeamDetails"
+                        val entries = findAll("div.BasketBallTeamDetailsLine")
+                        entries.forEach { entry ->
+                            val logo = entry.findFirst("img").attribute("src")
+                            val name = entry.findFirst("div.BasketBallTeamName").text
+
+                            teams.add(
+                                BasketballTeam(
+                                    name = name,
+                                    coach = "/",
+                                    director = "/",
+                                    logoPath = logo
+                                )
+                            )
+                        }
+                    }
+                }
+            }
         }
         println("Fetched ${teams.size} teams")
         return teams
     }
-    
-    fun getStandings(teams: Teams = getTeams()): Standings {
-        val standings = Standings()
 
-        val standingsUrl = "https://www.flashscore.com/basketball/slovenia/liga-nova-kbm/standings/#/CEL29zLf/table/overall"
-        
-        val chrome = ChromeDriver(
-            ChromeOptions().apply {
-                addArguments("--headless")
-            })
-        
-        chrome.get(standingsUrl)
-        
-        val standingsContainer = WebDriverWait(chrome, Duration.ofSeconds(10)).until(
-            ExpectedConditions.presenceOfElementLocated(ByCssSelector("div.ui-table__body"))
-        )
-        
-        val rows = standingsContainer.findElements(ByCssSelector("div.ui-table__row"))
-        rows.forEach { row ->
-            val place = row.findElement(ByCssSelector("div.table__cell:nth-child(1)")).text.split(".")[0].toUShort()
-            val team = row.findElement(ByCssSelector("div.table__cell:nth-child(2)")).text
-            val gamesPlayed = row.findElement(ByCssSelector("span.table__cell.table__cell--value")).text.toUShort()
-            val wins = row.findElement(ByCssSelector("span.table__cell.table__cell--value + span")).text.toUShort()
-            val losses = row.findElement(ByCssSelector("span.table__cell.table__cell--value + span + span")).text.toUShort()
-            val goalStats = row.findElement(ByCssSelector("span.table__cell--totalPoints")).text.split(":")
-            val goalsScored = goalStats[0].toUShort()
-            val goalsConceded = goalStats[1].toUShort()
-            
-            val points = row.findElement(ByCssSelector("span.table__cell--points")).text.toUShort()
-            
-            standings.add(
-                BasketballStanding(
-                    place = place,
-                    teamName = team,
-                    gamesPlayed = gamesPlayed,
-                    wins = wins,
-                    losses = losses,
-                    goalsScored = goalsScored,
-                    goalsConceded = goalsConceded,
-                    points = points
-                )
-            )
+    fun getStandings(teams: Teams = getTeams()): Standings {
+        val standingsUrl = "https://www.eurobasket.com/Slovenia/basketball-Liga-Nova-KBM-Standings.aspx"
+        println("Fetching standings from $standingsUrl")
+        val standings = Standings()
+        skrape(HttpFetcher) {
+            request {
+                url = standingsUrl
+            }
+            response {
+                htmlDocument {
+                    table {
+                        withClass = "FullStandingTable"
+                        tbody {
+                            val entries = findAll("tr")
+                            entries.forEach { entry ->
+                                val place = entry.findFirst("td.tdFirstColumn").text.toUShort()
+                                val teamName = entry.findFirst("td.tdSecondColumn > a").text.split(' ')[0]
+                                val gamesPlayed = entry.findFirst("td:nth-child(3)").text.toUShort()
+                                val wins = entry.findFirst("td:nth-child(4)").text.toUShort()
+                                val losses = entry.findFirst("td:nth-child(5)").text.toUShort()
+                                val goalsData = entry.findFirst("td:nth-child(15)").text.split(' ')[0].split(':')
+                                val goalsScored = goalsData[0].toUShort()
+                                val goalsConceded = goalsData[1].toUShort()
+
+                                println("Place: $place, Team: $teamName, Games Played: $gamesPlayed, Wins: $wins, Losses: $losses, Goals Scored: $goalsScored, Goals Conceded: $goalsConceded")
+                                standings.add(
+                                    BasketballStanding(
+                                        place = place,
+                                        team = teams.find { it.name.contains(teamName) }?.id
+                                            ?: throw Exception("Team $teamName not found"),
+                                        gamesPlayed = gamesPlayed,
+                                        wins = wins,
+                                        losses = losses,
+                                        points = wins,
+                                        goalsScored = goalsScored,
+                                        goalsConceded = goalsConceded
+                                    )
+                                )
+                            }
+                        }
+                    }
+                }
+            }
         }
-        
-        chrome.quit()
-        
+        println("Fetched ${standings.size} standings")
         return standings
     }
 
+    fun getMatches(teams: Teams = getTeams()): Matches {
+        val currentYear = LocalDate.now().year
+        val dateMap = mapOf(
+            "Jan" to currentYear,
+            "Feb" to currentYear,
+            "Mar" to currentYear,
+            "Apr" to currentYear,
+            "May" to currentYear,
+            "Jun" to currentYear,
+            "Jul" to currentYear,
+            "Aug" to currentYear,
+            "Sep" to currentYear - 1,
+            "Oct" to currentYear - 1,
+            "Nov" to currentYear - 1,
+            "Dec" to currentYear - 1
+        )
+        
+        val matchesUrl = "https://www.eurobasket.com/Slovenia/basketball-Liga-Nova-KBM.aspx"
+        
+        val dateFormatter = SimpleDateFormat("MMM dd yyyy", Locale.Builder().setRegion("SI").build())
+        val datePattern = Regex("""(\w{3})[.\s](\d{1,2}):""")
+        println("Fetching matches from $matchesUrl")
+
+        val matches = Matches()
+        skrape(HttpFetcher) {
+            request {
+                url = matchesUrl
+            }
+            response {
+                htmlDocument {
+                    table {
+                        withClass = "GamesScheduleDetailsTable"
+                        tbody { 
+                            val rows = findAll("tr.gamesschedulegames-13-1")
+                            rows.forEach { row ->
+                                val dateData = datePattern.find(row.findFirst("td:nth-child(1)").text)?.groupValues
+                                    ?: throw Exception("Date not found")
+                                val dateStr = "${dateData[1]} ${if(dateData[2].length ==1) "0${dateData[2]}" else dateData[2]} ${dateMap[dateData[1]]}"
+                                val date = dateFormatter.parse(dateStr).toInstant().atZone(ZoneId.systemDefault()).toLocalDate()
+                                val home = row.findFirst("td:nth-child(2)").text.split(' ')[0]
+                                val result = row.findFirst("td:nth-child(3)").text.replace('-', ':')
+                                val away = row.findFirst("td:nth-child(4)").text.split(' ')[0]
+                                matches.add(
+                                    Match(
+                                        date = date,
+                                        home = teams.find { it.name.contains(home) }?.id
+                                            ?: throw Exception("Team $home not found"),
+                                        score = result,
+                                        away = teams.find { it.name.contains(away) }?.id
+                                            ?: throw Exception("Team $away not found"),
+                                        location = "/",
+                                        stadium = "$home stadium",
+                                        time = "/"
+                                    )
+                                )
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        println("Fetched ${matches.size} matches")
+        return matches
+    }
+    
+    fun saveAllData(fileType: FileType = FileType.JSON){
+        val teams = getTeams()
+        val standings = getStandings(teams)
+        val matches = getMatches(teams)
+        when(fileType){
+            FileType.CSV -> {
+                teams.writeToCSV()
+                standings.writeToCSV()
+                matches.writeToCSV()
+            }
+            FileType.XML -> {
+                teams.writeToXML()
+                standings.writeToXML()
+                matches.writeToXML()
+            }
+            FileType.JSON -> {
+                teams.writeToJSON()
+                standings.writeToJSON()
+                matches.writeToJSON()
+            }
+        }
+    }
 }

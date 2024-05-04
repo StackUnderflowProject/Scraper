@@ -1,0 +1,81 @@
+{
+  "teams": [
+    {
+      "id": "ccd5bef9-ae61-4f5b-9f98-0844fe29ab39",
+      "name": "Cedevita Olimpija Ljubljana",
+      "director": "/",
+      "coach": "/",
+      "logoPath": "https://www.eurobasket.com/logos/kcoli.png"
+    },
+    {
+      "id": "49e123cc-ebb0-4a86-b67e-97c3d09f053a",
+      "name": "ECE Triglav Kranj",
+      "director": "/",
+      "coach": "/",
+      "logoPath": "https://www.eurobasket.com/logos/kranj.png"
+    },
+    {
+      "id": "4e078b95-0727-4ab9-bbce-3c71ef1fdcfc",
+      "name": "Helios Suns Domzale",
+      "director": "/",
+      "coach": "/",
+      "logoPath": "https://www.eurobasket.com/logos/helios.png"
+    },
+    {
+      "id": "ae549762-c767-4a91-950a-4e8842f74fe7",
+      "name": "Hopsi Polzela",
+      "director": "/",
+      "coach": "/",
+      "logoPath": "https://www.eurobasket.com/logos/polzela.png"
+    },
+    {
+      "id": "d84d1500-c67e-46bd-a3fe-290c902e5931",
+      "name": "KK Tajfun Sentjur",
+      "director": "/",
+      "coach": "/",
+      "logoPath": "https://www.eurobasket.com/logos/kemopl.png"
+    },
+    {
+      "id": "bcec8aeb-848e-412b-bffd-52d48dac9805",
+      "name": "Krka Novo Mesto",
+      "director": "/",
+      "coach": "/",
+      "logoPath": "https://www.eurobasket.com/logos/krka.png"
+    },
+    {
+      "id": "3badd403-9e34-4b79-89a5-884311874af8",
+      "name": "LTH Castings Skofja Loka",
+      "director": "/",
+      "coach": "/",
+      "logoPath": "https://www.eurobasket.com/logos/loka.png"
+    },
+    {
+      "id": "3d6c8c0f-c6df-4f4e-994f-ce6ce59ff71d",
+      "name": "Nutrispoint Ilirija Ljubljana",
+      "director": "/",
+      "coach": "/",
+      "logoPath": "https://www.eurobasket.com/logos/ilirija.png"
+    },
+    {
+      "id": "318f708d-4132-4a0f-84ef-11e4307d5b70",
+      "name": "Rogaska Crystal",
+      "director": "/",
+      "coach": "/",
+      "logoPath": "https://www.eurobasket.com/logos/rogdon.png"
+    },
+    {
+      "id": "8ff791f1-9c8a-4375-8d86-e6b8da6f91ac",
+      "name": "Sencur Gorenjska Kranj",
+      "director": "/",
+      "coach": "/",
+      "logoPath": "https://www.eurobasket.com/logos/sencur.png"
+    },
+    {
+      "id": "62cefba7-7bc2-4436-8fbf-2db5afc53fc7",
+      "name": "Terme Olimia Podcetrtek",
+      "director": "/",
+      "coach": "/",
+      "logoPath": "https://www.eurobasket.com/logos/topod.png"
+    }
+  ]
+}
