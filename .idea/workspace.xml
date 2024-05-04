@@ -5,33 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a0b95b29-e440-474c-989b-32b0aa5f3605" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/basketball_team_logos/KOŠARKARSKI KLUB CEDEVITA OLIMPIJA_logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/basketball_team_logos/KOŠARKARSKI KLUB DOMŽALE_logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/basketball_team_logos/KOŠARKARSKI KLUB ILIRIJA_logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/basketball_team_logos/KOŠARKARSKI KLUB KRKA - TELEKOM NOVO MESTO_logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/basketball_team_logos/KOŠARKARSKI KLUB PODČETRTEK_logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/basketball_team_logos/KOŠARKARSKI KLUB ROGAŠKA_logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/basketball_team_logos/KOŠARKARSKI KLUB TRIGLAV KRANJ_logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/basketball_team_logos/KOŠARKARSKI KLUB ŠENTJUR_logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/basketball_team_logos/KOŠARKARSKI KLUB ŠENČUR_logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/basketball_team_logos/KOŠARKARSKI KLUB ŠKOFJA LOKA_logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/basketball_team_logos/KOŠARKAŠKO DRUŠTVO HOPSI POLZELA_logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/standings.json" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/teams.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Main.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/PLTScraperCLI.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/interfaces/IMatch.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/interfaces/IMatch.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/interfaces/IStadium.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/interfaces/IStadium.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/interfaces/IStanding.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/interfaces/IStanding.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/model/BasketballStanding.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/model/BasketballStanding.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/model/DrawableStanding.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/model/DrawableStanding.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/model/FootballTeam.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/model/FootballTeam.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/model/Match.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/model/Match.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/model/Stadium.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/model/Stadium.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/model/Teams.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/model/Teams.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/scrapers/KZSScraper.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/scrapers/KZSScraper.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/scrapers/PLTScraper.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/scrapers/PLTScraper.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/scrapers/RZSScraper.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/scrapers/RZSScraper.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,7 +84,7 @@
     "Kotlin.MainKt.executor": "Run",
     "Kotlin.PLTScraperCLIKt.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "SCRUM-66-reference-by-id",
+    "git-widget-placeholder": "SCRUM-67-refactor-KZSScraper",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/Mic/IdeaProjects/Scraper/src/main/kotlin",
