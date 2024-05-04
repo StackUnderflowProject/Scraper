@@ -1,7 +1,10 @@
-import scrapers.KZSScraper
-import scrapers.PLTScraper
 import scrapers.RZSScraper
 
 fun main() {
-    KZSScraper.saveAllData()
+    val teams = RZSScraper.getTeams()
+    val arenas = RZSScraper.getArenas(teams)
+    val matches = RZSScraper.getMatches(teams = teams, arenas = arenas)
+    matches.writeToJSON()
+    arenas.writeToJSON()
+    teams.writeToJSON()
 }

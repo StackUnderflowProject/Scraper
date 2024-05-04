@@ -1,1384 +1,1824 @@
 {
-    "matches": [
-          {
-    "id": "6eda35d2-6060-440f-b0fb-1a0fd729adc7",
-    "date": "2024-05-03",
-    "time": "/",
-    "home": "4e078b95-0727-4ab9-bbce-3c71ef1fdcfc",
-    "away": "62cefba7-7bc2-4436-8fbf-2db5afc53fc7",
-    "score": "100:86",
-    "location": "/",
-    "stadium": "Helios stadium"
-},
-  {
-    "id": "21c05ddb-a4ba-473f-a502-b3f893fc1ba9",
-    "date": "2024-05-03",
-    "time": "/",
-    "home": "d84d1500-c67e-46bd-a3fe-290c902e5931",
-    "away": "ccd5bef9-ae61-4f5b-9f98-0844fe29ab39",
-    "score": "78:108",
-    "location": "/",
-    "stadium": "Sentjur stadium"
-},
-  {
-    "id": "3dcc2a6b-dd3a-489e-a732-1a081497c6c0",
-    "date": "2024-05-02",
-    "time": "/",
-    "home": "3d6c8c0f-c6df-4f4e-994f-ce6ce59ff71d",
-    "away": "8ff791f1-9c8a-4375-8d86-e6b8da6f91ac",
-    "score": "67:75",
-    "location": "/",
-    "stadium": "Ilirija stadium"
-},
-  {
-    "id": "f656d811-fb05-4cf9-9865-4bfc3b9fa5c1",
-    "date": "2024-04-29",
-    "time": "/",
-    "home": "318f708d-4132-4a0f-84ef-11e4307d5b70",
-    "away": "ae549762-c767-4a91-950a-4e8842f74fe7",
-    "score": "84:68",
-    "location": "/",
-    "stadium": "Rogaska stadium"
-},
-  {
-    "id": "3081a7b8-95f4-4fd1-942c-6368cfd8de0c",
-    "date": "2024-04-29",
-    "time": "/",
-    "home": "62cefba7-7bc2-4436-8fbf-2db5afc53fc7",
-    "away": "49e123cc-ebb0-4a86-b67e-97c3d09f053a",
-    "score": "69:54",
-    "location": "/",
-    "stadium": "Terme stadium"
-},
-  {
-    "id": "2aeb6fd1-a2d6-4cbe-8a3f-ee5c7194537b",
-    "date": "2024-04-28",
-    "time": "/",
-    "home": "bcec8aeb-848e-412b-bffd-52d48dac9805",
-    "away": "4e078b95-0727-4ab9-bbce-3c71ef1fdcfc",
-    "score": "99:84",
-    "location": "/",
-    "stadium": "Krka stadium"
-},
-  {
-    "id": "efcfb8ba-71be-4cd9-a718-2b2fbf00319e",
-    "date": "2024-04-27",
-    "time": "/",
-    "home": "8ff791f1-9c8a-4375-8d86-e6b8da6f91ac",
-    "away": "d84d1500-c67e-46bd-a3fe-290c902e5931",
-    "score": "98:78",
-    "location": "/",
-    "stadium": "Sencur stadium"
-},
-  {
-    "id": "497e75fc-9dc2-4999-a169-79c0417b8d34",
-    "date": "2024-04-26",
-    "time": "/",
-    "home": "3d6c8c0f-c6df-4f4e-994f-ce6ce59ff71d",
-    "away": "3badd403-9e34-4b79-89a5-884311874af8",
-    "score": "81:69",
-    "location": "/",
-    "stadium": "Ilirija stadium"
-},
-  {
-    "id": "1818ace8-0ad4-4bd1-8106-17b9397beaf6",
-    "date": "2024-04-22",
-    "time": "/",
-    "home": "ae549762-c767-4a91-950a-4e8842f74fe7",
-    "away": "bcec8aeb-848e-412b-bffd-52d48dac9805",
-    "score": "98:95",
-    "location": "/",
-    "stadium": "Hopsi stadium"
-},
-  {
-    "id": "ca6fe665-c1f9-4141-b850-bc55fe15215d",
-    "date": "2024-04-20",
-    "time": "/",
-    "home": "d84d1500-c67e-46bd-a3fe-290c902e5931",
-    "away": "3badd403-9e34-4b79-89a5-884311874af8",
-    "score": "78:83",
-    "location": "/",
-    "stadium": "Sentjur stadium"
-},
-  {
-    "id": "a333270d-543b-4fc1-b70e-f635c09ac439",
-    "date": "2024-04-20",
-    "time": "/",
-    "home": "62cefba7-7bc2-4436-8fbf-2db5afc53fc7",
-    "away": "8ff791f1-9c8a-4375-8d86-e6b8da6f91ac",
-    "score": "73:79",
-    "location": "/",
-    "stadium": "Terme stadium"
-},
-  {
-    "id": "1a5b0d9b-5d17-467d-8e76-dca7a30625bf",
-    "date": "2024-04-20",
-    "time": "/",
-    "home": "4e078b95-0727-4ab9-bbce-3c71ef1fdcfc",
-    "away": "318f708d-4132-4a0f-84ef-11e4307d5b70",
-    "score": "99:69",
-    "location": "/",
-    "stadium": "Helios stadium"
-},
-  {
-    "id": "b5b303ad-fcb7-46a2-ae5b-4ca96302fa66",
-    "date": "2024-04-20",
-    "time": "/",
-    "home": "49e123cc-ebb0-4a86-b67e-97c3d09f053a",
-    "away": "3d6c8c0f-c6df-4f4e-994f-ce6ce59ff71d",
-    "score": "93:72",
-    "location": "/",
-    "stadium": "Triglav stadium"
-},
-  {
-    "id": "db71dc55-aa5e-43d4-8256-ad2b994ce39e",
-    "date": "2024-04-17",
-    "time": "/",
-    "home": "8ff791f1-9c8a-4375-8d86-e6b8da6f91ac",
-    "away": "ae549762-c767-4a91-950a-4e8842f74fe7",
-    "score": "82:94",
-    "location": "/",
-    "stadium": "Sencur stadium"
-},
-  {
-    "id": "21faa562-9c09-4f46-beb2-bb2780097851",
-    "date": "2024-04-16",
-    "time": "/",
-    "home": "bcec8aeb-848e-412b-bffd-52d48dac9805",
-    "away": "49e123cc-ebb0-4a86-b67e-97c3d09f053a",
-    "score": "80:64",
-    "location": "/",
-    "stadium": "Krka stadium"
-},
-  {
-    "id": "0ad4b5b9-932d-4104-9ecb-dcd7c05bb9f5",
-    "date": "2024-04-16",
-    "time": "/",
-    "home": "3d6c8c0f-c6df-4f4e-994f-ce6ce59ff71d",
-    "away": "d84d1500-c67e-46bd-a3fe-290c902e5931",
-    "score": "74:76",
-    "location": "/",
-    "stadium": "Ilirija stadium"
-},
-  {
-    "id": "98875c65-1fac-4e51-ae2e-203a502da88d",
-    "date": "2024-04-15",
-    "time": "/",
-    "home": "318f708d-4132-4a0f-84ef-11e4307d5b70",
-    "away": "62cefba7-7bc2-4436-8fbf-2db5afc53fc7",
-    "score": "80:70",
-    "location": "/",
-    "stadium": "Rogaska stadium"
-},
-  {
-    "id": "ddd0e0fe-5899-46fd-9eb4-91bf88526ec6",
-    "date": "2024-04-12",
-    "time": "/",
-    "home": "3badd403-9e34-4b79-89a5-884311874af8",
-    "away": "4e078b95-0727-4ab9-bbce-3c71ef1fdcfc",
-    "score": "66:79",
-    "location": "/",
-    "stadium": "LTH stadium"
-},
-  {
-    "id": "8f2e521b-f54b-4dee-ab6b-c402f665b1a5",
-    "date": "2024-04-08",
-    "time": "/",
-    "home": "3badd403-9e34-4b79-89a5-884311874af8",
-    "away": "318f708d-4132-4a0f-84ef-11e4307d5b70",
-    "score": "80:76",
-    "location": "/",
-    "stadium": "LTH stadium"
-},
-  {
-    "id": "1ef59525-0215-4642-ae6f-d7cdedf43192",
-    "date": "2024-04-06",
-    "time": "/",
-    "home": "4e078b95-0727-4ab9-bbce-3c71ef1fdcfc",
-    "away": "3d6c8c0f-c6df-4f4e-994f-ce6ce59ff71d",
-    "score": "95:84",
-    "location": "/",
-    "stadium": "Helios stadium"
-},
-  {
-    "id": "ff06f27d-e257-4ff4-b826-8efe2e87b525",
-    "date": "2024-04-06",
-    "time": "/",
-    "home": "ae549762-c767-4a91-950a-4e8842f74fe7",
-    "away": "62cefba7-7bc2-4436-8fbf-2db5afc53fc7",
-    "score": "75:82",
-    "location": "/",
-    "stadium": "Hopsi stadium"
-},
-  {
-    "id": "6d1c13b5-b610-4ee0-87a7-3c7beeea992c",
-    "date": "2024-04-03",
-    "time": "/",
-    "home": "d84d1500-c67e-46bd-a3fe-290c902e5931",
-    "away": "bcec8aeb-848e-412b-bffd-52d48dac9805",
-    "score": "79:98",
-    "location": "/",
-    "stadium": "Sentjur stadium"
-},
-  {
-    "id": "9a0a567f-4e17-45ef-9b04-7a1be48629bc",
-    "date": "2024-04-03",
-    "time": "/",
-    "home": "8ff791f1-9c8a-4375-8d86-e6b8da6f91ac",
-    "away": "3badd403-9e34-4b79-89a5-884311874af8",
-    "score": "85:74",
-    "location": "/",
-    "stadium": "Sencur stadium"
-},
-  {
-    "id": "14c37b87-7895-4964-aa0e-96a0915515d6",
-    "date": "2024-03-30",
-    "time": "/",
-    "home": "4e078b95-0727-4ab9-bbce-3c71ef1fdcfc",
-    "away": "8ff791f1-9c8a-4375-8d86-e6b8da6f91ac",
-    "score": "94:69",
-    "location": "/",
-    "stadium": "Helios stadium"
-},
-  {
-    "id": "c2c9e6ee-5d0b-4faf-b701-e367dbf4987e",
-    "date": "2024-03-30",
-    "time": "/",
-    "home": "49e123cc-ebb0-4a86-b67e-97c3d09f053a",
-    "away": "ae549762-c767-4a91-950a-4e8842f74fe7",
-    "score": "66:81",
-    "location": "/",
-    "stadium": "Triglav stadium"
-},
-  {
-    "id": "6e096c25-7cd7-49c3-9e83-2b70813b97a5",
-    "date": "2024-03-30",
-    "time": "/",
-    "home": "d84d1500-c67e-46bd-a3fe-290c902e5931",
-    "away": "62cefba7-7bc2-4436-8fbf-2db5afc53fc7",
-    "score": "79:88",
-    "location": "/",
-    "stadium": "Sentjur stadium"
-},
-  {
-    "id": "5c3d6649-a91a-492e-b5c5-5d595ba154b6",
-    "date": "2024-03-29",
-    "time": "/",
-    "home": "3d6c8c0f-c6df-4f4e-994f-ce6ce59ff71d",
-    "away": "318f708d-4132-4a0f-84ef-11e4307d5b70",
-    "score": "79:82",
-    "location": "/",
-    "stadium": "Ilirija stadium"
-},
-  {
-    "id": "22cc6a5e-6ade-4dbc-8890-ddc00d2ceadf",
-    "date": "2024-03-27",
-    "time": "/",
-    "home": "3badd403-9e34-4b79-89a5-884311874af8",
-    "away": "bcec8aeb-848e-412b-bffd-52d48dac9805",
-    "score": "63:78",
-    "location": "/",
-    "stadium": "LTH stadium"
-},
-  {
-    "id": "9813e1be-b678-4ab7-90bc-4b3d28147665",
-    "date": "2024-03-26",
-    "time": "/",
-    "home": "62cefba7-7bc2-4436-8fbf-2db5afc53fc7",
-    "away": "4e078b95-0727-4ab9-bbce-3c71ef1fdcfc",
-    "score": "99:96",
-    "location": "/",
-    "stadium": "Terme stadium"
-},
-  {
-    "id": "c212186c-3aeb-4fda-ab9c-ad5a40a2abc7",
-    "date": "2024-03-23",
-    "time": "/",
-    "home": "318f708d-4132-4a0f-84ef-11e4307d5b70",
-    "away": "49e123cc-ebb0-4a86-b67e-97c3d09f053a",
-    "score": "79:46",
-    "location": "/",
-    "stadium": "Rogaska stadium"
-},
-  {
-    "id": "1ab67239-3c1b-417c-89c9-f3971e455d05",
-    "date": "2024-03-23",
-    "time": "/",
-    "home": "ae549762-c767-4a91-950a-4e8842f74fe7",
-    "away": "d84d1500-c67e-46bd-a3fe-290c902e5931",
-    "score": "100:86",
-    "location": "/",
-    "stadium": "Hopsi stadium"
-},
-  {
-    "id": "3c8334f2-2ea4-404a-9e98-e8fac6288157",
-    "date": "2024-03-16",
-    "time": "/",
-    "home": "d84d1500-c67e-46bd-a3fe-290c902e5931",
-    "away": "49e123cc-ebb0-4a86-b67e-97c3d09f053a",
-    "score": "96:68",
-    "location": "/",
-    "stadium": "Sentjur stadium"
-},
-  {
-    "id": "58f251a7-e8c3-4caf-8efb-cfbb262cff35",
-    "date": "2024-03-20",
-    "time": "/",
-    "home": "bcec8aeb-848e-412b-bffd-52d48dac9805",
-    "away": "3d6c8c0f-c6df-4f4e-994f-ce6ce59ff71d",
-    "score": "80:71",
-    "location": "/",
-    "stadium": "Krka stadium"
-},
-  {
-    "id": "c9f6a979-34c6-43dd-9f32-77ff7ffef36a",
-    "date": "2024-03-18",
-    "time": "/",
-    "home": "3badd403-9e34-4b79-89a5-884311874af8",
-    "away": "62cefba7-7bc2-4436-8fbf-2db5afc53fc7",
-    "score": "78:81",
-    "location": "/",
-    "stadium": "LTH stadium"
-},
-  {
-    "id": "21102a58-e18c-42f5-b933-258f6fe2c494",
-    "date": "2024-03-16",
-    "time": "/",
-    "home": "3d6c8c0f-c6df-4f4e-994f-ce6ce59ff71d",
-    "away": "8ff791f1-9c8a-4375-8d86-e6b8da6f91ac",
-    "score": "100:92",
-    "location": "/",
-    "stadium": "Ilirija stadium"
-},
-  {
-    "id": "79805220-c885-44e1-8d0c-c658cf556c15",
-    "date": "2024-03-15",
-    "time": "/",
-    "home": "4e078b95-0727-4ab9-bbce-3c71ef1fdcfc",
-    "away": "ae549762-c767-4a91-950a-4e8842f74fe7",
-    "score": "83:77",
-    "location": "/",
-    "stadium": "Helios stadium"
-},
-  {
-    "id": "d4e17679-7b5a-43e8-aaf4-0c4b225b7d44",
-    "date": "2024-03-13",
-    "time": "/",
-    "home": "8ff791f1-9c8a-4375-8d86-e6b8da6f91ac",
-    "away": "49e123cc-ebb0-4a86-b67e-97c3d09f053a",
-    "score": "63:64",
-    "location": "/",
-    "stadium": "Sencur stadium"
-},
-  {
-    "id": "4b23ba89-8340-462a-afec-e4ab70be0f9e",
-    "date": "2024-03-13",
-    "time": "/",
-    "home": "bcec8aeb-848e-412b-bffd-52d48dac9805",
-    "away": "318f708d-4132-4a0f-84ef-11e4307d5b70",
-    "score": "116:59",
-    "location": "/",
-    "stadium": "Krka stadium"
-},
-  {
-    "id": "ee598770-a54c-4c86-b642-b1d08d7fdf4c",
-    "date": "2024-03-11",
-    "time": "/",
-    "home": "62cefba7-7bc2-4436-8fbf-2db5afc53fc7",
-    "away": "3d6c8c0f-c6df-4f4e-994f-ce6ce59ff71d",
-    "score": "90:76",
-    "location": "/",
-    "stadium": "Terme stadium"
-},
-  {
-    "id": "45aeb626-5e00-415b-92ad-1b33fce053b5",
-    "date": "2024-03-09",
-    "time": "/",
-    "home": "49e123cc-ebb0-4a86-b67e-97c3d09f053a",
-    "away": "4e078b95-0727-4ab9-bbce-3c71ef1fdcfc",
-    "score": "67:81",
-    "location": "/",
-    "stadium": "Triglav stadium"
-},
-  {
-    "id": "bfdae11e-fcf5-4449-9186-6c89ed791d0e",
-    "date": "2024-03-09",
-    "time": "/",
-    "home": "318f708d-4132-4a0f-84ef-11e4307d5b70",
-    "away": "d84d1500-c67e-46bd-a3fe-290c902e5931",
-    "score": "87:75",
-    "location": "/",
-    "stadium": "Rogaska stadium"
-},
-  {
-    "id": "6df47892-af90-4518-9663-873b3e5f5c52",
-    "date": "2024-03-09",
-    "time": "/",
-    "home": "ae549762-c767-4a91-950a-4e8842f74fe7",
-    "away": "3badd403-9e34-4b79-89a5-884311874af8",
-    "score": "81:76",
-    "location": "/",
-    "stadium": "Hopsi stadium"
-},
-  {
-    "id": "f1e3155d-5f58-420e-b777-8453488daa40",
-    "date": "2024-03-06",
-    "time": "/",
-    "home": "8ff791f1-9c8a-4375-8d86-e6b8da6f91ac",
-    "away": "bcec8aeb-848e-412b-bffd-52d48dac9805",
-    "score": "81:75",
-    "location": "/",
-    "stadium": "Sencur stadium"
-},
-  {
-    "id": "b41b42a9-11d1-4124-9109-da8e2e695ee6",
-    "date": "2024-03-04",
-    "time": "/",
-    "home": "3badd403-9e34-4b79-89a5-884311874af8",
-    "away": "49e123cc-ebb0-4a86-b67e-97c3d09f053a",
-    "score": "86:75",
-    "location": "/",
-    "stadium": "LTH stadium"
-},
-  {
-    "id": "68a25f34-a185-4105-bad3-75c16ddbffaa",
-    "date": "2024-03-02",
-    "time": "/",
-    "home": "4e078b95-0727-4ab9-bbce-3c71ef1fdcfc",
-    "away": "d84d1500-c67e-46bd-a3fe-290c902e5931",
-    "score": "104:89",
-    "location": "/",
-    "stadium": "Helios stadium"
-},
-  {
-    "id": "435dce30-9064-4a08-a1fe-196a2afaaf42",
-    "date": "2024-03-02",
-    "time": "/",
-    "home": "8ff791f1-9c8a-4375-8d86-e6b8da6f91ac",
-    "away": "318f708d-4132-4a0f-84ef-11e4307d5b70",
-    "score": "69:61",
-    "location": "/",
-    "stadium": "Sencur stadium"
-},
-  {
-    "id": "7153d577-0a7d-4224-87f5-f10d7b395cdc",
-    "date": "2024-03-01",
-    "time": "/",
-    "home": "3d6c8c0f-c6df-4f4e-994f-ce6ce59ff71d",
-    "away": "ae549762-c767-4a91-950a-4e8842f74fe7",
-    "score": "85:65",
-    "location": "/",
-    "stadium": "Ilirija stadium"
-},
-  {
-    "id": "78528ea8-0ef0-41e9-91bb-777199bad5c8",
-    "date": "2024-02-29",
-    "time": "/",
-    "home": "bcec8aeb-848e-412b-bffd-52d48dac9805",
-    "away": "62cefba7-7bc2-4436-8fbf-2db5afc53fc7",
-    "score": "96:71",
-    "location": "/",
-    "stadium": "Krka stadium"
-},
-  {
-    "id": "3e5f2803-8b07-47de-8108-471c66071918",
-    "date": "2024-02-12",
-    "time": "/",
-    "home": "bcec8aeb-848e-412b-bffd-52d48dac9805",
-    "away": "4e078b95-0727-4ab9-bbce-3c71ef1fdcfc",
-    "score": "100:105",
-    "location": "/",
-    "stadium": "Krka stadium"
-},
-  {
-    "id": "03536cdb-fcb3-476e-8b88-64cf6e3a779d",
-    "date": "2024-02-11",
-    "time": "/",
-    "home": "3d6c8c0f-c6df-4f4e-994f-ce6ce59ff71d",
-    "away": "62cefba7-7bc2-4436-8fbf-2db5afc53fc7",
-    "score": "85:64",
-    "location": "/",
-    "stadium": "Ilirija stadium"
-},
-  {
-    "id": "09b9e74e-ba6b-4d0d-90e4-dbb82542e862",
-    "date": "2024-02-06",
-    "time": "/",
-    "home": "ae549762-c767-4a91-950a-4e8842f74fe7",
-    "away": "8ff791f1-9c8a-4375-8d86-e6b8da6f91ac",
-    "score": "80:60",
-    "location": "/",
-    "stadium": "Hopsi stadium"
-},
-  {
-    "id": "585f1767-1501-4590-b4f8-d89216ec0175",
-    "date": "2024-02-03",
-    "time": "/",
-    "home": "49e123cc-ebb0-4a86-b67e-97c3d09f053a",
-    "away": "318f708d-4132-4a0f-84ef-11e4307d5b70",
-    "score": "75:67",
-    "location": "/",
-    "stadium": "Triglav stadium"
-},
-  {
-    "id": "f63b7ec5-5016-404d-b5a9-df77139c7e63",
-    "date": "2024-02-03",
-    "time": "/",
-    "home": "d84d1500-c67e-46bd-a3fe-290c902e5931",
-    "away": "3badd403-9e34-4b79-89a5-884311874af8",
-    "score": "87:72",
-    "location": "/",
-    "stadium": "Sentjur stadium"
-},
-  {
-    "id": "7b4027d8-8497-46cd-b3cc-8423aed77049",
-    "date": "2024-01-27",
-    "time": "/",
-    "home": "318f708d-4132-4a0f-84ef-11e4307d5b70",
-    "away": "ae549762-c767-4a91-950a-4e8842f74fe7",
-    "score": "77:69",
-    "location": "/",
-    "stadium": "Rogaska stadium"
-},
-  {
-    "id": "f472ac2d-899d-4103-95d5-84e9c42af54a",
-    "date": "2024-01-27",
-    "time": "/",
-    "home": "62cefba7-7bc2-4436-8fbf-2db5afc53fc7",
-    "away": "49e123cc-ebb0-4a86-b67e-97c3d09f053a",
-    "score": "78:72",
-    "location": "/",
-    "stadium": "Terme stadium"
-},
-  {
-    "id": "d88c4950-a377-4990-b4b5-ee9b12aab761",
-    "date": "2024-01-27",
-    "time": "/",
-    "home": "3badd403-9e34-4b79-89a5-884311874af8",
-    "away": "3d6c8c0f-c6df-4f4e-994f-ce6ce59ff71d",
-    "score": "74:76",
-    "location": "/",
-    "stadium": "LTH stadium"
-},
-  {
-    "id": "618526cc-efb6-469d-ba3f-a698092b9837",
-    "date": "2024-01-26",
-    "time": "/",
-    "home": "4e078b95-0727-4ab9-bbce-3c71ef1fdcfc",
-    "away": "d84d1500-c67e-46bd-a3fe-290c902e5931",
-    "score": "85:75",
-    "location": "/",
-    "stadium": "Helios stadium"
-},
-  {
-    "id": "08698b76-cf94-44f1-b48e-7cd8af53b1cd",
-    "date": "2024-01-24",
-    "time": "/",
-    "home": "8ff791f1-9c8a-4375-8d86-e6b8da6f91ac",
-    "away": "bcec8aeb-848e-412b-bffd-52d48dac9805",
-    "score": "84:89",
-    "location": "/",
-    "stadium": "Sencur stadium"
-},
-  {
-    "id": "31e0a042-8a04-4e45-acb8-56c8ae533bda",
-    "date": "2024-01-20",
-    "time": "/",
-    "home": "d84d1500-c67e-46bd-a3fe-290c902e5931",
-    "away": "3d6c8c0f-c6df-4f4e-994f-ce6ce59ff71d",
-    "score": "102:107",
-    "location": "/",
-    "stadium": "Sentjur stadium"
-},
-  {
-    "id": "729130d1-b40c-4f21-ac8f-208923c00d8a",
-    "date": "2024-01-20",
-    "time": "/",
-    "home": "49e123cc-ebb0-4a86-b67e-97c3d09f053a",
-    "away": "3badd403-9e34-4b79-89a5-884311874af8",
-    "score": "91:68",
-    "location": "/",
-    "stadium": "Triglav stadium"
-},
-  {
-    "id": "fb19f7c8-34c3-4aee-83bd-bd8e309fd962",
-    "date": "2024-01-20",
-    "time": "/",
-    "home": "ae549762-c767-4a91-950a-4e8842f74fe7",
-    "away": "62cefba7-7bc2-4436-8fbf-2db5afc53fc7",
-    "score": "59:77",
-    "location": "/",
-    "stadium": "Hopsi stadium"
-},
-  {
-    "id": "445d514d-bffd-440d-96d8-ea0e3fe60449",
-    "date": "2024-01-19",
-    "time": "/",
-    "home": "4e078b95-0727-4ab9-bbce-3c71ef1fdcfc",
-    "away": "8ff791f1-9c8a-4375-8d86-e6b8da6f91ac",
-    "score": "76:50",
-    "location": "/",
-    "stadium": "Helios stadium"
-},
-  {
-    "id": "4ee76276-d243-4b91-9f8e-6a1a654f659d",
-    "date": "2024-01-16",
-    "time": "/",
-    "home": "bcec8aeb-848e-412b-bffd-52d48dac9805",
-    "away": "318f708d-4132-4a0f-84ef-11e4307d5b70",
-    "score": "82:76",
-    "location": "/",
-    "stadium": "Krka stadium"
-},
-  {
-    "id": "d7a80ebb-478b-49a9-9a13-78159f46b4ed",
-    "date": "2024-01-15",
-    "time": "/",
-    "home": "3d6c8c0f-c6df-4f4e-994f-ce6ce59ff71d",
-    "away": "49e123cc-ebb0-4a86-b67e-97c3d09f053a",
-    "score": "83:78",
-    "location": "/",
-    "stadium": "Ilirija stadium"
-},
-  {
-    "id": "0a211997-a5da-47ba-8d1f-540f5a704ef0",
-    "date": "2024-01-13",
-    "time": "/",
-    "home": "3badd403-9e34-4b79-89a5-884311874af8",
-    "away": "ae549762-c767-4a91-950a-4e8842f74fe7",
-    "score": "76:74",
-    "location": "/",
-    "stadium": "LTH stadium"
-},
-  {
-    "id": "2372653f-766f-485b-b29d-b07648f5a534",
-    "date": "2024-01-13",
-    "time": "/",
-    "home": "8ff791f1-9c8a-4375-8d86-e6b8da6f91ac",
-    "away": "d84d1500-c67e-46bd-a3fe-290c902e5931",
-    "score": "82:61",
-    "location": "/",
-    "stadium": "Sencur stadium"
-},
-  {
-    "id": "acacfeac-85e8-4c33-9f13-489d37480158",
-    "date": "2024-01-12",
-    "time": "/",
-    "home": "318f708d-4132-4a0f-84ef-11e4307d5b70",
-    "away": "4e078b95-0727-4ab9-bbce-3c71ef1fdcfc",
-    "score": "87:99",
-    "location": "/",
-    "stadium": "Rogaska stadium"
-},
-  {
-    "id": "e12f792d-cd02-42d9-8fbe-d437ff991a83",
-    "date": "2024-01-10",
-    "time": "/",
-    "home": "62cefba7-7bc2-4436-8fbf-2db5afc53fc7",
-    "away": "bcec8aeb-848e-412b-bffd-52d48dac9805",
-    "score": "76:98",
-    "location": "/",
-    "stadium": "Terme stadium"
-},
-  {
-    "id": "2d9c159e-5530-44fe-89fc-52d7629fb3b2",
-    "date": "2024-01-08",
-    "time": "/",
-    "home": "d84d1500-c67e-46bd-a3fe-290c902e5931",
-    "away": "49e123cc-ebb0-4a86-b67e-97c3d09f053a",
-    "score": "63:81",
-    "location": "/",
-    "stadium": "Sentjur stadium"
-},
-  {
-    "id": "8e76efe8-c11f-4e57-97a7-1a392f55d8f5",
-    "date": "2024-01-06",
-    "time": "/",
-    "home": "ae549762-c767-4a91-950a-4e8842f74fe7",
-    "away": "3d6c8c0f-c6df-4f4e-994f-ce6ce59ff71d",
-    "score": "81:103",
-    "location": "/",
-    "stadium": "Hopsi stadium"
-},
-  {
-    "id": "14e3b8bd-9387-4978-909b-7f997d47b96a",
-    "date": "2024-01-06",
-    "time": "/",
-    "home": "4e078b95-0727-4ab9-bbce-3c71ef1fdcfc",
-    "away": "62cefba7-7bc2-4436-8fbf-2db5afc53fc7",
-    "score": "93:85",
-    "location": "/",
-    "stadium": "Helios stadium"
-},
-  {
-    "id": "b7be6aba-bcd5-4897-8351-9085f2f7cabf",
-    "date": "2024-01-05",
-    "time": "/",
-    "home": "8ff791f1-9c8a-4375-8d86-e6b8da6f91ac",
-    "away": "318f708d-4132-4a0f-84ef-11e4307d5b70",
-    "score": "74:73",
-    "location": "/",
-    "stadium": "Sencur stadium"
-},
-  {
-    "id": "6ecd0d34-8303-4f9a-939a-5473f5d92fc3",
-    "date": "2024-01-03",
-    "time": "/",
-    "home": "bcec8aeb-848e-412b-bffd-52d48dac9805",
-    "away": "3badd403-9e34-4b79-89a5-884311874af8",
-    "score": "101:64",
-    "location": "/",
-    "stadium": "Krka stadium"
-},
-  {
-    "id": "80280e2d-2f46-4319-8dab-8df8ac1c4c18",
-    "date": "2023-12-26",
-    "time": "/",
-    "home": "62cefba7-7bc2-4436-8fbf-2db5afc53fc7",
-    "away": "8ff791f1-9c8a-4375-8d86-e6b8da6f91ac",
-    "score": "98:95",
-    "location": "/",
-    "stadium": "Terme stadium"
-},
-  {
-    "id": "d40bd672-04fa-4155-8ca0-ad0825764042",
-    "date": "2023-12-26",
-    "time": "/",
-    "home": "3badd403-9e34-4b79-89a5-884311874af8",
-    "away": "4e078b95-0727-4ab9-bbce-3c71ef1fdcfc",
-    "score": "79:78",
-    "location": "/",
-    "stadium": "LTH stadium"
-},
-  {
-    "id": "55352c67-fbd8-41ad-8eb2-9002652626be",
-    "date": "2023-12-23",
-    "time": "/",
-    "home": "d84d1500-c67e-46bd-a3fe-290c902e5931",
-    "away": "318f708d-4132-4a0f-84ef-11e4307d5b70",
-    "score": "95:93",
-    "location": "/",
-    "stadium": "Sentjur stadium"
-},
-  {
-    "id": "ee041c8b-caf5-4969-8395-f55cdcc2c38e",
-    "date": "2023-12-22",
-    "time": "/",
-    "home": "49e123cc-ebb0-4a86-b67e-97c3d09f053a",
-    "away": "ae549762-c767-4a91-950a-4e8842f74fe7",
-    "score": "96:72",
-    "location": "/",
-    "stadium": "Triglav stadium"
-},
-  {
-    "id": "ba411b41-e4cc-4fae-81bc-dd2e84d99b2a",
-    "date": "2023-12-20",
-    "time": "/",
-    "home": "3d6c8c0f-c6df-4f4e-994f-ce6ce59ff71d",
-    "away": "bcec8aeb-848e-412b-bffd-52d48dac9805",
-    "score": "82:87",
-    "location": "/",
-    "stadium": "Ilirija stadium"
-},
-  {
-    "id": "8a132690-49be-4385-aec7-f1f8520393d7",
-    "date": "2023-12-18",
-    "time": "/",
-    "home": "318f708d-4132-4a0f-84ef-11e4307d5b70",
-    "away": "62cefba7-7bc2-4436-8fbf-2db5afc53fc7",
-    "score": "89:92",
-    "location": "/",
-    "stadium": "Rogaska stadium"
-},
-  {
-    "id": "f9b784f7-764e-4a87-a768-6647ebb525e7",
-    "date": "2023-12-16",
-    "time": "/",
-    "home": "d84d1500-c67e-46bd-a3fe-290c902e5931",
-    "away": "ae549762-c767-4a91-950a-4e8842f74fe7",
-    "score": "102:84",
-    "location": "/",
-    "stadium": "Sentjur stadium"
-},
-  {
-    "id": "7e95639b-f13f-412d-a3e7-e76ded1c25c2",
-    "date": "2023-12-15",
-    "time": "/",
-    "home": "4e078b95-0727-4ab9-bbce-3c71ef1fdcfc",
-    "away": "3d6c8c0f-c6df-4f4e-994f-ce6ce59ff71d",
-    "score": "85:67",
-    "location": "/",
-    "stadium": "Helios stadium"
-},
-  {
-    "id": "758af112-7cfe-4ffd-8f88-cc18baf7cf72",
-    "date": "2023-12-15",
-    "time": "/",
-    "home": "8ff791f1-9c8a-4375-8d86-e6b8da6f91ac",
-    "away": "3badd403-9e34-4b79-89a5-884311874af8",
-    "score": "79:72",
-    "location": "/",
-    "stadium": "Sencur stadium"
-},
-  {
-    "id": "4ccfb974-75fd-4dcd-b8b5-dd660333e608",
-    "date": "2023-12-13",
-    "time": "/",
-    "home": "bcec8aeb-848e-412b-bffd-52d48dac9805",
-    "away": "49e123cc-ebb0-4a86-b67e-97c3d09f053a",
-    "score": "86:60",
-    "location": "/",
-    "stadium": "Krka stadium"
-},
-  {
-    "id": "be6aa8c2-310e-4870-897a-5a6644224e37",
-    "date": "2023-12-11",
-    "time": "/",
-    "home": "49e123cc-ebb0-4a86-b67e-97c3d09f053a",
-    "away": "4e078b95-0727-4ab9-bbce-3c71ef1fdcfc",
-    "score": "81:72",
-    "location": "/",
-    "stadium": "Triglav stadium"
-},
-  {
-    "id": "09a5180b-4a96-41c5-bce7-61a840d96e31",
-    "date": "2023-12-10",
-    "time": "/",
-    "home": "ae549762-c767-4a91-950a-4e8842f74fe7",
-    "away": "bcec8aeb-848e-412b-bffd-52d48dac9805",
-    "score": "92:111",
-    "location": "/",
-    "stadium": "Hopsi stadium"
-},
-  {
-    "id": "f114c6cc-f3c3-4c27-8f0b-ed63fe8dc659",
-    "date": "2023-12-09",
-    "time": "/",
-    "home": "3d6c8c0f-c6df-4f4e-994f-ce6ce59ff71d",
-    "away": "8ff791f1-9c8a-4375-8d86-e6b8da6f91ac",
-    "score": "84:70",
-    "location": "/",
-    "stadium": "Ilirija stadium"
-},
-  {
-    "id": "5fbb53d9-cc72-4ea5-bcd0-1b4fa3510371",
-    "date": "2023-12-09",
-    "time": "/",
-    "home": "3badd403-9e34-4b79-89a5-884311874af8",
-    "away": "318f708d-4132-4a0f-84ef-11e4307d5b70",
-    "score": "93:84",
-    "location": "/",
-    "stadium": "LTH stadium"
-},
-  {
-    "id": "a5702f8f-4e2a-40d3-a8b7-9e9f6664094d",
-    "date": "2023-12-08",
-    "time": "/",
-    "home": "d84d1500-c67e-46bd-a3fe-290c902e5931",
-    "away": "62cefba7-7bc2-4436-8fbf-2db5afc53fc7",
-    "score": "73:87",
-    "location": "/",
-    "stadium": "Sentjur stadium"
-},
-  {
-    "id": "0ea9af49-9a58-48fd-a400-5e1c51f94241",
-    "date": "2023-12-04",
-    "time": "/",
-    "home": "62cefba7-7bc2-4436-8fbf-2db5afc53fc7",
-    "away": "3badd403-9e34-4b79-89a5-884311874af8",
-    "score": "88:91",
-    "location": "/",
-    "stadium": "Terme stadium"
-},
-  {
-    "id": "ebce1d13-2522-4748-a5eb-29aef6e3ce00",
-    "date": "2023-12-04",
-    "time": "/",
-    "home": "318f708d-4132-4a0f-84ef-11e4307d5b70",
-    "away": "bcec8aeb-848e-412b-bffd-52d48dac9805",
-    "score": "84:80",
-    "location": "/",
-    "stadium": "Rogaska stadium"
-},
-  {
-    "id": "dc1b25ab-9b9d-4258-8859-7b5d2b122341",
-    "date": "2023-12-04",
-    "time": "/",
-    "home": "4e078b95-0727-4ab9-bbce-3c71ef1fdcfc",
-    "away": "ae549762-c767-4a91-950a-4e8842f74fe7",
-    "score": "78:66",
-    "location": "/",
-    "stadium": "Helios stadium"
-},
-  {
-    "id": "950f4341-aa65-485a-b04e-ec949a0f577b",
-    "date": "2023-12-02",
-    "time": "/",
-    "home": "318f708d-4132-4a0f-84ef-11e4307d5b70",
-    "away": "3d6c8c0f-c6df-4f4e-994f-ce6ce59ff71d",
-    "score": "63:94",
-    "location": "/",
-    "stadium": "Rogaska stadium"
-},
-  {
-    "id": "548a9c68-8c53-4633-a2cf-2215e3fdf61b",
-    "date": "2023-12-01",
-    "time": "/",
-    "home": "8ff791f1-9c8a-4375-8d86-e6b8da6f91ac",
-    "away": "49e123cc-ebb0-4a86-b67e-97c3d09f053a",
-    "score": "92:75",
-    "location": "/",
-    "stadium": "Sencur stadium"
-},
-  {
-    "id": "776f9e10-80d7-4c94-bb2e-2b693e72472d",
-    "date": "2023-11-29",
-    "time": "/",
-    "home": "4e078b95-0727-4ab9-bbce-3c71ef1fdcfc",
-    "away": "d84d1500-c67e-46bd-a3fe-290c902e5931",
-    "score": "104:70",
-    "location": "/",
-    "stadium": "Helios stadium"
-},
-  {
-    "id": "6c18563c-d597-467a-81d4-d4e8ff7a9215",
-    "date": "2023-11-27",
-    "time": "/",
-    "home": "8ff791f1-9c8a-4375-8d86-e6b8da6f91ac",
-    "away": "ae549762-c767-4a91-950a-4e8842f74fe7",
-    "score": "94:95",
-    "location": "/",
-    "stadium": "Sencur stadium"
-},
-  {
-    "id": "83958d9a-5116-421e-9fc2-c16777b4de95",
-    "date": "2023-11-25",
-    "time": "/",
-    "home": "318f708d-4132-4a0f-84ef-11e4307d5b70",
-    "away": "49e123cc-ebb0-4a86-b67e-97c3d09f053a",
-    "score": "72:67",
-    "location": "/",
-    "stadium": "Rogaska stadium"
-},
-  {
-    "id": "367e7e7e-7115-423a-a05d-a9fc0ee8e126",
-    "date": "2023-11-25",
-    "time": "/",
-    "home": "62cefba7-7bc2-4436-8fbf-2db5afc53fc7",
-    "away": "3d6c8c0f-c6df-4f4e-994f-ce6ce59ff71d",
-    "score": "77:87",
-    "location": "/",
-    "stadium": "Terme stadium"
-},
-  {
-    "id": "b9d52969-b973-4983-9c25-665cc98f63b4",
-    "date": "2023-11-24",
-    "time": "/",
-    "home": "3badd403-9e34-4b79-89a5-884311874af8",
-    "away": "d84d1500-c67e-46bd-a3fe-290c902e5931",
-    "score": "73:82",
-    "location": "/",
-    "stadium": "LTH stadium"
-},
-  {
-    "id": "0fda4e79-896d-470a-829c-238049f38967",
-    "date": "2023-11-24",
-    "time": "/",
-    "home": "bcec8aeb-848e-412b-bffd-52d48dac9805",
-    "away": "8ff791f1-9c8a-4375-8d86-e6b8da6f91ac",
-    "score": "83:61",
-    "location": "/",
-    "stadium": "Krka stadium"
-},
-  {
-    "id": "5a812338-35b1-4a10-8499-00348dceea7e",
-    "date": "2023-11-22",
-    "time": "/",
-    "home": "4e078b95-0727-4ab9-bbce-3c71ef1fdcfc",
-    "away": "bcec8aeb-848e-412b-bffd-52d48dac9805",
-    "score": "83:80",
-    "location": "/",
-    "stadium": "Helios stadium"
-},
-  {
-    "id": "66fc9cdb-8988-486c-af2a-a9ab2577194e",
-    "date": "2023-11-20",
-    "time": "/",
-    "home": "49e123cc-ebb0-4a86-b67e-97c3d09f053a",
-    "away": "62cefba7-7bc2-4436-8fbf-2db5afc53fc7",
-    "score": "70:87",
-    "location": "/",
-    "stadium": "Triglav stadium"
-},
-  {
-    "id": "acde76ad-adfc-461b-b40b-42097355f88d",
-    "date": "2023-11-18",
-    "time": "/",
-    "home": "ae549762-c767-4a91-950a-4e8842f74fe7",
-    "away": "318f708d-4132-4a0f-84ef-11e4307d5b70",
-    "score": "75:73",
-    "location": "/",
-    "stadium": "Hopsi stadium"
-},
-  {
-    "id": "2a4e6ac3-2154-4959-ab5c-50ae377e18c3",
-    "date": "2023-11-18",
-    "time": "/",
-    "home": "3d6c8c0f-c6df-4f4e-994f-ce6ce59ff71d",
-    "away": "3badd403-9e34-4b79-89a5-884311874af8",
-    "score": "85:96",
-    "location": "/",
-    "stadium": "Ilirija stadium"
-},
-  {
-    "id": "ba8ba235-7bd6-421c-a901-b38f32b11568",
-    "date": "2023-11-15",
-    "time": "/",
-    "home": "d84d1500-c67e-46bd-a3fe-290c902e5931",
-    "away": "bcec8aeb-848e-412b-bffd-52d48dac9805",
-    "score": "90:91",
-    "location": "/",
-    "stadium": "Sentjur stadium"
-},
-  {
-    "id": "062ca155-9363-45f9-bf00-82cd83942e25",
-    "date": "2023-11-13",
-    "time": "/",
-    "home": "62cefba7-7bc2-4436-8fbf-2db5afc53fc7",
-    "away": "ae549762-c767-4a91-950a-4e8842f74fe7",
-    "score": "78:89",
-    "location": "/",
-    "stadium": "Terme stadium"
-},
-  {
-    "id": "810262c7-d695-48eb-8ab6-e3802ed3ecd5",
-    "date": "2023-11-11",
-    "time": "/",
-    "home": "3badd403-9e34-4b79-89a5-884311874af8",
-    "away": "49e123cc-ebb0-4a86-b67e-97c3d09f053a",
-    "score": "103:97",
-    "location": "/",
-    "stadium": "LTH stadium"
-},
-  {
-    "id": "32e550ff-3b4a-42aa-a2c2-e2b203ec46a4",
-    "date": "2023-11-11",
-    "time": "/",
-    "home": "3d6c8c0f-c6df-4f4e-994f-ce6ce59ff71d",
-    "away": "d84d1500-c67e-46bd-a3fe-290c902e5931",
-    "score": "83:80",
-    "location": "/",
-    "stadium": "Ilirija stadium"
-},
-  {
-    "id": "f618dd06-e0b0-4486-bd59-2119945ca372",
-    "date": "2023-11-10",
-    "time": "/",
-    "home": "8ff791f1-9c8a-4375-8d86-e6b8da6f91ac",
-    "away": "4e078b95-0727-4ab9-bbce-3c71ef1fdcfc",
-    "score": "82:70",
-    "location": "/",
-    "stadium": "Sencur stadium"
-},
-  {
-    "id": "15dab5ec-f0a6-4a45-94c2-4f18ac1622cb",
-    "date": "2023-11-06",
-    "time": "/",
-    "home": "4e078b95-0727-4ab9-bbce-3c71ef1fdcfc",
-    "away": "318f708d-4132-4a0f-84ef-11e4307d5b70",
-    "score": "74:80",
-    "location": "/",
-    "stadium": "Helios stadium"
-},
-  {
-    "id": "1e52c2a6-8b4e-45f7-bbc7-4c64b8a560c6",
-    "date": "2023-11-05",
-    "time": "/",
-    "home": "bcec8aeb-848e-412b-bffd-52d48dac9805",
-    "away": "62cefba7-7bc2-4436-8fbf-2db5afc53fc7",
-    "score": "93:92",
-    "location": "/",
-    "stadium": "Krka stadium"
-},
-  {
-    "id": "e713354d-7dd2-4480-b0a8-fafc64b2c0cd",
-    "date": "2023-11-04",
-    "time": "/",
-    "home": "d84d1500-c67e-46bd-a3fe-290c902e5931",
-    "away": "8ff791f1-9c8a-4375-8d86-e6b8da6f91ac",
-    "score": "71:82",
-    "location": "/",
-    "stadium": "Sentjur stadium"
-},
-  {
-    "id": "e9c97124-71ae-4ea9-b7f1-b031ce38eff0",
-    "date": "2023-11-04",
-    "time": "/",
-    "home": "ae549762-c767-4a91-950a-4e8842f74fe7",
-    "away": "3badd403-9e34-4b79-89a5-884311874af8",
-    "score": "82:88",
-    "location": "/",
-    "stadium": "Hopsi stadium"
-},
-  {
-    "id": "e1592962-6b04-43f4-a295-757877281c95",
-    "date": "2023-11-03",
-    "time": "/",
-    "home": "49e123cc-ebb0-4a86-b67e-97c3d09f053a",
-    "away": "3d6c8c0f-c6df-4f4e-994f-ce6ce59ff71d",
-    "score": "82:83",
-    "location": "/",
-    "stadium": "Triglav stadium"
-},
-  {
-    "id": "f3a94edf-f11a-46d6-88f8-b20d5d657480",
-    "date": "2023-10-30",
-    "time": "/",
-    "home": "62cefba7-7bc2-4436-8fbf-2db5afc53fc7",
-    "away": "4e078b95-0727-4ab9-bbce-3c71ef1fdcfc",
-    "score": "71:75",
-    "location": "/",
-    "stadium": "Terme stadium"
-},
-  {
-    "id": "e4ce609c-ffab-4a73-bc0d-31719a1de610",
-    "date": "2023-10-28",
-    "time": "/",
-    "home": "49e123cc-ebb0-4a86-b67e-97c3d09f053a",
-    "away": "d84d1500-c67e-46bd-a3fe-290c902e5931",
-    "score": "59:64",
-    "location": "/",
-    "stadium": "Triglav stadium"
-},
-  {
-    "id": "13286624-9e0b-463a-bc6a-72d6bdce665f",
-    "date": "2023-10-28",
-    "time": "/",
-    "home": "318f708d-4132-4a0f-84ef-11e4307d5b70",
-    "away": "8ff791f1-9c8a-4375-8d86-e6b8da6f91ac",
-    "score": "84:67",
-    "location": "/",
-    "stadium": "Rogaska stadium"
-},
-  {
-    "id": "a821466d-ebcc-43e3-9961-f684fbd17b55",
-    "date": "2023-10-27",
-    "time": "/",
-    "home": "3d6c8c0f-c6df-4f4e-994f-ce6ce59ff71d",
-    "away": "ae549762-c767-4a91-950a-4e8842f74fe7",
-    "score": "96:83",
-    "location": "/",
-    "stadium": "Ilirija stadium"
-},
-  {
-    "id": "0ab5a1a5-4778-442b-9d8d-db6bedf20630",
-    "date": "2023-10-25",
-    "time": "/",
-    "home": "3badd403-9e34-4b79-89a5-884311874af8",
-    "away": "bcec8aeb-848e-412b-bffd-52d48dac9805",
-    "score": "90:97",
-    "location": "/",
-    "stadium": "LTH stadium"
-},
-  {
-    "id": "0c9f2e98-d15f-427f-957f-ad62da29cd47",
-    "date": "2023-10-23",
-    "time": "/",
-    "home": "ae549762-c767-4a91-950a-4e8842f74fe7",
-    "away": "49e123cc-ebb0-4a86-b67e-97c3d09f053a",
-    "score": "68:71",
-    "location": "/",
-    "stadium": "Hopsi stadium"
-},
-  {
-    "id": "faed7dcd-ed05-45aa-8c1f-8211b06ab99f",
-    "date": "2023-10-21",
-    "time": "/",
-    "home": "318f708d-4132-4a0f-84ef-11e4307d5b70",
-    "away": "d84d1500-c67e-46bd-a3fe-290c902e5931",
-    "score": "80:86",
-    "location": "/",
-    "stadium": "Rogaska stadium"
-},
-  {
-    "id": "f81cdacf-80c7-4111-86ae-ff4585920667",
-    "date": "2023-10-20",
-    "time": "/",
-    "home": "4e078b95-0727-4ab9-bbce-3c71ef1fdcfc",
-    "away": "3badd403-9e34-4b79-89a5-884311874af8",
-    "score": "77:72",
-    "location": "/",
-    "stadium": "Helios stadium"
-},
-  {
-    "id": "23863788-07d7-4394-a256-d651ae8a2c63",
-    "date": "2023-10-20",
-    "time": "/",
-    "home": "8ff791f1-9c8a-4375-8d86-e6b8da6f91ac",
-    "away": "62cefba7-7bc2-4436-8fbf-2db5afc53fc7",
-    "score": "84:78",
-    "location": "/",
-    "stadium": "Sencur stadium"
-},
-  {
-    "id": "1bfd94ee-38da-4f52-aadb-f938448d903e",
-    "date": "2023-10-18",
-    "time": "/",
-    "home": "bcec8aeb-848e-412b-bffd-52d48dac9805",
-    "away": "3d6c8c0f-c6df-4f4e-994f-ce6ce59ff71d",
-    "score": "79:66",
-    "location": "/",
-    "stadium": "Krka stadium"
-},
-  {
-    "id": "089d722e-1992-4bc4-aede-f1e0165380b3",
-    "date": "2023-10-16",
-    "time": "/",
-    "home": "3d6c8c0f-c6df-4f4e-994f-ce6ce59ff71d",
-    "away": "4e078b95-0727-4ab9-bbce-3c71ef1fdcfc",
-    "score": "90:95",
-    "location": "/",
-    "stadium": "Ilirija stadium"
-},
-  {
-    "id": "cd5273f7-4de3-4366-acd7-b63b23310929",
-    "date": "2023-10-16",
-    "time": "/",
-    "home": "3badd403-9e34-4b79-89a5-884311874af8",
-    "away": "8ff791f1-9c8a-4375-8d86-e6b8da6f91ac",
-    "score": "108:72",
-    "location": "/",
-    "stadium": "LTH stadium"
-},
-  {
-    "id": "ef4606ea-8ea8-4079-acf9-d381102839f2",
-    "date": "2023-10-14",
-    "time": "/",
-    "home": "62cefba7-7bc2-4436-8fbf-2db5afc53fc7",
-    "away": "318f708d-4132-4a0f-84ef-11e4307d5b70",
-    "score": "91:84",
-    "location": "/",
-    "stadium": "Terme stadium"
-},
-  {
-    "id": "c0cd2a9f-ffc3-4659-bca2-ba25c12e4ba5",
-    "date": "2023-10-13",
-    "time": "/",
-    "home": "ae549762-c767-4a91-950a-4e8842f74fe7",
-    "away": "d84d1500-c67e-46bd-a3fe-290c902e5931",
-    "score": "73:78",
-    "location": "/",
-    "stadium": "Hopsi stadium"
-},
-  {
-    "id": "825ee681-9bc8-4d57-9501-e27e5172c76f",
-    "date": "2023-10-11",
-    "time": "/",
-    "home": "49e123cc-ebb0-4a86-b67e-97c3d09f053a",
-    "away": "bcec8aeb-848e-412b-bffd-52d48dac9805",
-    "score": "62:79",
-    "location": "/",
-    "stadium": "Triglav stadium"
-},
-  {
-    "id": "d44eb697-f256-42a0-845f-1fc10f7e0c05",
-    "date": "2023-10-09",
-    "time": "/",
-    "home": "62cefba7-7bc2-4436-8fbf-2db5afc53fc7",
-    "away": "d84d1500-c67e-46bd-a3fe-290c902e5931",
-    "score": "67:94",
-    "location": "/",
-    "stadium": "Terme stadium"
-},
-  {
-    "id": "50c20cc8-9989-4857-bab5-4e1d5b0d5a90",
-    "date": "2023-10-07",
-    "time": "/",
-    "home": "318f708d-4132-4a0f-84ef-11e4307d5b70",
-    "away": "3badd403-9e34-4b79-89a5-884311874af8",
-    "score": "96:79",
-    "location": "/",
-    "stadium": "Rogaska stadium"
-},
-  {
-    "id": "d3104723-bd8a-4fac-a5d2-6619e29b3ed3",
-    "date": "2023-10-07",
-    "time": "/",
-    "home": "8ff791f1-9c8a-4375-8d86-e6b8da6f91ac",
-    "away": "3d6c8c0f-c6df-4f4e-994f-ce6ce59ff71d",
-    "score": "95:68",
-    "location": "/",
-    "stadium": "Sencur stadium"
-},
-  {
-    "id": "aa666a75-5278-4397-b632-e94168517e98",
-    "date": "2023-10-06",
-    "time": "/",
-    "home": "4e078b95-0727-4ab9-bbce-3c71ef1fdcfc",
-    "away": "49e123cc-ebb0-4a86-b67e-97c3d09f053a",
-    "score": "76:62",
-    "location": "/",
-    "stadium": "Helios stadium"
-},
-  {
-    "id": "e5ffd46a-17a3-4476-be5c-62c9dc928ec0",
-    "date": "2023-10-04",
-    "time": "/",
-    "home": "bcec8aeb-848e-412b-bffd-52d48dac9805",
-    "away": "ae549762-c767-4a91-950a-4e8842f74fe7",
-    "score": "109:83",
-    "location": "/",
-    "stadium": "Krka stadium"
-},
-  {
-    "id": "10e82a32-771f-49ed-8436-4d8a3c85881e",
-    "date": "2023-10-02",
-    "time": "/",
-    "home": "3badd403-9e34-4b79-89a5-884311874af8",
-    "away": "62cefba7-7bc2-4436-8fbf-2db5afc53fc7",
-    "score": "99:95",
-    "location": "/",
-    "stadium": "LTH stadium"
-},
-  {
-    "id": "0aee0cc2-108e-4986-9eb9-513b4b87b700",
-    "date": "2023-09-30",
-    "time": "/",
-    "home": "49e123cc-ebb0-4a86-b67e-97c3d09f053a",
-    "away": "8ff791f1-9c8a-4375-8d86-e6b8da6f91ac",
-    "score": "76:64",
-    "location": "/",
-    "stadium": "Triglav stadium"
-},
-  {
-    "id": "f5fc5ab9-d1b7-4c68-afaf-8cdbf14cb216",
-    "date": "2023-09-30",
-    "time": "/",
-    "home": "3d6c8c0f-c6df-4f4e-994f-ce6ce59ff71d",
-    "away": "318f708d-4132-4a0f-84ef-11e4307d5b70",
-    "score": "96:74",
-    "location": "/",
-    "stadium": "Ilirija stadium"
-},
-  {
-    "id": "4bdb55bd-67c7-4663-b733-01926c9ec340",
-    "date": "2023-09-29",
-    "time": "/",
-    "home": "ae549762-c767-4a91-950a-4e8842f74fe7",
-    "away": "4e078b95-0727-4ab9-bbce-3c71ef1fdcfc",
-    "score": "81:100",
-    "location": "/",
-    "stadium": "Hopsi stadium"
-},
-  {
-    "id": "c85d4b31-b890-4a3f-92ee-1816302aae22",
-    "date": "2023-09-27",
-    "time": "/",
-    "home": "bcec8aeb-848e-412b-bffd-52d48dac9805",
-    "away": "d84d1500-c67e-46bd-a3fe-290c902e5931",
-    "score": "111:55",
-    "location": "/",
-    "stadium": "Krka stadium"
-}
-    ]
+  "matches": [
+    {
+      "id": "37140e33-528a-4342-986f-b245df4ee61e",
+      "date": "2023-09-09",
+      "time": "19:00",
+      "home": "0f1f07bb-3594-4fd1-90a0-f2c02a4de2f1",
+      "away": "ebe367d3-ec80-48e8-a98e-67ac49aa5059",
+      "score": "27 - 32",
+      "location": "ŠPORTNA DVORANA KRIM",
+      "stadium": "b0a9d47c-1e54-42cc-9cfd-a3d9aa426537"
+    },
+    {
+      "id": "7ca00e9f-2f8f-4679-9666-1d9b7c1f47bd",
+      "date": "2023-09-09",
+      "time": "19:00",
+      "home": "0f35911b-9e3c-4814-b1d7-b0835efb2d81",
+      "away": "1273391b-881c-4252-9210-72ac66b66197",
+      "score": "27 - 30",
+      "location": "ŠCR RIBNICA",
+      "stadium": "c859f409-0e67-4e57-80a3-5ee08af3e0e9"
+    },
+    {
+      "id": "b5f62eaa-f139-4725-90e1-f18f3cf00db4",
+      "date": "2023-09-09",
+      "time": "19:00",
+      "home": "390b942f-e84b-4820-af86-a1b12393f754",
+      "away": "9c78f88e-bd9f-4705-98ac-ea7ae0f4cc06",
+      "score": "26 - 26",
+      "location": "ŠPORTNA DVORANA SLOVENJ GRADEC",
+      "stadium": "18da7371-8ba2-444f-b85f-cc21bd70a111"
+    },
+    {
+      "id": "8bd09ce7-c0cc-4578-9599-9cb47a4cda1b",
+      "date": "2023-09-09",
+      "time": "19:00",
+      "home": "c71dad75-82c3-438a-90cd-a00cfeec4fd0",
+      "away": "3c5afe0e-9e26-49a6-8f14-da2bcf675e6f",
+      "score": "31 - 20",
+      "location": "ŠPORTNA DVORANA MAROF",
+      "stadium": "4b4f33ce-a8fd-4096-89a5-6643ca9325ff"
+    },
+    {
+      "id": "c1da14c1-808a-4338-befd-7484973c6b65",
+      "date": "2023-09-09",
+      "time": "18:00",
+      "home": "7f18a27d-f4b0-4bf0-b5a6-15bef7ddacce",
+      "away": "3c1f4be3-914e-456c-be11-b2ba71e5cbd7",
+      "score": "25 - 29",
+      "location": "DVORANA ZLATOROG",
+      "stadium": "fd9bc459-e0a7-44a6-bb0d-3c60ac6fd196"
+    },
+    {
+      "id": "6eabe87c-0b7b-4913-b53f-81d68c8a0c97",
+      "date": "2023-09-09",
+      "time": "18:00",
+      "home": "cd64c192-61e8-4869-b315-9b9cc3afe898",
+      "away": "1524e7b6-5fa8-4d8c-833e-5b444d66b210",
+      "score": "30 - 24",
+      "location": "ŠPORTNA DVORANA SLOVENJ GRADEC",
+      "stadium": "18da7371-8ba2-444f-b85f-cc21bd70a111"
+    },
+    {
+      "id": "0c7facbc-d777-4eb1-b06e-3e935ac887d6",
+      "date": "2023-09-08",
+      "time": "19:00",
+      "home": "ad672573-3195-411c-9a25-f19cf01a5f90",
+      "away": "3fe5d9f1-8fa4-48c4-aeeb-19dcd626409c",
+      "score": "20 - 29",
+      "location": "ŠPORTNA DVORANA DOBOVA",
+      "stadium": "18cd7929-c2a8-44a4-b36b-9cbc0434e04b"
+    },
+    {
+      "id": "bef51d2b-c499-4ad0-bd7f-8ad3ac420c83",
+      "date": "2023-09-17",
+      "time": "20:00",
+      "home": "1524e7b6-5fa8-4d8c-833e-5b444d66b210",
+      "away": "ad672573-3195-411c-9a25-f19cf01a5f90",
+      "score": "24 - 17",
+      "location": "ŠPORTNA DVORANA ŠKOFLJICA",
+      "stadium": "1ccc4b05-3a34-45f4-b507-f1c9faffa3a9"
+    },
+    {
+      "id": "bf7d24d3-ccda-4845-a478-7fa444a20386",
+      "date": "2023-09-17",
+      "time": "18:00",
+      "home": "3c1f4be3-914e-456c-be11-b2ba71e5cbd7",
+      "away": "cd64c192-61e8-4869-b315-9b9cc3afe898",
+      "score": "22 - 24",
+      "location": "DVORANA OŠ TREBNJE",
+      "stadium": "461a2e2e-072c-4976-8dbd-6c1c925cab47"
+    },
+    {
+      "id": "a8ff58b8-d37c-45b7-bd3e-f1668ba3be8a",
+      "date": "2023-09-16",
+      "time": "19:00",
+      "home": "ebe367d3-ec80-48e8-a98e-67ac49aa5059",
+      "away": "3c5afe0e-9e26-49a6-8f14-da2bcf675e6f",
+      "score": "31 - 22",
+      "location": "ARENA BONIFIKA",
+      "stadium": "8ced8c84-3667-40b3-8a28-c2c66de470c2"
+    },
+    {
+      "id": "fbb8481f-ad1f-4d6c-9acb-c64cbb02dc46",
+      "date": "2023-09-16",
+      "time": "19:00",
+      "home": "9c78f88e-bd9f-4705-98ac-ea7ae0f4cc06",
+      "away": "c71dad75-82c3-438a-90cd-a00cfeec4fd0",
+      "score": "24 - 29",
+      "location": "ŠPORTNA DVORANA KODELJEVO",
+      "stadium": "55fbefbe-7f0e-41bb-90d0-6ed50bb6351f"
+    },
+    {
+      "id": "18d9a471-22d8-40df-9ec6-66eda3a27e0c",
+      "date": "2023-09-16",
+      "time": "19:00",
+      "home": "3fe5d9f1-8fa4-48c4-aeeb-19dcd626409c",
+      "away": "390b942f-e84b-4820-af86-a1b12393f754",
+      "score": "26 - 23",
+      "location": "ŠPORTNA DVORANA HARDEK",
+      "stadium": "21e19f6f-56b0-4ac8-b25d-d6eb923ef656"
+    },
+    {
+      "id": "d45084e0-597a-4406-bb83-ee682fae0d6a",
+      "date": "2023-09-16",
+      "time": "19:00",
+      "home": "1273391b-881c-4252-9210-72ac66b66197",
+      "away": "7f18a27d-f4b0-4bf0-b5a6-15bef7ddacce",
+      "score": "33 - 33",
+      "location": "DVORANA OSNOVNE ŠOLE STIČNA",
+      "stadium": "9d0fcb86-c56c-4a56-8cf1-a8e75bfc1139"
+    },
+    {
+      "id": "f343065a-4615-4ed6-9e03-3c81247bf1f1",
+      "date": "2023-09-16",
+      "time": "19:00",
+      "home": "0f1f07bb-3594-4fd1-90a0-f2c02a4de2f1",
+      "away": "0f35911b-9e3c-4814-b1d7-b0835efb2d81",
+      "score": "30 - 35",
+      "location": "ŠPORTNA DVORANA KRIM",
+      "stadium": "b0a9d47c-1e54-42cc-9cfd-a3d9aa426537"
+    },
+    {
+      "id": "9382924f-703f-49df-b560-ced26b07f7fa",
+      "date": "2023-09-23",
+      "time": "19:00",
+      "home": "0f35911b-9e3c-4814-b1d7-b0835efb2d81",
+      "away": "ebe367d3-ec80-48e8-a98e-67ac49aa5059",
+      "score": "28 - 23",
+      "location": "ŠCR RIBNICA",
+      "stadium": "c859f409-0e67-4e57-80a3-5ee08af3e0e9"
+    },
+    {
+      "id": "e659636e-7583-40c0-939f-4e17fb47fddf",
+      "date": "2023-09-23",
+      "time": "19:00",
+      "home": "390b942f-e84b-4820-af86-a1b12393f754",
+      "away": "1524e7b6-5fa8-4d8c-833e-5b444d66b210",
+      "score": "30 - 23",
+      "location": "ŠPORTNA DVORANA SLOVENJ GRADEC",
+      "stadium": "18da7371-8ba2-444f-b85f-cc21bd70a111"
+    },
+    {
+      "id": "bf65b869-c992-4ff5-9113-ca85cbae2c84",
+      "date": "2023-09-23",
+      "time": "19:00",
+      "home": "c71dad75-82c3-438a-90cd-a00cfeec4fd0",
+      "away": "3fe5d9f1-8fa4-48c4-aeeb-19dcd626409c",
+      "score": "30 - 23",
+      "location": "ŠPORTNA DVORANA MAROF",
+      "stadium": "4b4f33ce-a8fd-4096-89a5-6643ca9325ff"
+    },
+    {
+      "id": "edc7c6d8-0961-4a1d-aa1f-3904d4d78367",
+      "date": "2023-09-23",
+      "time": "19:00",
+      "home": "3c5afe0e-9e26-49a6-8f14-da2bcf675e6f",
+      "away": "9c78f88e-bd9f-4705-98ac-ea7ae0f4cc06",
+      "score": "32 - 30",
+      "location": "ŠPORTNA DVORANA PODEN",
+      "stadium": "59608ab5-12f5-405e-b93c-982a04aaf889"
+    },
+    {
+      "id": "f575aa84-7a9f-400a-8d11-906a1cf220f6",
+      "date": "2023-09-23",
+      "time": "18:00",
+      "home": "7f18a27d-f4b0-4bf0-b5a6-15bef7ddacce",
+      "away": "0f1f07bb-3594-4fd1-90a0-f2c02a4de2f1",
+      "score": "34 - 23",
+      "location": "DVORANA ZLATOROG",
+      "stadium": "fd9bc459-e0a7-44a6-bb0d-3c60ac6fd196"
+    },
+    {
+      "id": "56ddfa52-b8d5-45fa-9646-5a92c6199eff",
+      "date": "2023-09-23",
+      "time": "18:00",
+      "home": "cd64c192-61e8-4869-b315-9b9cc3afe898",
+      "away": "1273391b-881c-4252-9210-72ac66b66197",
+      "score": "29 - 22",
+      "location": "RDEČA DVORANA",
+      "stadium": "31750ba8-bb6f-4ee4-ae9c-41ba871892ff"
+    },
+    {
+      "id": "39415f45-1e36-4ad1-bee3-265531d758e1",
+      "date": "2023-09-22",
+      "time": "19:30",
+      "home": "ad672573-3195-411c-9a25-f19cf01a5f90",
+      "away": "3c1f4be3-914e-456c-be11-b2ba71e5cbd7",
+      "score": "18 - 35",
+      "location": "ŠPORTNA DVORANA DOBOVA",
+      "stadium": "18cd7929-c2a8-44a4-b36b-9cbc0434e04b"
+    },
+    {
+      "id": "93e188bd-9078-4d95-988e-1af29b818a04",
+      "date": "2023-10-01",
+      "time": "19:30",
+      "home": "0f35911b-9e3c-4814-b1d7-b0835efb2d81",
+      "away": "7f18a27d-f4b0-4bf0-b5a6-15bef7ddacce",
+      "score": "37 - 38",
+      "location": "ŠCR RIBNICA",
+      "stadium": "c859f409-0e67-4e57-80a3-5ee08af3e0e9"
+    },
+    {
+      "id": "b8d268bd-862b-496b-a17b-df271e2fe874",
+      "date": "2023-09-30",
+      "time": "19:00",
+      "home": "ebe367d3-ec80-48e8-a98e-67ac49aa5059",
+      "away": "9c78f88e-bd9f-4705-98ac-ea7ae0f4cc06",
+      "score": "27 - 28",
+      "location": "ARENA BONIFIKA",
+      "stadium": "8ced8c84-3667-40b3-8a28-c2c66de470c2"
+    },
+    {
+      "id": "025d36c1-7f9a-4cd7-9149-4ee0d1856590",
+      "date": "2023-09-30",
+      "time": "19:00",
+      "home": "3fe5d9f1-8fa4-48c4-aeeb-19dcd626409c",
+      "away": "3c5afe0e-9e26-49a6-8f14-da2bcf675e6f",
+      "score": "28 - 28",
+      "location": "ŠPORTNA DVORANA HARDEK",
+      "stadium": "21e19f6f-56b0-4ac8-b25d-d6eb923ef656"
+    },
+    {
+      "id": "ae742949-6bc2-4d16-bf00-90f1fe8e3ad8",
+      "date": "2023-09-30",
+      "time": "19:00",
+      "home": "1524e7b6-5fa8-4d8c-833e-5b444d66b210",
+      "away": "c71dad75-82c3-438a-90cd-a00cfeec4fd0",
+      "score": "29 - 29",
+      "location": "ŠPORTNA DVORANA ŠKOFLJICA",
+      "stadium": "1ccc4b05-3a34-45f4-b507-f1c9faffa3a9"
+    },
+    {
+      "id": "f074e27a-4b89-4273-a975-574dcc135c78",
+      "date": "2023-09-30",
+      "time": "19:00",
+      "home": "1273391b-881c-4252-9210-72ac66b66197",
+      "away": "ad672573-3195-411c-9a25-f19cf01a5f90",
+      "score": "31 - 23",
+      "location": "DVORANA OSNOVNE ŠOLE STIČNA",
+      "stadium": "9d0fcb86-c56c-4a56-8cf1-a8e75bfc1139"
+    },
+    {
+      "id": "88766c6e-8fc5-4cab-ab4d-306d5e072287",
+      "date": "2023-09-30",
+      "time": "19:00",
+      "home": "0f1f07bb-3594-4fd1-90a0-f2c02a4de2f1",
+      "away": "cd64c192-61e8-4869-b315-9b9cc3afe898",
+      "score": "28 - 43",
+      "location": "ŠPORTNA DVORANA KRIM",
+      "stadium": "b0a9d47c-1e54-42cc-9cfd-a3d9aa426537"
+    },
+    {
+      "id": "18d85b62-1b3b-429c-a100-da7acb28edf3",
+      "date": "2023-09-29",
+      "time": "18:30",
+      "home": "3c1f4be3-914e-456c-be11-b2ba71e5cbd7",
+      "away": "390b942f-e84b-4820-af86-a1b12393f754",
+      "score": "34 - 28",
+      "location": "DVORANA OŠ TREBNJE",
+      "stadium": "461a2e2e-072c-4976-8dbd-6c1c925cab47"
+    },
+    {
+      "id": "3df2db39-a2d5-470d-9cc8-cab7db3bbe44",
+      "date": "2023-10-07",
+      "time": "20:00",
+      "home": "3c5afe0e-9e26-49a6-8f14-da2bcf675e6f",
+      "away": "1524e7b6-5fa8-4d8c-833e-5b444d66b210",
+      "score": "29 - 30",
+      "location": "ŠPORTNA DVORANA PODEN",
+      "stadium": "59608ab5-12f5-405e-b93c-982a04aaf889"
+    },
+    {
+      "id": "742e8280-47e0-433d-9b40-7067d0eff2a9",
+      "date": "2023-10-07",
+      "time": "19:00",
+      "home": "390b942f-e84b-4820-af86-a1b12393f754",
+      "away": "1273391b-881c-4252-9210-72ac66b66197",
+      "score": "25 - 26",
+      "location": "ŠPORTNA DVORANA SLOVENJ GRADEC",
+      "stadium": "18da7371-8ba2-444f-b85f-cc21bd70a111"
+    },
+    {
+      "id": "8635ef04-c396-43c3-ab8b-68d9c91731a1",
+      "date": "2023-10-07",
+      "time": "19:00",
+      "home": "9c78f88e-bd9f-4705-98ac-ea7ae0f4cc06",
+      "away": "3fe5d9f1-8fa4-48c4-aeeb-19dcd626409c",
+      "score": "28 - 30",
+      "location": "ŠPORTNA DVORANA KODELJEVO",
+      "stadium": "55fbefbe-7f0e-41bb-90d0-6ed50bb6351f"
+    },
+    {
+      "id": "5f2ad3a9-7279-4a79-935c-46cce711bddd",
+      "date": "2023-10-06",
+      "time": "19:00",
+      "home": "c71dad75-82c3-438a-90cd-a00cfeec4fd0",
+      "away": "3c1f4be3-914e-456c-be11-b2ba71e5cbd7",
+      "score": "25 - 30",
+      "location": "ŠPORTNA DVORANA MAROF",
+      "stadium": "4b4f33ce-a8fd-4096-89a5-6643ca9325ff"
+    },
+    {
+      "id": "049fd3a6-cfae-41da-b54a-86eaeeffecf4",
+      "date": "2023-10-06",
+      "time": "18:00",
+      "home": "7f18a27d-f4b0-4bf0-b5a6-15bef7ddacce",
+      "away": "ebe367d3-ec80-48e8-a98e-67ac49aa5059",
+      "score": "40 - 27",
+      "location": "DVORANA ZLATOROG",
+      "stadium": "fd9bc459-e0a7-44a6-bb0d-3c60ac6fd196"
+    },
+    {
+      "id": "a3f6cf8d-1dc4-4d81-82fe-b971d8cb0e26",
+      "date": "2023-10-05",
+      "time": "19:30",
+      "home": "ad672573-3195-411c-9a25-f19cf01a5f90",
+      "away": "0f1f07bb-3594-4fd1-90a0-f2c02a4de2f1",
+      "score": "30 - 31",
+      "location": "ŠPORTNA DVORANA DOBOVA",
+      "stadium": "18cd7929-c2a8-44a4-b36b-9cbc0434e04b"
+    },
+    {
+      "id": "65384ec6-c519-4e0c-b67b-3b45801eb666",
+      "date": "2023-10-05",
+      "time": "19:00",
+      "home": "cd64c192-61e8-4869-b315-9b9cc3afe898",
+      "away": "0f35911b-9e3c-4814-b1d7-b0835efb2d81",
+      "score": "38 - 33",
+      "location": "RDEČA DVORANA",
+      "stadium": "31750ba8-bb6f-4ee4-ae9c-41ba871892ff"
+    },
+    {
+      "id": "0cf781d8-e479-48ca-8fc0-87e150dd83b1",
+      "date": "2023-10-18",
+      "time": "19:00",
+      "home": "1273391b-881c-4252-9210-72ac66b66197",
+      "away": "c71dad75-82c3-438a-90cd-a00cfeec4fd0",
+      "score": "27 - 27",
+      "location": "DVORANA OSNOVNE ŠOLE STIČNA",
+      "stadium": "9d0fcb86-c56c-4a56-8cf1-a8e75bfc1139"
+    },
+    {
+      "id": "a92d95a9-55c0-4c25-987f-1fbd0008b275",
+      "date": "2023-10-14",
+      "time": "19:00",
+      "home": "ebe367d3-ec80-48e8-a98e-67ac49aa5059",
+      "away": "3fe5d9f1-8fa4-48c4-aeeb-19dcd626409c",
+      "score": "27 - 23",
+      "location": "ARENA BONIFIKA",
+      "stadium": "8ced8c84-3667-40b3-8a28-c2c66de470c2"
+    },
+    {
+      "id": "7272af72-a3e5-4154-b84c-12662c2dba15",
+      "date": "2023-10-14",
+      "time": "19:00",
+      "home": "1524e7b6-5fa8-4d8c-833e-5b444d66b210",
+      "away": "9c78f88e-bd9f-4705-98ac-ea7ae0f4cc06",
+      "score": "26 - 24",
+      "location": "ŠPORTNA DVORANA ŠKOFLJICA",
+      "stadium": "1ccc4b05-3a34-45f4-b507-f1c9faffa3a9"
+    },
+    {
+      "id": "b56fb12d-cdf3-49f7-873a-1d386e35913e",
+      "date": "2023-10-14",
+      "time": "19:00",
+      "home": "0f1f07bb-3594-4fd1-90a0-f2c02a4de2f1",
+      "away": "390b942f-e84b-4820-af86-a1b12393f754",
+      "score": "33 - 34",
+      "location": "ŠPORTNA DVORANA KRIM",
+      "stadium": "b0a9d47c-1e54-42cc-9cfd-a3d9aa426537"
+    },
+    {
+      "id": "78b521ea-ea0f-4247-9038-b2f7fd8ce138",
+      "date": "2023-10-14",
+      "time": "19:00",
+      "home": "0f35911b-9e3c-4814-b1d7-b0835efb2d81",
+      "away": "ad672573-3195-411c-9a25-f19cf01a5f90",
+      "score": "36 - 24",
+      "location": "ŠCR RIBNICA",
+      "stadium": "c859f409-0e67-4e57-80a3-5ee08af3e0e9"
+    },
+    {
+      "id": "e84eeca3-2f27-4961-872a-0c8bc5c22dfc",
+      "date": "2023-10-14",
+      "time": "18:00",
+      "home": "7f18a27d-f4b0-4bf0-b5a6-15bef7ddacce",
+      "away": "cd64c192-61e8-4869-b315-9b9cc3afe898",
+      "score": "29 - 27",
+      "location": "DVORANA ZLATOROG",
+      "stadium": "fd9bc459-e0a7-44a6-bb0d-3c60ac6fd196"
+    },
+    {
+      "id": "4eff92b4-720e-4e68-bd44-59e3c2d97717",
+      "date": "2023-10-13",
+      "time": "18:30",
+      "home": "3c1f4be3-914e-456c-be11-b2ba71e5cbd7",
+      "away": "3c5afe0e-9e26-49a6-8f14-da2bcf675e6f",
+      "score": "42 - 32",
+      "location": "DVORANA OŠ TREBNJE",
+      "stadium": "461a2e2e-072c-4976-8dbd-6c1c925cab47"
+    },
+    {
+      "id": "820026ef-fff7-4218-9e70-c05c6ecddf3a",
+      "date": "2023-10-25",
+      "time": "18:30",
+      "home": "c71dad75-82c3-438a-90cd-a00cfeec4fd0",
+      "away": "0f1f07bb-3594-4fd1-90a0-f2c02a4de2f1",
+      "score": "37 - 15",
+      "location": "ŠPORTNA DVORANA MAROF",
+      "stadium": "4b4f33ce-a8fd-4096-89a5-6643ca9325ff"
+    },
+    {
+      "id": "08dadf34-2ea3-44f3-ae6c-e38571812212",
+      "date": "2023-10-21",
+      "time": "19:00",
+      "home": "ad672573-3195-411c-9a25-f19cf01a5f90",
+      "away": "7f18a27d-f4b0-4bf0-b5a6-15bef7ddacce",
+      "score": "24 - 31",
+      "location": "ŠPORTNA DVORANA DOBOVA",
+      "stadium": "18cd7929-c2a8-44a4-b36b-9cbc0434e04b"
+    },
+    {
+      "id": "74e86b0d-1d6b-45a9-9d4b-0e260bb8b901",
+      "date": "2023-10-21",
+      "time": "19:00",
+      "home": "3c5afe0e-9e26-49a6-8f14-da2bcf675e6f",
+      "away": "1273391b-881c-4252-9210-72ac66b66197",
+      "score": "32 - 31",
+      "location": "ŠPORTNA DVORANA PODEN",
+      "stadium": "59608ab5-12f5-405e-b93c-982a04aaf889"
+    },
+    {
+      "id": "450db40d-0344-47ac-a440-2fca7153147d",
+      "date": "2023-10-21",
+      "time": "19:00",
+      "home": "9c78f88e-bd9f-4705-98ac-ea7ae0f4cc06",
+      "away": "3c1f4be3-914e-456c-be11-b2ba71e5cbd7",
+      "score": "25 - 35",
+      "location": "ŠPORTNA DVORANA KODELJEVO",
+      "stadium": "55fbefbe-7f0e-41bb-90d0-6ed50bb6351f"
+    },
+    {
+      "id": "0a6eb6d2-31e2-42dd-b2af-2dd62317ae17",
+      "date": "2023-10-21",
+      "time": "19:00",
+      "home": "3fe5d9f1-8fa4-48c4-aeeb-19dcd626409c",
+      "away": "1524e7b6-5fa8-4d8c-833e-5b444d66b210",
+      "score": "29 - 28",
+      "location": "ŠPORTNA DVORANA HARDEK",
+      "stadium": "21e19f6f-56b0-4ac8-b25d-d6eb923ef656"
+    },
+    {
+      "id": "e092bf9f-d931-4370-b644-fd0b66158992",
+      "date": "2023-10-21",
+      "time": "18:00",
+      "home": "cd64c192-61e8-4869-b315-9b9cc3afe898",
+      "away": "ebe367d3-ec80-48e8-a98e-67ac49aa5059",
+      "score": "27 - 26",
+      "location": "RDEČA DVORANA",
+      "stadium": "31750ba8-bb6f-4ee4-ae9c-41ba871892ff"
+    },
+    {
+      "id": "c24c09b2-e3ac-4f66-beda-9dabf1878e5d",
+      "date": "2023-10-20",
+      "time": "18:00",
+      "home": "390b942f-e84b-4820-af86-a1b12393f754",
+      "away": "0f35911b-9e3c-4814-b1d7-b0835efb2d81",
+      "score": "33 - 37",
+      "location": "ŠPORTNA DVORANA SLOVENJ GRADEC",
+      "stadium": "18da7371-8ba2-444f-b85f-cc21bd70a111"
+    },
+    {
+      "id": "6f8ac6f9-7880-40ec-8c79-70acfa7cbc88",
+      "date": "2023-10-29",
+      "time": "18:00",
+      "home": "7f18a27d-f4b0-4bf0-b5a6-15bef7ddacce",
+      "away": "390b942f-e84b-4820-af86-a1b12393f754",
+      "score": "38 - 23",
+      "location": "DVORANA ZLATOROG",
+      "stadium": "fd9bc459-e0a7-44a6-bb0d-3c60ac6fd196"
+    },
+    {
+      "id": "a660732b-0ef9-490a-b5be-8265fb78ea0c",
+      "date": "2023-10-28",
+      "time": "20:00",
+      "home": "0f35911b-9e3c-4814-b1d7-b0835efb2d81",
+      "away": "c71dad75-82c3-438a-90cd-a00cfeec4fd0",
+      "score": "29 - 29",
+      "location": "ŠCR RIBNICA",
+      "stadium": "c859f409-0e67-4e57-80a3-5ee08af3e0e9"
+    },
+    {
+      "id": "124493df-91c4-46b0-a96f-8a60db0d7e01",
+      "date": "2023-10-28",
+      "time": "19:00",
+      "home": "1273391b-881c-4252-9210-72ac66b66197",
+      "away": "9c78f88e-bd9f-4705-98ac-ea7ae0f4cc06",
+      "score": "27 - 21",
+      "location": "DVORANA OSNOVNE ŠOLE STIČNA",
+      "stadium": "9d0fcb86-c56c-4a56-8cf1-a8e75bfc1139"
+    },
+    {
+      "id": "421aa909-7133-4130-8c7c-c7be55a54865",
+      "date": "2023-10-28",
+      "time": "19:00",
+      "home": "0f1f07bb-3594-4fd1-90a0-f2c02a4de2f1",
+      "away": "3c5afe0e-9e26-49a6-8f14-da2bcf675e6f",
+      "score": "26 - 31",
+      "location": "ŠPORTNA DVORANA KRIM",
+      "stadium": "b0a9d47c-1e54-42cc-9cfd-a3d9aa426537"
+    },
+    {
+      "id": "948b0a1d-2006-42fd-8094-b5cd849f257e",
+      "date": "2023-10-28",
+      "time": "18:00",
+      "home": "cd64c192-61e8-4869-b315-9b9cc3afe898",
+      "away": "ad672573-3195-411c-9a25-f19cf01a5f90",
+      "score": "36 - 24",
+      "location": "RDEČA DVORANA",
+      "stadium": "31750ba8-bb6f-4ee4-ae9c-41ba871892ff"
+    },
+    {
+      "id": "f3234d55-1984-4e1e-ad29-54b16dc4d06e",
+      "date": "2023-10-27",
+      "time": "19:00",
+      "home": "ebe367d3-ec80-48e8-a98e-67ac49aa5059",
+      "away": "1524e7b6-5fa8-4d8c-833e-5b444d66b210",
+      "score": "34 - 25",
+      "location": "ARENA BONIFIKA",
+      "stadium": "8ced8c84-3667-40b3-8a28-c2c66de470c2"
+    },
+    {
+      "id": "54f556f1-a9df-43c8-9590-a6a8a23b9891",
+      "date": "2023-10-27",
+      "time": "19:00",
+      "home": "3c1f4be3-914e-456c-be11-b2ba71e5cbd7",
+      "away": "3fe5d9f1-8fa4-48c4-aeeb-19dcd626409c",
+      "score": "33 - 23",
+      "location": "DVORANA OŠ TREBNJE",
+      "stadium": "461a2e2e-072c-4976-8dbd-6c1c925cab47"
+    },
+    {
+      "id": "5b158f7d-43d7-4593-afaf-75b6adf6e5de",
+      "date": "2023-11-11",
+      "time": "20:00",
+      "home": "3c5afe0e-9e26-49a6-8f14-da2bcf675e6f",
+      "away": "0f35911b-9e3c-4814-b1d7-b0835efb2d81",
+      "score": "35 - 35",
+      "location": "ŠPORTNA DVORANA PODEN",
+      "stadium": "59608ab5-12f5-405e-b93c-982a04aaf889"
+    },
+    {
+      "id": "460a7c88-3af1-4cd5-832b-5c5f2f8890eb",
+      "date": "2023-11-11",
+      "time": "19:30",
+      "home": "390b942f-e84b-4820-af86-a1b12393f754",
+      "away": "cd64c192-61e8-4869-b315-9b9cc3afe898",
+      "score": "25 - 25",
+      "location": "ŠPORTNA DVORANA SLOVENJ GRADEC",
+      "stadium": "18da7371-8ba2-444f-b85f-cc21bd70a111"
+    },
+    {
+      "id": "62e97b6d-bff0-4b76-a3f4-fb3279d1420e",
+      "date": "2023-11-11",
+      "time": "19:00",
+      "home": "c71dad75-82c3-438a-90cd-a00cfeec4fd0",
+      "away": "7f18a27d-f4b0-4bf0-b5a6-15bef7ddacce",
+      "score": "26 - 33",
+      "location": "ŠPORTNA DVORANA MAROF",
+      "stadium": "4b4f33ce-a8fd-4096-89a5-6643ca9325ff"
+    },
+    {
+      "id": "767967af-8982-4c8d-99e5-43f1c379148f",
+      "date": "2023-11-11",
+      "time": "19:00",
+      "home": "0f1f07bb-3594-4fd1-90a0-f2c02a4de2f1",
+      "away": "9c78f88e-bd9f-4705-98ac-ea7ae0f4cc06",
+      "score": "30 - 27",
+      "location": "ŠPORTNA DVORANA KRIM",
+      "stadium": "b0a9d47c-1e54-42cc-9cfd-a3d9aa426537"
+    },
+    {
+      "id": "63fdc631-b599-4f8a-b7b1-d0bbfa93f9ea",
+      "date": "2023-11-11",
+      "time": "19:00",
+      "home": "3fe5d9f1-8fa4-48c4-aeeb-19dcd626409c",
+      "away": "1273391b-881c-4252-9210-72ac66b66197",
+      "score": "31 - 29",
+      "location": "ŠPORTNA DVORANA HARDEK",
+      "stadium": "21e19f6f-56b0-4ac8-b25d-d6eb923ef656"
+    },
+    {
+      "id": "186cd0a4-a3fe-4387-b8ee-2b61de11f698",
+      "date": "2023-11-11",
+      "time": "19:00",
+      "home": "1524e7b6-5fa8-4d8c-833e-5b444d66b210",
+      "away": "3c1f4be3-914e-456c-be11-b2ba71e5cbd7",
+      "score": "24 - 30",
+      "location": "ŠPORTNA DVORANA ŠKOFLJICA",
+      "stadium": "1ccc4b05-3a34-45f4-b507-f1c9faffa3a9"
+    },
+    {
+      "id": "bc68491f-b9f0-4774-856f-f38a58b5c42b",
+      "date": "2023-11-10",
+      "time": "19:00",
+      "home": "ad672573-3195-411c-9a25-f19cf01a5f90",
+      "away": "ebe367d3-ec80-48e8-a98e-67ac49aa5059",
+      "score": "23 - 30",
+      "location": "ŠPORTNA DVORANA DOBOVA",
+      "stadium": "18cd7929-c2a8-44a4-b36b-9cbc0434e04b"
+    },
+    {
+      "id": "d08e0fea-7972-4e19-8174-fdd812d7ec90",
+      "date": "2023-11-19",
+      "time": "18:00",
+      "home": "7f18a27d-f4b0-4bf0-b5a6-15bef7ddacce",
+      "away": "3c5afe0e-9e26-49a6-8f14-da2bcf675e6f",
+      "score": "34 - 32",
+      "location": "DVORANA ZLATOROG",
+      "stadium": "fd9bc459-e0a7-44a6-bb0d-3c60ac6fd196"
+    },
+    {
+      "id": "01ae4aa0-986f-422b-bb12-1f68344c7a53",
+      "date": "2023-11-18",
+      "time": "19:00",
+      "home": "ebe367d3-ec80-48e8-a98e-67ac49aa5059",
+      "away": "3c1f4be3-914e-456c-be11-b2ba71e5cbd7",
+      "score": "23 - 30",
+      "location": "ARENA BONIFIKA",
+      "stadium": "8ced8c84-3667-40b3-8a28-c2c66de470c2"
+    },
+    {
+      "id": "dc77136d-db14-4b17-b037-6fbd21130b58",
+      "date": "2023-11-18",
+      "time": "19:00",
+      "home": "1273391b-881c-4252-9210-72ac66b66197",
+      "away": "1524e7b6-5fa8-4d8c-833e-5b444d66b210",
+      "score": "33 - 26",
+      "location": "DVORANA OSNOVNE ŠOLE STIČNA",
+      "stadium": "9d0fcb86-c56c-4a56-8cf1-a8e75bfc1139"
+    },
+    {
+      "id": "92027eb1-15cd-468a-83ce-469c30525ff1",
+      "date": "2023-11-18",
+      "time": "19:00",
+      "home": "0f1f07bb-3594-4fd1-90a0-f2c02a4de2f1",
+      "away": "3fe5d9f1-8fa4-48c4-aeeb-19dcd626409c",
+      "score": "23 - 25",
+      "location": "ŠPORTNA DVORANA KRIM",
+      "stadium": "b0a9d47c-1e54-42cc-9cfd-a3d9aa426537"
+    },
+    {
+      "id": "e27d02d4-d52e-4575-83fb-400e5763c01b",
+      "date": "2023-11-18",
+      "time": "19:00",
+      "home": "0f35911b-9e3c-4814-b1d7-b0835efb2d81",
+      "away": "9c78f88e-bd9f-4705-98ac-ea7ae0f4cc06",
+      "score": "38 - 32",
+      "location": "ŠCR RIBNICA",
+      "stadium": "c859f409-0e67-4e57-80a3-5ee08af3e0e9"
+    },
+    {
+      "id": "0449599b-5bb2-4d28-89f7-627e541e2ecf",
+      "date": "2023-11-18",
+      "time": "18:00",
+      "home": "cd64c192-61e8-4869-b315-9b9cc3afe898",
+      "away": "c71dad75-82c3-438a-90cd-a00cfeec4fd0",
+      "score": "31 - 20",
+      "location": "RDEČA DVORANA",
+      "stadium": "31750ba8-bb6f-4ee4-ae9c-41ba871892ff"
+    },
+    {
+      "id": "14e4e1dc-c638-42cd-9b68-4ffbb0ffdc11",
+      "date": "2023-11-17",
+      "time": "19:30",
+      "home": "ad672573-3195-411c-9a25-f19cf01a5f90",
+      "away": "390b942f-e84b-4820-af86-a1b12393f754",
+      "score": "26 - 34",
+      "location": "ŠPORTNA DVORANA DOBOVA",
+      "stadium": "18cd7929-c2a8-44a4-b36b-9cbc0434e04b"
+    },
+    {
+      "id": "27b79a45-9c8f-4c54-a0cd-1208b739589c",
+      "date": "2023-12-06",
+      "time": "18:00",
+      "home": "c71dad75-82c3-438a-90cd-a00cfeec4fd0",
+      "away": "ad672573-3195-411c-9a25-f19cf01a5f90",
+      "score": "35 - 29",
+      "location": "ŠPORTNA DVORANA MAROF",
+      "stadium": "4b4f33ce-a8fd-4096-89a5-6643ca9325ff"
+    },
+    {
+      "id": "78136400-75d3-4b9a-af66-da9ccc1fae95",
+      "date": "2023-12-03",
+      "time": "19:00",
+      "home": "9c78f88e-bd9f-4705-98ac-ea7ae0f4cc06",
+      "away": "7f18a27d-f4b0-4bf0-b5a6-15bef7ddacce",
+      "score": "23 - 28",
+      "location": "ŠPORTNA DVORANA KODELJEVO",
+      "stadium": "55fbefbe-7f0e-41bb-90d0-6ed50bb6351f"
+    },
+    {
+      "id": "4b4ec015-41c9-420c-89fd-49f0e7f6636a",
+      "date": "2023-12-02",
+      "time": "19:00",
+      "home": "390b942f-e84b-4820-af86-a1b12393f754",
+      "away": "ebe367d3-ec80-48e8-a98e-67ac49aa5059",
+      "score": "32 - 29",
+      "location": "ŠPORTNA DVORANA SLOVENJ GRADEC",
+      "stadium": "18da7371-8ba2-444f-b85f-cc21bd70a111"
+    },
+    {
+      "id": "2755e069-a962-4f98-8fc4-ea305bc29999",
+      "date": "2023-12-02",
+      "time": "19:00",
+      "home": "3c5afe0e-9e26-49a6-8f14-da2bcf675e6f",
+      "away": "cd64c192-61e8-4869-b315-9b9cc3afe898",
+      "score": "24 - 33",
+      "location": "ŠPORTNA DVORANA PODEN",
+      "stadium": "59608ab5-12f5-405e-b93c-982a04aaf889"
+    },
+    {
+      "id": "89b1fc44-2302-44f6-b3e5-2a58e53e2ac1",
+      "date": "2023-12-02",
+      "time": "19:00",
+      "home": "1524e7b6-5fa8-4d8c-833e-5b444d66b210",
+      "away": "0f1f07bb-3594-4fd1-90a0-f2c02a4de2f1",
+      "score": "29 - 27",
+      "location": "ŠPORTNA DVORANA ŠKOFLJICA",
+      "stadium": "1ccc4b05-3a34-45f4-b507-f1c9faffa3a9"
+    },
+    {
+      "id": "55016339-fec7-416e-b513-4ae87256fdd2",
+      "date": "2023-12-01",
+      "time": "18:15",
+      "home": "3fe5d9f1-8fa4-48c4-aeeb-19dcd626409c",
+      "away": "0f35911b-9e3c-4814-b1d7-b0835efb2d81",
+      "score": "30 - 25",
+      "location": "ŠPORTNA DVORANA HARDEK",
+      "stadium": "21e19f6f-56b0-4ac8-b25d-d6eb923ef656"
+    },
+    {
+      "id": "2c7cc1eb-07ed-4482-b890-b8edd190a21b",
+      "date": "2023-12-01",
+      "time": "18:00",
+      "home": "3c1f4be3-914e-456c-be11-b2ba71e5cbd7",
+      "away": "1273391b-881c-4252-9210-72ac66b66197",
+      "score": "40 - 27",
+      "location": "DVORANA OŠ TREBNJE",
+      "stadium": "461a2e2e-072c-4976-8dbd-6c1c925cab47"
+    },
+    {
+      "id": "7813f45f-b4d8-4560-a5a0-f3e98aa94461",
+      "date": "2023-12-10",
+      "time": "18:00",
+      "home": "7f18a27d-f4b0-4bf0-b5a6-15bef7ddacce",
+      "away": "3fe5d9f1-8fa4-48c4-aeeb-19dcd626409c",
+      "score": "34 - 27",
+      "location": "DVORANA ZLATOROG",
+      "stadium": "fd9bc459-e0a7-44a6-bb0d-3c60ac6fd196"
+    },
+    {
+      "id": "422d1792-19ef-48fc-bec0-63537d3b658a",
+      "date": "2023-12-09",
+      "time": "19:00",
+      "home": "ebe367d3-ec80-48e8-a98e-67ac49aa5059",
+      "away": "1273391b-881c-4252-9210-72ac66b66197",
+      "score": "32 - 26",
+      "location": "ARENA BONIFIKA",
+      "stadium": "8ced8c84-3667-40b3-8a28-c2c66de470c2"
+    },
+    {
+      "id": "6aa2c018-671e-49e8-ae33-73e11594d1bf",
+      "date": "2023-12-09",
+      "time": "19:00",
+      "home": "0f1f07bb-3594-4fd1-90a0-f2c02a4de2f1",
+      "away": "3c1f4be3-914e-456c-be11-b2ba71e5cbd7",
+      "score": "27 - 35",
+      "location": "ŠPORTNA DVORANA KRIM",
+      "stadium": "b0a9d47c-1e54-42cc-9cfd-a3d9aa426537"
+    },
+    {
+      "id": "86373f98-961c-4905-953b-e89c5a574df7",
+      "date": "2023-12-09",
+      "time": "19:00",
+      "home": "0f35911b-9e3c-4814-b1d7-b0835efb2d81",
+      "away": "1524e7b6-5fa8-4d8c-833e-5b444d66b210",
+      "score": "39 - 30",
+      "location": "ŠCR RIBNICA",
+      "stadium": "c859f409-0e67-4e57-80a3-5ee08af3e0e9"
+    },
+    {
+      "id": "0814e20a-0c9a-4b4a-8c19-73d03b5f1804",
+      "date": "2023-12-09",
+      "time": "19:00",
+      "home": "ad672573-3195-411c-9a25-f19cf01a5f90",
+      "away": "3c5afe0e-9e26-49a6-8f14-da2bcf675e6f",
+      "score": "31 - 30",
+      "location": "ŠPORTNA DVORANA DOBOVA",
+      "stadium": "18cd7929-c2a8-44a4-b36b-9cbc0434e04b"
+    },
+    {
+      "id": "e266894b-792c-45be-89fa-fe425a502489",
+      "date": "2023-12-09",
+      "time": "19:00",
+      "home": "390b942f-e84b-4820-af86-a1b12393f754",
+      "away": "c71dad75-82c3-438a-90cd-a00cfeec4fd0",
+      "score": "25 - 34",
+      "location": "ŠPORTNA DVORANA SLOVENJ GRADEC",
+      "stadium": "18da7371-8ba2-444f-b85f-cc21bd70a111"
+    },
+    {
+      "id": "87f3e987-4da5-42cd-88f9-19f04e9fc2fb",
+      "date": "2023-12-09",
+      "time": "18:00",
+      "home": "cd64c192-61e8-4869-b315-9b9cc3afe898",
+      "away": "9c78f88e-bd9f-4705-98ac-ea7ae0f4cc06",
+      "score": "33 - 29",
+      "location": "RDEČA DVORANA",
+      "stadium": "31750ba8-bb6f-4ee4-ae9c-41ba871892ff"
+    },
+    {
+      "id": "a652c50f-c020-4a96-a54a-908e5b120726",
+      "date": "2023-12-17",
+      "time": "19:00",
+      "home": "c71dad75-82c3-438a-90cd-a00cfeec4fd0",
+      "away": "ebe367d3-ec80-48e8-a98e-67ac49aa5059",
+      "score": "32 - 25",
+      "location": "ŠPORTNA DVORANA MAROF",
+      "stadium": "4b4f33ce-a8fd-4096-89a5-6643ca9325ff"
+    },
+    {
+      "id": "32c0b19c-2d1e-4744-bebe-2b3793bb56c7",
+      "date": "2023-12-16",
+      "time": "19:00",
+      "home": "3c5afe0e-9e26-49a6-8f14-da2bcf675e6f",
+      "away": "390b942f-e84b-4820-af86-a1b12393f754",
+      "score": "29 - 32",
+      "location": "ŠPORTNA DVORANA PODEN",
+      "stadium": "59608ab5-12f5-405e-b93c-982a04aaf889"
+    },
+    {
+      "id": "3f92e511-d475-4cde-832b-e38c6aa44d23",
+      "date": "2023-12-16",
+      "time": "19:00",
+      "home": "9c78f88e-bd9f-4705-98ac-ea7ae0f4cc06",
+      "away": "ad672573-3195-411c-9a25-f19cf01a5f90",
+      "score": "29 - 25",
+      "location": "ŠPORTNA DVORANA KODELJEVO",
+      "stadium": "55fbefbe-7f0e-41bb-90d0-6ed50bb6351f"
+    },
+    {
+      "id": "4df48b76-fd42-4a6f-b18f-5fab91daabcf",
+      "date": "2023-12-16",
+      "time": "19:00",
+      "home": "3fe5d9f1-8fa4-48c4-aeeb-19dcd626409c",
+      "away": "cd64c192-61e8-4869-b315-9b9cc3afe898",
+      "score": "25 - 25",
+      "location": "ŠPORTNA DVORANA HARDEK",
+      "stadium": "21e19f6f-56b0-4ac8-b25d-d6eb923ef656"
+    },
+    {
+      "id": "36110f03-fcf1-40ff-a0f0-488e2969916c",
+      "date": "2023-12-16",
+      "time": "19:00",
+      "home": "1524e7b6-5fa8-4d8c-833e-5b444d66b210",
+      "away": "7f18a27d-f4b0-4bf0-b5a6-15bef7ddacce",
+      "score": "28 - 36",
+      "location": "ŠPORTNA DVORANA ŠKOFLJICA",
+      "stadium": "1ccc4b05-3a34-45f4-b507-f1c9faffa3a9"
+    },
+    {
+      "id": "b9c399f3-ce67-42a0-a518-8075fb2537fd",
+      "date": "2023-12-16",
+      "time": "19:00",
+      "home": "1273391b-881c-4252-9210-72ac66b66197",
+      "away": "0f1f07bb-3594-4fd1-90a0-f2c02a4de2f1",
+      "score": "32 - 28",
+      "location": "DVORANA OSNOVNE ŠOLE STIČNA",
+      "stadium": "9d0fcb86-c56c-4a56-8cf1-a8e75bfc1139"
+    },
+    {
+      "id": "0fe1c877-e484-4b49-97c7-ae4356945e24",
+      "date": "2023-12-15",
+      "time": "18:30",
+      "home": "3c1f4be3-914e-456c-be11-b2ba71e5cbd7",
+      "away": "0f35911b-9e3c-4814-b1d7-b0835efb2d81",
+      "score": "40 - 31",
+      "location": "DVORANA OŠ TREBNJE",
+      "stadium": "461a2e2e-072c-4976-8dbd-6c1c925cab47"
+    },
+    {
+      "id": "3a1288e3-45c7-47f0-8795-2770497db4c2",
+      "date": "2024-02-04",
+      "time": "19:00",
+      "home": "9c78f88e-bd9f-4705-98ac-ea7ae0f4cc06",
+      "away": "390b942f-e84b-4820-af86-a1b12393f754",
+      "score": "30 - 29",
+      "location": "ŠPORTNA DVORANA KODELJEVO",
+      "stadium": "55fbefbe-7f0e-41bb-90d0-6ed50bb6351f"
+    },
+    {
+      "id": "86ce4a28-bfd5-4b74-8258-1ecb601068ed",
+      "date": "2024-02-03",
+      "time": "19:30",
+      "home": "3fe5d9f1-8fa4-48c4-aeeb-19dcd626409c",
+      "away": "ad672573-3195-411c-9a25-f19cf01a5f90",
+      "score": "35 - 24",
+      "location": "ŠPORTNA DVORANA HARDEK",
+      "stadium": "21e19f6f-56b0-4ac8-b25d-d6eb923ef656"
+    },
+    {
+      "id": "0838dad6-2ca3-4569-bad8-aa7fc711de12",
+      "date": "2024-02-03",
+      "time": "19:00",
+      "home": "1273391b-881c-4252-9210-72ac66b66197",
+      "away": "0f35911b-9e3c-4814-b1d7-b0835efb2d81",
+      "score": "28 - 30",
+      "location": "DVORANA OSNOVNE ŠOLE STIČNA",
+      "stadium": "9d0fcb86-c56c-4a56-8cf1-a8e75bfc1139"
+    },
+    {
+      "id": "99cf9666-9311-4bb6-b33f-5afd49ca9833",
+      "date": "2024-02-03",
+      "time": "19:00",
+      "home": "3c1f4be3-914e-456c-be11-b2ba71e5cbd7",
+      "away": "7f18a27d-f4b0-4bf0-b5a6-15bef7ddacce",
+      "score": "33 - 29",
+      "location": "DVORANA OŠ TREBNJE",
+      "stadium": "461a2e2e-072c-4976-8dbd-6c1c925cab47"
+    },
+    {
+      "id": "c111a15e-5b31-4617-a4de-dd287c5f818f",
+      "date": "2024-02-03",
+      "time": "19:00",
+      "home": "1524e7b6-5fa8-4d8c-833e-5b444d66b210",
+      "away": "cd64c192-61e8-4869-b315-9b9cc3afe898",
+      "score": "23 - 34",
+      "location": "ŠPORTNA DVORANA ŠKOFLJICA",
+      "stadium": "1ccc4b05-3a34-45f4-b507-f1c9faffa3a9"
+    },
+    {
+      "id": "9bf7c2d9-0efd-4104-a76c-7f3cc5fd7988",
+      "date": "2024-02-03",
+      "time": "19:00",
+      "home": "3c5afe0e-9e26-49a6-8f14-da2bcf675e6f",
+      "away": "c71dad75-82c3-438a-90cd-a00cfeec4fd0",
+      "score": "26 - 25",
+      "location": "ŠD TRATA",
+      "stadium": "b4387979-0360-4466-82c0-7855edc5d703"
+    },
+    {
+      "id": "737f8f07-b7af-4a6e-b9f1-91b2a9482c6d",
+      "date": "2024-02-02",
+      "time": "19:00",
+      "home": "ebe367d3-ec80-48e8-a98e-67ac49aa5059",
+      "away": "0f1f07bb-3594-4fd1-90a0-f2c02a4de2f1",
+      "score": "40 - 28",
+      "location": "ARENA BONIFIKA",
+      "stadium": "8ced8c84-3667-40b3-8a28-c2c66de470c2"
+    },
+    {
+      "id": "667bc7be-7632-4c08-a975-2a48c98c0203",
+      "date": "2024-02-21",
+      "time": "17:30",
+      "home": "c71dad75-82c3-438a-90cd-a00cfeec4fd0",
+      "away": "9c78f88e-bd9f-4705-98ac-ea7ae0f4cc06",
+      "score": "32 - 30",
+      "location": "ŠPORTNA DVORANA MAROF",
+      "stadium": "4b4f33ce-a8fd-4096-89a5-6643ca9325ff"
+    },
+    {
+      "id": "500e5124-4b02-403b-87b8-afbd2ab973b8",
+      "date": "2024-02-10",
+      "time": "19:00",
+      "home": "3c5afe0e-9e26-49a6-8f14-da2bcf675e6f",
+      "away": "ebe367d3-ec80-48e8-a98e-67ac49aa5059",
+      "score": "23 - 28",
+      "location": "ŠPORTNA DVORANA PODEN",
+      "stadium": "59608ab5-12f5-405e-b93c-982a04aaf889"
+    },
+    {
+      "id": "d274dddb-951c-454d-a9f7-12d28855d209",
+      "date": "2024-02-10",
+      "time": "19:00",
+      "home": "390b942f-e84b-4820-af86-a1b12393f754",
+      "away": "3fe5d9f1-8fa4-48c4-aeeb-19dcd626409c",
+      "score": "25 - 27",
+      "location": "ŠPORTNA DVORANA SLOVENJ GRADEC",
+      "stadium": "18da7371-8ba2-444f-b85f-cc21bd70a111"
+    },
+    {
+      "id": "a136ca5a-760a-4149-91ca-e161b0545bae",
+      "date": "2024-02-10",
+      "time": "19:00",
+      "home": "0f35911b-9e3c-4814-b1d7-b0835efb2d81",
+      "away": "0f1f07bb-3594-4fd1-90a0-f2c02a4de2f1",
+      "score": "41 - 30",
+      "location": "ŠCR RIBNICA",
+      "stadium": "c859f409-0e67-4e57-80a3-5ee08af3e0e9"
+    },
+    {
+      "id": "ab33d553-ecba-4982-843a-8b997269026a",
+      "date": "2024-02-09",
+      "time": "19:30",
+      "home": "ad672573-3195-411c-9a25-f19cf01a5f90",
+      "away": "1524e7b6-5fa8-4d8c-833e-5b444d66b210",
+      "score": "29 - 27",
+      "location": "ŠPORTNA DVORANA DOBOVA",
+      "stadium": "18cd7929-c2a8-44a4-b36b-9cbc0434e04b"
+    },
+    {
+      "id": "f6c23740-e13e-4f3d-8028-0ed01adb83c6",
+      "date": "2024-02-09",
+      "time": "18:00",
+      "home": "cd64c192-61e8-4869-b315-9b9cc3afe898",
+      "away": "3c1f4be3-914e-456c-be11-b2ba71e5cbd7",
+      "score": "23 - 23",
+      "location": "RDEČA DVORANA",
+      "stadium": "31750ba8-bb6f-4ee4-ae9c-41ba871892ff"
+    },
+    {
+      "id": "82d21661-f43f-4f6c-af24-50fb2a47244f",
+      "date": "2024-02-09",
+      "time": "18:00",
+      "home": "7f18a27d-f4b0-4bf0-b5a6-15bef7ddacce",
+      "away": "1273391b-881c-4252-9210-72ac66b66197",
+      "score": "40 - 28",
+      "location": "DVORANA ZLATOROG",
+      "stadium": "fd9bc459-e0a7-44a6-bb0d-3c60ac6fd196"
+    },
+    {
+      "id": "0d13cd0a-aeb2-4f3d-b74b-ed2181699ac5",
+      "date": "2024-02-28",
+      "time": "18:30",
+      "home": "3fe5d9f1-8fa4-48c4-aeeb-19dcd626409c",
+      "away": "c71dad75-82c3-438a-90cd-a00cfeec4fd0",
+      "score": "26 - 26",
+      "location": "ŠPORTNA DVORANA HARDEK",
+      "stadium": "21e19f6f-56b0-4ac8-b25d-d6eb923ef656"
+    },
+    {
+      "id": "e1dbd3ad-ffd9-4b57-841f-e6bf56793963",
+      "date": "2024-02-18",
+      "time": "19:00",
+      "home": "9c78f88e-bd9f-4705-98ac-ea7ae0f4cc06",
+      "away": "3c5afe0e-9e26-49a6-8f14-da2bcf675e6f",
+      "score": "32 - 24",
+      "location": "ŠPORTNA DVORANA KODELJEVO",
+      "stadium": "55fbefbe-7f0e-41bb-90d0-6ed50bb6351f"
+    },
+    {
+      "id": "12958662-7800-4f0f-a3f0-6892c3236baa",
+      "date": "2024-02-17",
+      "time": "19:00",
+      "home": "ebe367d3-ec80-48e8-a98e-67ac49aa5059",
+      "away": "0f35911b-9e3c-4814-b1d7-b0835efb2d81",
+      "score": "33 - 30",
+      "location": "ARENA BONIFIKA",
+      "stadium": "8ced8c84-3667-40b3-8a28-c2c66de470c2"
+    },
+    {
+      "id": "3b16a946-4867-497e-bbc0-385272576240",
+      "date": "2024-02-17",
+      "time": "19:00",
+      "home": "0f1f07bb-3594-4fd1-90a0-f2c02a4de2f1",
+      "away": "7f18a27d-f4b0-4bf0-b5a6-15bef7ddacce",
+      "score": "30 - 37",
+      "location": "ŠPORTNA DVORANA KRIM",
+      "stadium": "b0a9d47c-1e54-42cc-9cfd-a3d9aa426537"
+    },
+    {
+      "id": "6322e79f-7188-4c63-9c89-052c233e7747",
+      "date": "2024-02-17",
+      "time": "19:00",
+      "home": "1273391b-881c-4252-9210-72ac66b66197",
+      "away": "cd64c192-61e8-4869-b315-9b9cc3afe898",
+      "score": "26 - 36",
+      "location": "DVORANA OSNOVNE ŠOLE STIČNA",
+      "stadium": "9d0fcb86-c56c-4a56-8cf1-a8e75bfc1139"
+    },
+    {
+      "id": "fdc30ceb-c387-4629-a921-dbdc4a88ff66",
+      "date": "2024-02-17",
+      "time": "19:00",
+      "home": "1524e7b6-5fa8-4d8c-833e-5b444d66b210",
+      "away": "390b942f-e84b-4820-af86-a1b12393f754",
+      "score": "26 - 31",
+      "location": "ŠPORTNA DVORANA ŠKOFLJICA",
+      "stadium": "1ccc4b05-3a34-45f4-b507-f1c9faffa3a9"
+    },
+    {
+      "id": "8ed37900-bd99-4337-8719-cdec3758acab",
+      "date": "2024-02-16",
+      "time": "18:00",
+      "home": "3c1f4be3-914e-456c-be11-b2ba71e5cbd7",
+      "away": "ad672573-3195-411c-9a25-f19cf01a5f90",
+      "score": "39 - 25",
+      "location": "DVORANA OŠ TREBNJE",
+      "stadium": "461a2e2e-072c-4976-8dbd-6c1c925cab47"
+    },
+    {
+      "id": "d72b24e8-e3f4-4d15-9249-34c1e385eb8c",
+      "date": "2024-04-05",
+      "time": "18:00",
+      "home": "cd64c192-61e8-4869-b315-9b9cc3afe898",
+      "away": "0f1f07bb-3594-4fd1-90a0-f2c02a4de2f1",
+      "score": "35 - 27",
+      "location": "RDEČA DVORANA",
+      "stadium": "31750ba8-bb6f-4ee4-ae9c-41ba871892ff"
+    },
+    {
+      "id": "b7e424b0-c736-4fde-afad-137186b73300",
+      "date": "2024-02-24",
+      "time": "20:00",
+      "home": "7f18a27d-f4b0-4bf0-b5a6-15bef7ddacce",
+      "away": "0f35911b-9e3c-4814-b1d7-b0835efb2d81",
+      "score": "31 - 29",
+      "location": "DVORANA ZLATOROG",
+      "stadium": "fd9bc459-e0a7-44a6-bb0d-3c60ac6fd196"
+    },
+    {
+      "id": "484af4ef-822b-4fe8-ba1c-765f3370c949",
+      "date": "2024-02-24",
+      "time": "19:00",
+      "home": "9c78f88e-bd9f-4705-98ac-ea7ae0f4cc06",
+      "away": "ebe367d3-ec80-48e8-a98e-67ac49aa5059",
+      "score": "21 - 25",
+      "location": "ŠPORTNA DVORANA KODELJEVO",
+      "stadium": "55fbefbe-7f0e-41bb-90d0-6ed50bb6351f"
+    },
+    {
+      "id": "c00d9034-1861-4e45-aa39-c866ac6ff63a",
+      "date": "2024-02-24",
+      "time": "19:00",
+      "home": "3c5afe0e-9e26-49a6-8f14-da2bcf675e6f",
+      "away": "3fe5d9f1-8fa4-48c4-aeeb-19dcd626409c",
+      "score": "23 - 22",
+      "location": "ŠPORTNA DVORANA PODEN",
+      "stadium": "59608ab5-12f5-405e-b93c-982a04aaf889"
+    },
+    {
+      "id": "0186d6f3-5f10-407a-a9e7-452171baddb6",
+      "date": "2024-02-24",
+      "time": "19:00",
+      "home": "390b942f-e84b-4820-af86-a1b12393f754",
+      "away": "3c1f4be3-914e-456c-be11-b2ba71e5cbd7",
+      "score": "30 - 29",
+      "location": "ŠPORTNA DVORANA SLOVENJ GRADEC",
+      "stadium": "18da7371-8ba2-444f-b85f-cc21bd70a111"
+    },
+    {
+      "id": "a4c69934-6274-4e84-9720-02d199bea6da",
+      "date": "2024-02-24",
+      "time": "18:00",
+      "home": "c71dad75-82c3-438a-90cd-a00cfeec4fd0",
+      "away": "1524e7b6-5fa8-4d8c-833e-5b444d66b210",
+      "score": "37 - 23",
+      "location": "ŠPORTNA DVORANA MAROF",
+      "stadium": "4b4f33ce-a8fd-4096-89a5-6643ca9325ff"
+    },
+    {
+      "id": "720f65fc-dd66-4948-b00d-283e866596e8",
+      "date": "2024-02-23",
+      "time": "19:30",
+      "home": "ad672573-3195-411c-9a25-f19cf01a5f90",
+      "away": "1273391b-881c-4252-9210-72ac66b66197",
+      "score": "33 - 31",
+      "location": "ŠPORTNA DVORANA DOBOVA",
+      "stadium": "18cd7929-c2a8-44a4-b36b-9cbc0434e04b"
+    },
+    {
+      "id": "b93fe9b0-3cf3-4471-b12d-bd1fe2aafd97",
+      "date": "2024-03-03",
+      "time": "18:00",
+      "home": "ebe367d3-ec80-48e8-a98e-67ac49aa5059",
+      "away": "7f18a27d-f4b0-4bf0-b5a6-15bef7ddacce",
+      "score": "32 - 27",
+      "location": "ARENA BONIFIKA",
+      "stadium": "8ced8c84-3667-40b3-8a28-c2c66de470c2"
+    },
+    {
+      "id": "f91a4312-8ff9-4098-82f7-15bef8876311",
+      "date": "2024-03-02",
+      "time": "20:00",
+      "home": "0f35911b-9e3c-4814-b1d7-b0835efb2d81",
+      "away": "cd64c192-61e8-4869-b315-9b9cc3afe898",
+      "score": "24 - 30",
+      "location": "ŠCR RIBNICA",
+      "stadium": "c859f409-0e67-4e57-80a3-5ee08af3e0e9"
+    },
+    {
+      "id": "88087eb9-7abf-4a4a-b64e-a91cdde6ca35",
+      "date": "2024-03-02",
+      "time": "19:00",
+      "home": "0f1f07bb-3594-4fd1-90a0-f2c02a4de2f1",
+      "away": "ad672573-3195-411c-9a25-f19cf01a5f90",
+      "score": "34 - 23",
+      "location": "ŠPORTNA DVORANA KRIM",
+      "stadium": "b0a9d47c-1e54-42cc-9cfd-a3d9aa426537"
+    },
+    {
+      "id": "8a1089c1-4329-4cde-ad5a-1e4113f52bcb",
+      "date": "2024-03-02",
+      "time": "19:00",
+      "home": "1273391b-881c-4252-9210-72ac66b66197",
+      "away": "390b942f-e84b-4820-af86-a1b12393f754",
+      "score": "30 - 31",
+      "location": "DVORANA OSNOVNE ŠOLE STIČNA",
+      "stadium": "9d0fcb86-c56c-4a56-8cf1-a8e75bfc1139"
+    },
+    {
+      "id": "d46a4778-04c1-4912-a5c0-5a653cb023b9",
+      "date": "2024-03-02",
+      "time": "19:00",
+      "home": "1524e7b6-5fa8-4d8c-833e-5b444d66b210",
+      "away": "3c5afe0e-9e26-49a6-8f14-da2bcf675e6f",
+      "score": "33 - 29",
+      "location": "ŠPORTNA DVORANA ŠKOFLJICA",
+      "stadium": "1ccc4b05-3a34-45f4-b507-f1c9faffa3a9"
+    },
+    {
+      "id": "11d84c21-7251-4330-a7b1-f276dc95e3ae",
+      "date": "2024-03-02",
+      "time": "19:00",
+      "home": "3fe5d9f1-8fa4-48c4-aeeb-19dcd626409c",
+      "away": "9c78f88e-bd9f-4705-98ac-ea7ae0f4cc06",
+      "score": "24 - 26",
+      "location": "ŠPORTNA DVORANA HARDEK",
+      "stadium": "21e19f6f-56b0-4ac8-b25d-d6eb923ef656"
+    },
+    {
+      "id": "f66cb53b-6bf9-4a49-8b3e-13ba3920495e",
+      "date": "2024-03-02",
+      "time": "17:00",
+      "home": "3c1f4be3-914e-456c-be11-b2ba71e5cbd7",
+      "away": "c71dad75-82c3-438a-90cd-a00cfeec4fd0",
+      "score": "25 - 20",
+      "location": "DVORANA OŠ TREBNJE",
+      "stadium": "461a2e2e-072c-4976-8dbd-6c1c925cab47"
+    },
+    {
+      "id": "7cba9937-5e04-4a88-acb7-6af31634b8c3",
+      "date": "2024-03-10",
+      "time": "17:15",
+      "home": "cd64c192-61e8-4869-b315-9b9cc3afe898",
+      "away": "7f18a27d-f4b0-4bf0-b5a6-15bef7ddacce",
+      "score": "32 - 27",
+      "location": "RDEČA DVORANA",
+      "stadium": "31750ba8-bb6f-4ee4-ae9c-41ba871892ff"
+    },
+    {
+      "id": "231b75ba-57b3-454d-bf5b-2602fd093e71",
+      "date": "2024-03-09",
+      "time": "19:00",
+      "home": "3fe5d9f1-8fa4-48c4-aeeb-19dcd626409c",
+      "away": "ebe367d3-ec80-48e8-a98e-67ac49aa5059",
+      "score": "28 - 26",
+      "location": "ŠPORTNA DVORANA HARDEK",
+      "stadium": "21e19f6f-56b0-4ac8-b25d-d6eb923ef656"
+    },
+    {
+      "id": "5263a0b8-22e9-4405-9e07-b722ef4ddfcb",
+      "date": "2024-03-09",
+      "time": "19:00",
+      "home": "9c78f88e-bd9f-4705-98ac-ea7ae0f4cc06",
+      "away": "1524e7b6-5fa8-4d8c-833e-5b444d66b210",
+      "score": "31 - 25",
+      "location": "ŠPORTNA DVORANA KODELJEVO",
+      "stadium": "55fbefbe-7f0e-41bb-90d0-6ed50bb6351f"
+    },
+    {
+      "id": "ee5bc3ed-ad88-48d1-9914-d2fda6b56519",
+      "date": "2024-03-09",
+      "time": "19:00",
+      "home": "c71dad75-82c3-438a-90cd-a00cfeec4fd0",
+      "away": "1273391b-881c-4252-9210-72ac66b66197",
+      "score": "30 - 21",
+      "location": "ŠPORTNA DVORANA MAROF",
+      "stadium": "4b4f33ce-a8fd-4096-89a5-6643ca9325ff"
+    },
+    {
+      "id": "5cd8a8d6-16c4-4d99-9097-0f1ab59a97cd",
+      "date": "2024-03-09",
+      "time": "19:00",
+      "home": "390b942f-e84b-4820-af86-a1b12393f754",
+      "away": "0f1f07bb-3594-4fd1-90a0-f2c02a4de2f1",
+      "score": "33 - 26",
+      "location": "ŠPORTNA DVORANA SLOVENJ GRADEC",
+      "stadium": "18da7371-8ba2-444f-b85f-cc21bd70a111"
+    },
+    {
+      "id": "5e7bec76-558b-4482-893c-56a95e0df3d0",
+      "date": "2024-03-08",
+      "time": "19:30",
+      "home": "ad672573-3195-411c-9a25-f19cf01a5f90",
+      "away": "0f35911b-9e3c-4814-b1d7-b0835efb2d81",
+      "score": "26 - 35",
+      "location": "ŠPORTNA DVORANA DOBOVA",
+      "stadium": "18cd7929-c2a8-44a4-b36b-9cbc0434e04b"
+    },
+    {
+      "id": "28179506-73b4-4265-96eb-22d846795356",
+      "date": "2024-03-07",
+      "time": "19:00",
+      "home": "3c5afe0e-9e26-49a6-8f14-da2bcf675e6f",
+      "away": "3c1f4be3-914e-456c-be11-b2ba71e5cbd7",
+      "score": "23 - 30",
+      "location": "ŠPORTNA DVORANA PODEN",
+      "stadium": "59608ab5-12f5-405e-b93c-982a04aaf889"
+    },
+    {
+      "id": "c69260c4-5946-46e3-8709-c2b4a981dd4a",
+      "date": "2024-03-27",
+      "time": "20:30",
+      "home": "0f1f07bb-3594-4fd1-90a0-f2c02a4de2f1",
+      "away": "c71dad75-82c3-438a-90cd-a00cfeec4fd0",
+      "score": "32 - 34",
+      "location": "ŠPORTNA DVORANA KRIM",
+      "stadium": "b0a9d47c-1e54-42cc-9cfd-a3d9aa426537"
+    },
+    {
+      "id": "c8ba756e-0dd6-4830-97dc-9779fae5a25e",
+      "date": "2024-03-24",
+      "time": "17:00",
+      "home": "7f18a27d-f4b0-4bf0-b5a6-15bef7ddacce",
+      "away": "ad672573-3195-411c-9a25-f19cf01a5f90",
+      "score": "45 - 29",
+      "location": "DVORANA ZLATOROG",
+      "stadium": "fd9bc459-e0a7-44a6-bb0d-3c60ac6fd196"
+    },
+    {
+      "id": "2233d397-67bb-4909-be9a-a35cf9e47674",
+      "date": "2024-03-23",
+      "time": "19:00",
+      "home": "0f35911b-9e3c-4814-b1d7-b0835efb2d81",
+      "away": "390b942f-e84b-4820-af86-a1b12393f754",
+      "score": "35 - 32",
+      "location": "ŠCR RIBNICA",
+      "stadium": "c859f409-0e67-4e57-80a3-5ee08af3e0e9"
+    },
+    {
+      "id": "64a16a8e-154b-4959-8842-00306e4e5d10",
+      "date": "2024-03-23",
+      "time": "19:00",
+      "home": "1273391b-881c-4252-9210-72ac66b66197",
+      "away": "3c5afe0e-9e26-49a6-8f14-da2bcf675e6f",
+      "score": "29 - 29",
+      "location": "DVORANA OSNOVNE ŠOLE STIČNA",
+      "stadium": "9d0fcb86-c56c-4a56-8cf1-a8e75bfc1139"
+    },
+    {
+      "id": "ba5c69b4-1fda-446f-b5eb-0fa4fe110259",
+      "date": "2024-03-23",
+      "time": "19:00",
+      "home": "1524e7b6-5fa8-4d8c-833e-5b444d66b210",
+      "away": "3fe5d9f1-8fa4-48c4-aeeb-19dcd626409c",
+      "score": "25 - 27",
+      "location": "ŠPORTNA DVORANA ŠKOFLJICA",
+      "stadium": "1ccc4b05-3a34-45f4-b507-f1c9faffa3a9"
+    },
+    {
+      "id": "1b4de4f7-dcac-46d7-bcf8-41ae19838325",
+      "date": "2024-03-23",
+      "time": "18:00",
+      "home": "3c1f4be3-914e-456c-be11-b2ba71e5cbd7",
+      "away": "9c78f88e-bd9f-4705-98ac-ea7ae0f4cc06",
+      "score": "38 - 31",
+      "location": "DVORANA OŠ TREBNJE",
+      "stadium": "461a2e2e-072c-4976-8dbd-6c1c925cab47"
+    },
+    {
+      "id": "6d11114c-0a9b-49a2-a718-e62130844de1",
+      "date": "2024-03-22",
+      "time": "20:15",
+      "home": "ebe367d3-ec80-48e8-a98e-67ac49aa5059",
+      "away": "cd64c192-61e8-4869-b315-9b9cc3afe898",
+      "score": "27 - 31",
+      "location": "ARENA BONIFIKA",
+      "stadium": "8ced8c84-3667-40b3-8a28-c2c66de470c2"
+    },
+    {
+      "id": "5f061a12-f11c-4889-bb54-0b9f52e91238",
+      "date": "2024-05-03",
+      "time": "19:00",
+      "home": "ad672573-3195-411c-9a25-f19cf01a5f90",
+      "away": "cd64c192-61e8-4869-b315-9b9cc3afe898",
+      "score": "26 - 36",
+      "location": "ŠPORTNA DVORANA DOBOVA",
+      "stadium": "18cd7929-c2a8-44a4-b36b-9cbc0434e04b"
+    },
+    {
+      "id": "149973b0-0148-48cf-8354-be3228712c1a",
+      "date": "2024-04-09",
+      "time": "18:30",
+      "home": "c71dad75-82c3-438a-90cd-a00cfeec4fd0",
+      "away": "0f35911b-9e3c-4814-b1d7-b0835efb2d81",
+      "score": "30 - 29",
+      "location": "ŠPORTNA DVORANA MAROF",
+      "stadium": "4b4f33ce-a8fd-4096-89a5-6643ca9325ff"
+    },
+    {
+      "id": "612ac58c-f41c-4204-b036-d45e0bbb9d49",
+      "date": "2024-03-30",
+      "time": "19:00",
+      "home": "9c78f88e-bd9f-4705-98ac-ea7ae0f4cc06",
+      "away": "1273391b-881c-4252-9210-72ac66b66197",
+      "score": "29 - 23",
+      "location": "ŠPORTNA DVORANA KODELJEVO",
+      "stadium": "55fbefbe-7f0e-41bb-90d0-6ed50bb6351f"
+    },
+    {
+      "id": "25b9782f-b510-4c48-8615-e9aae22263af",
+      "date": "2024-03-30",
+      "time": "19:00",
+      "home": "3c5afe0e-9e26-49a6-8f14-da2bcf675e6f",
+      "away": "0f1f07bb-3594-4fd1-90a0-f2c02a4de2f1",
+      "score": "28 - 21",
+      "location": "ŠPORTNA DVORANA PODEN",
+      "stadium": "59608ab5-12f5-405e-b93c-982a04aaf889"
+    },
+    {
+      "id": "f631b236-c435-45fd-96d9-cb41c6ff881f",
+      "date": "2024-03-30",
+      "time": "19:00",
+      "home": "390b942f-e84b-4820-af86-a1b12393f754",
+      "away": "7f18a27d-f4b0-4bf0-b5a6-15bef7ddacce",
+      "score": "32 - 34",
+      "location": "ŠPORTNA DVORANA SLOVENJ GRADEC",
+      "stadium": "18da7371-8ba2-444f-b85f-cc21bd70a111"
+    },
+    {
+      "id": "e1ffc0c0-042f-4fa8-b423-0917c867bcf2",
+      "date": "2024-03-30",
+      "time": "18:30",
+      "home": "3fe5d9f1-8fa4-48c4-aeeb-19dcd626409c",
+      "away": "3c1f4be3-914e-456c-be11-b2ba71e5cbd7",
+      "score": "27 - 27",
+      "location": "ŠPORTNA DVORANA HARDEK",
+      "stadium": "21e19f6f-56b0-4ac8-b25d-d6eb923ef656"
+    },
+    {
+      "id": "7428cdf1-3789-4887-a212-fd547dcfe3ba",
+      "date": "2024-03-27",
+      "time": "19:00",
+      "home": "1524e7b6-5fa8-4d8c-833e-5b444d66b210",
+      "away": "ebe367d3-ec80-48e8-a98e-67ac49aa5059",
+      "score": "33 - 39",
+      "location": "ŠPORTNA DVORANA ŠKOFLJICA",
+      "stadium": "1ccc4b05-3a34-45f4-b507-f1c9faffa3a9"
+    },
+    {
+      "id": "9ccb8c61-e18a-4c07-bbdc-b4422b63b511",
+      "date": "2024-04-14",
+      "time": "19:00",
+      "home": "9c78f88e-bd9f-4705-98ac-ea7ae0f4cc06",
+      "away": "0f1f07bb-3594-4fd1-90a0-f2c02a4de2f1",
+      "score": "34 - 27",
+      "location": "ŠPORTNA DVORANA KODELJEVO",
+      "stadium": "55fbefbe-7f0e-41bb-90d0-6ed50bb6351f"
+    },
+    {
+      "id": "7f038f87-1e24-4ae7-b66f-3bac0c26988b",
+      "date": "2024-04-13",
+      "time": "19:00",
+      "home": "ebe367d3-ec80-48e8-a98e-67ac49aa5059",
+      "away": "ad672573-3195-411c-9a25-f19cf01a5f90",
+      "score": "39 - 30",
+      "location": "ARENA BONIFIKA",
+      "stadium": "8ced8c84-3667-40b3-8a28-c2c66de470c2"
+    },
+    {
+      "id": "f70dcdc8-631f-4fb8-8142-db99bc66fc15",
+      "date": "2024-04-13",
+      "time": "19:00",
+      "home": "0f35911b-9e3c-4814-b1d7-b0835efb2d81",
+      "away": "3c5afe0e-9e26-49a6-8f14-da2bcf675e6f",
+      "score": "29 - 25",
+      "location": "ŠCR RIBNICA",
+      "stadium": "c859f409-0e67-4e57-80a3-5ee08af3e0e9"
+    },
+    {
+      "id": "f39ee7b1-3e7c-4d33-875a-ac128a131f38",
+      "date": "2024-04-13",
+      "time": "19:00",
+      "home": "1273391b-881c-4252-9210-72ac66b66197",
+      "away": "3fe5d9f1-8fa4-48c4-aeeb-19dcd626409c",
+      "score": "27 - 28",
+      "location": "DVORANA OSNOVNE ŠOLE STIČNA",
+      "stadium": "9d0fcb86-c56c-4a56-8cf1-a8e75bfc1139"
+    },
+    {
+      "id": "b29a527b-8116-476b-ad38-1ca9b96c54e7",
+      "date": "2024-04-13",
+      "time": "18:00",
+      "home": "7f18a27d-f4b0-4bf0-b5a6-15bef7ddacce",
+      "away": "c71dad75-82c3-438a-90cd-a00cfeec4fd0",
+      "score": "37 - 32",
+      "location": "DVORANA ZLATOROG",
+      "stadium": "fd9bc459-e0a7-44a6-bb0d-3c60ac6fd196"
+    },
+    {
+      "id": "465b004a-79fc-413f-9f8f-cb0bca119392",
+      "date": "2024-04-12",
+      "time": "19:30",
+      "home": "3c1f4be3-914e-456c-be11-b2ba71e5cbd7",
+      "away": "1524e7b6-5fa8-4d8c-833e-5b444d66b210",
+      "score": "27 - 21",
+      "location": "DVORANA OŠ TREBNJE",
+      "stadium": "461a2e2e-072c-4976-8dbd-6c1c925cab47"
+    },
+    {
+      "id": "21682d43-9ac8-417d-83e5-62b4109ca051",
+      "date": "2024-04-12",
+      "time": "18:00",
+      "home": "cd64c192-61e8-4869-b315-9b9cc3afe898",
+      "away": "390b942f-e84b-4820-af86-a1b12393f754",
+      "score": "35 - 28",
+      "location": "RDEČA DVORANA",
+      "stadium": "31750ba8-bb6f-4ee4-ae9c-41ba871892ff"
+    },
+    {
+      "id": "512e0667-5812-48b4-a7b5-b4ffe6910557",
+      "date": "2024-04-20",
+      "time": "20:15",
+      "home": "c71dad75-82c3-438a-90cd-a00cfeec4fd0",
+      "away": "cd64c192-61e8-4869-b315-9b9cc3afe898",
+      "score": "27 - 30",
+      "location": "ŠPORTNA DVORANA MAROF",
+      "stadium": "4b4f33ce-a8fd-4096-89a5-6643ca9325ff"
+    },
+    {
+      "id": "2208553d-3c1b-4e41-ad27-10187b322cf1",
+      "date": "2024-04-20",
+      "time": "19:00",
+      "home": "1524e7b6-5fa8-4d8c-833e-5b444d66b210",
+      "away": "1273391b-881c-4252-9210-72ac66b66197",
+      "score": "24 - 31",
+      "location": "ŠPORTNA DVORANA ŠKOFLJICA",
+      "stadium": "1ccc4b05-3a34-45f4-b507-f1c9faffa3a9"
+    },
+    {
+      "id": "8e7314f9-4095-4565-9f05-ce32884874a3",
+      "date": "2024-04-20",
+      "time": "19:00",
+      "home": "9c78f88e-bd9f-4705-98ac-ea7ae0f4cc06",
+      "away": "0f35911b-9e3c-4814-b1d7-b0835efb2d81",
+      "score": "30 - 31",
+      "location": "ŠPORTNA DVORANA KODELJEVO",
+      "stadium": "55fbefbe-7f0e-41bb-90d0-6ed50bb6351f"
+    },
+    {
+      "id": "55010ace-e6b9-432a-9e65-cda763721a70",
+      "date": "2024-04-20",
+      "time": "19:00",
+      "home": "3c5afe0e-9e26-49a6-8f14-da2bcf675e6f",
+      "away": "7f18a27d-f4b0-4bf0-b5a6-15bef7ddacce",
+      "score": "26 - 27",
+      "location": "ŠPORTNA DVORANA PODEN",
+      "stadium": "59608ab5-12f5-405e-b93c-982a04aaf889"
+    },
+    {
+      "id": "d0d4971a-aaf8-400a-a4bc-2259a9bdad7c",
+      "date": "2024-04-20",
+      "time": "19:00",
+      "home": "390b942f-e84b-4820-af86-a1b12393f754",
+      "away": "ad672573-3195-411c-9a25-f19cf01a5f90",
+      "score": "34 - 25",
+      "location": "ŠPORTNA DVORANA SLOVENJ GRADEC",
+      "stadium": "18da7371-8ba2-444f-b85f-cc21bd70a111"
+    },
+    {
+      "id": "bf1981d7-51f5-415a-8b90-70aee5c507b0",
+      "date": "2024-04-19",
+      "time": "19:30",
+      "home": "3c1f4be3-914e-456c-be11-b2ba71e5cbd7",
+      "away": "ebe367d3-ec80-48e8-a98e-67ac49aa5059",
+      "score": "30 - 23",
+      "location": "DVORANA OŠ TREBNJE",
+      "stadium": "461a2e2e-072c-4976-8dbd-6c1c925cab47"
+    },
+    {
+      "id": "a3945cff-7792-4879-b784-dc08ff222cf2",
+      "date": "2024-04-19",
+      "time": "19:30",
+      "home": "3fe5d9f1-8fa4-48c4-aeeb-19dcd626409c",
+      "away": "0f1f07bb-3594-4fd1-90a0-f2c02a4de2f1",
+      "score": "32 - 31",
+      "location": "ŠPORTNA DVORANA HARDEK",
+      "stadium": "21e19f6f-56b0-4ac8-b25d-d6eb923ef656"
+    },
+    {
+      "id": "6e9e98ed-b86a-4339-a77e-03b69ca5547a",
+      "date": "2024-04-26",
+      "time": "20:30",
+      "home": "0f1f07bb-3594-4fd1-90a0-f2c02a4de2f1",
+      "away": "1524e7b6-5fa8-4d8c-833e-5b444d66b210",
+      "score": "27 - 30",
+      "location": "ŠPORTNA DVORANA KRIM",
+      "stadium": "b0a9d47c-1e54-42cc-9cfd-a3d9aa426537"
+    },
+    {
+      "id": "9326f1ae-95b9-45db-ac4a-613a2ffdc86a",
+      "date": "2024-04-26",
+      "time": "19:30",
+      "home": "ad672573-3195-411c-9a25-f19cf01a5f90",
+      "away": "c71dad75-82c3-438a-90cd-a00cfeec4fd0",
+      "score": "25 - 35",
+      "location": "ŠPORTNA DVORANA DOBOVA",
+      "stadium": "18cd7929-c2a8-44a4-b36b-9cbc0434e04b"
+    },
+    {
+      "id": "9ff5e39c-2ab0-4cbe-8f62-af6f42db3ee7",
+      "date": "2024-04-26",
+      "time": "19:30",
+      "home": "1273391b-881c-4252-9210-72ac66b66197",
+      "away": "3c1f4be3-914e-456c-be11-b2ba71e5cbd7",
+      "score": "22 - 29",
+      "location": "DVORANA OSNOVNE ŠOLE STIČNA",
+      "stadium": "9d0fcb86-c56c-4a56-8cf1-a8e75bfc1139"
+    },
+    {
+      "id": "f3386e17-9be2-4e1a-b1fe-20525efff066",
+      "date": "2024-04-26",
+      "time": "19:00",
+      "home": "ebe367d3-ec80-48e8-a98e-67ac49aa5059",
+      "away": "390b942f-e84b-4820-af86-a1b12393f754",
+      "score": "30 - 29",
+      "location": "ARENA BONIFIKA",
+      "stadium": "8ced8c84-3667-40b3-8a28-c2c66de470c2"
+    },
+    {
+      "id": "74e0a207-0523-4540-a37d-1d3f2290ebde",
+      "date": "2024-04-26",
+      "time": "18:00",
+      "home": "cd64c192-61e8-4869-b315-9b9cc3afe898",
+      "away": "3c5afe0e-9e26-49a6-8f14-da2bcf675e6f",
+      "score": "33 - 27",
+      "location": "RDEČA DVORANA",
+      "stadium": "31750ba8-bb6f-4ee4-ae9c-41ba871892ff"
+    },
+    {
+      "id": "15a42b77-fa98-40fe-83bc-1c64fb582b89",
+      "date": "2024-04-26",
+      "time": "18:00",
+      "home": "0f35911b-9e3c-4814-b1d7-b0835efb2d81",
+      "away": "3fe5d9f1-8fa4-48c4-aeeb-19dcd626409c",
+      "score": "35 - 32",
+      "location": "ŠCR RIBNICA",
+      "stadium": "c859f409-0e67-4e57-80a3-5ee08af3e0e9"
+    },
+    {
+      "id": "0cbd3dfa-11f7-4826-b6b8-2ffdfc2dc24e",
+      "date": "2024-04-25",
+      "time": "19:00",
+      "home": "7f18a27d-f4b0-4bf0-b5a6-15bef7ddacce",
+      "away": "9c78f88e-bd9f-4705-98ac-ea7ae0f4cc06",
+      "score": "27 - 32",
+      "location": "ŠD ŠTORE - GREEN STEEL",
+      "stadium": "3bf15f3c-1e1a-4d06-a4d1-382664d5151b"
+    },
+    {
+      "id": "0ce4f3e3-e8ee-46bf-84c5-750f03b61887",
+      "date": "2024-05-18",
+      "time": "19:30",
+      "home": "3fe5d9f1-8fa4-48c4-aeeb-19dcd626409c",
+      "away": "7f18a27d-f4b0-4bf0-b5a6-15bef7ddacce",
+      "score": "0 - 0",
+      "location": "ŠPORTNA DVORANA HARDEK",
+      "stadium": "21e19f6f-56b0-4ac8-b25d-d6eb923ef656"
+    },
+    {
+      "id": "ebfba272-24c7-4668-8406-ec41451f4022",
+      "date": "2024-05-18",
+      "time": "19:00",
+      "home": "1273391b-881c-4252-9210-72ac66b66197",
+      "away": "ebe367d3-ec80-48e8-a98e-67ac49aa5059",
+      "score": "0 - 0",
+      "location": "DVORANA OSNOVNE ŠOLE STIČNA",
+      "stadium": "9d0fcb86-c56c-4a56-8cf1-a8e75bfc1139"
+    },
+    {
+      "id": "fa9e5084-57a0-4ff1-98d8-4bacba548757",
+      "date": "2024-05-18",
+      "time": "19:00",
+      "home": "1524e7b6-5fa8-4d8c-833e-5b444d66b210",
+      "away": "0f35911b-9e3c-4814-b1d7-b0835efb2d81",
+      "score": "0 - 0",
+      "location": "ŠPORTNA DVORANA ŠKOFLJICA",
+      "stadium": "1ccc4b05-3a34-45f4-b507-f1c9faffa3a9"
+    },
+    {
+      "id": "131c9783-a741-485e-816d-8a4469b2df40",
+      "date": "2024-05-18",
+      "time": "19:00",
+      "home": "3c5afe0e-9e26-49a6-8f14-da2bcf675e6f",
+      "away": "ad672573-3195-411c-9a25-f19cf01a5f90",
+      "score": "0 - 0",
+      "location": "ŠPORTNA DVORANA PODEN",
+      "stadium": "59608ab5-12f5-405e-b93c-982a04aaf889"
+    },
+    {
+      "id": "ddb34c61-90f5-4cb9-902a-77db6411175d",
+      "date": "2024-05-18",
+      "time": "19:00",
+      "home": "c71dad75-82c3-438a-90cd-a00cfeec4fd0",
+      "away": "390b942f-e84b-4820-af86-a1b12393f754",
+      "score": "0 - 0",
+      "location": "ŠPORTNA DVORANA MAROF",
+      "stadium": "4b4f33ce-a8fd-4096-89a5-6643ca9325ff"
+    },
+    {
+      "id": "44ca8d71-e6dc-49ce-b40c-bda2d8d69375",
+      "date": "2024-05-17",
+      "time": "19:00",
+      "home": "3c1f4be3-914e-456c-be11-b2ba71e5cbd7",
+      "away": "0f1f07bb-3594-4fd1-90a0-f2c02a4de2f1",
+      "score": "0 - 0",
+      "location": "DVORANA OŠ TREBNJE",
+      "stadium": "461a2e2e-072c-4976-8dbd-6c1c925cab47"
+    },
+    {
+      "id": "37b76246-f721-4853-8193-7219d7bacafa",
+      "date": "2024-05-17",
+      "time": "18:00",
+      "home": "9c78f88e-bd9f-4705-98ac-ea7ae0f4cc06",
+      "away": "cd64c192-61e8-4869-b315-9b9cc3afe898",
+      "score": "0 - 0",
+      "location": "ŠPORTNA DVORANA KODELJEVO",
+      "stadium": "55fbefbe-7f0e-41bb-90d0-6ed50bb6351f"
+    },
+    {
+      "id": "9d1c9107-8486-44cc-bbb6-956a13d26da3",
+      "date": "2024-05-25",
+      "time": "20:00",
+      "home": "ebe367d3-ec80-48e8-a98e-67ac49aa5059",
+      "away": "c71dad75-82c3-438a-90cd-a00cfeec4fd0",
+      "score": "0 - 0",
+      "location": "ARENA BONIFIKA",
+      "stadium": "8ced8c84-3667-40b3-8a28-c2c66de470c2"
+    },
+    {
+      "id": "51a87a34-3930-47ac-949f-ac617b760800",
+      "date": "2024-05-25",
+      "time": "20:00",
+      "home": "390b942f-e84b-4820-af86-a1b12393f754",
+      "away": "3c5afe0e-9e26-49a6-8f14-da2bcf675e6f",
+      "score": "0 - 0",
+      "location": "ŠPORTNA DVORANA SLOVENJ GRADEC",
+      "stadium": "18da7371-8ba2-444f-b85f-cc21bd70a111"
+    },
+    {
+      "id": "f804ace2-6747-4e33-86bb-55a4b34459ac",
+      "date": "2024-05-25",
+      "time": "20:00",
+      "home": "ad672573-3195-411c-9a25-f19cf01a5f90",
+      "away": "9c78f88e-bd9f-4705-98ac-ea7ae0f4cc06",
+      "score": "0 - 0",
+      "location": "ŠPORTNA DVORANA DOBOVA",
+      "stadium": "18cd7929-c2a8-44a4-b36b-9cbc0434e04b"
+    },
+    {
+      "id": "90f682e5-c541-4c51-ae26-af94adb42d30",
+      "date": "2024-05-25",
+      "time": "20:00",
+      "home": "cd64c192-61e8-4869-b315-9b9cc3afe898",
+      "away": "3fe5d9f1-8fa4-48c4-aeeb-19dcd626409c",
+      "score": "0 - 0",
+      "location": "RDEČA DVORANA",
+      "stadium": "31750ba8-bb6f-4ee4-ae9c-41ba871892ff"
+    },
+    {
+      "id": "30757462-2913-457f-98e1-b5944f1fce58",
+      "date": "2024-05-25",
+      "time": "20:00",
+      "home": "7f18a27d-f4b0-4bf0-b5a6-15bef7ddacce",
+      "away": "1524e7b6-5fa8-4d8c-833e-5b444d66b210",
+      "score": "0 - 0",
+      "location": "DVORANA ZLATOROG",
+      "stadium": "fd9bc459-e0a7-44a6-bb0d-3c60ac6fd196"
+    },
+    {
+      "id": "8bf73b7a-2bd7-4c7d-a274-bea8d52821c2",
+      "date": "2024-05-25",
+      "time": "20:00",
+      "home": "0f35911b-9e3c-4814-b1d7-b0835efb2d81",
+      "away": "3c1f4be3-914e-456c-be11-b2ba71e5cbd7",
+      "score": "0 - 0",
+      "location": "ŠCR RIBNICA",
+      "stadium": "c859f409-0e67-4e57-80a3-5ee08af3e0e9"
+    },
+    {
+      "id": "43d955f8-7831-40c1-9b60-0fdd3405e96c",
+      "date": "2024-05-25",
+      "time": "20:00",
+      "home": "0f1f07bb-3594-4fd1-90a0-f2c02a4de2f1",
+      "away": "1273391b-881c-4252-9210-72ac66b66197",
+      "score": "0 - 0",
+      "location": "ŠPORTNA DVORANA KRIM",
+      "stadium": "b0a9d47c-1e54-42cc-9cfd-a3d9aa426537"
+    }
+  ]
 }

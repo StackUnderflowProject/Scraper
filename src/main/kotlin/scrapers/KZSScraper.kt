@@ -154,7 +154,6 @@ object KZSScraper {
                                         away = teams.find { it.name.contains(away) }?.id
                                             ?: throw Exception("Team $away not found"),
                                         location = "/",
-                                        stadium = "$home stadium",
                                         time = "/"
                                     )
                                 )

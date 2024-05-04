@@ -1,6 +1,5 @@
 package scrapers
 
-import com.gargoylesoftware.htmlunit.javascript.host.html.Image
 import it.skrape.core.htmlDocument
 import it.skrape.fetcher.HttpFetcher
 import it.skrape.fetcher.response
@@ -16,7 +15,6 @@ import util.ImageUtil
 import java.time.Duration
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
-import java.util.UUID
 
 object RZSScraper {
     fun getTeams(downloadImage: Boolean = false): Teams {
@@ -91,7 +89,7 @@ object RZSScraper {
         println("Team logos fetched successfully!")
     }
 
-    fun getMatches(team: String = "", teams: Teams = getTeams()): Matches {
+    fun getMatches(team: String = "", teams: Teams = getTeams(), arenas: Stadiums = getArenas()) : Matches {
         val matchesUrl = "https://livestat.rokometna-zveza.si/#/liga/1155/sezona/70/razpored"
         val datePattern = """.*-\s(\d{2}\.\d{2}\.\d{4}\s\d{2}:\d{2}).*""".toRegex(RegexOption.IGNORE_CASE)
         val dateFormatter = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm")
@@ -139,7 +137,7 @@ object RZSScraper {
                     matches.add(
                         Match(
                             date = date.toLocalDate(),
-                            stadium = arena,
+                            stadium = arenas.find { it.name.lowercase() == arena.lowercase() }?.id,
                             home = teams.find { it.name == home }?.id ?: throw Exception("Team not found"),
                             away = teams.find { it.name == away }?.id ?: throw Exception("Team not found"),
                             score = score,
@@ -211,6 +209,45 @@ object RZSScraper {
         chrome.quit()
         println("Standings fetched successfully!")
         return standings
+    }
+    
+    fun getArenas(teams: Teams = getTeams()): Stadiums {
+        val arenas = Stadiums()
+        val arenasUrl = "https://livestat.rokometna-zveza.si/#/liga/1155/sezona/70/ekipe"
+        
+        println("Fetching arenas...")
+        val chrome = ChromeDriver(
+            ChromeOptions().apply {
+                addArguments("--headless")
+            })
+        
+        chrome.get(arenasUrl)
+        
+        val table = WebDriverWait(chrome, Duration.ofSeconds(10)).until(
+            ExpectedConditions.presenceOfElementLocated(ByCssSelector("tbody"))
+        )
+        
+        val rows = table.findElements(ByCssSelector("tr"))
+        rows.forEach { row ->
+            val teamName = row.findElement(ByTagName("h6")).text
+            val arenaArr = row.findElement(ByCssSelector("td:nth-child(4)")).text.split('\n')
+            arenaArr.forEach { arena ->
+                val team = teams.find { it.name == teamName }
+                if(team != null) {
+                    arenas.add(
+                        Stadium(
+                            name = arena,
+                            teamId = team.id
+                        )
+                    )
+                }
+                
+            }
+        }
+        
+        chrome.quit()
+        println("Arenas fetched successfully!")
+        return arenas
     }
     
     fun saveAllData(fileType: FileType = FileType.JSON) {

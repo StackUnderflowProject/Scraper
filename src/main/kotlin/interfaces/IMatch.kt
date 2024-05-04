@@ -11,7 +11,6 @@ interface IMatch {
     val played: Boolean
     val date: LocalDate
     val location: String
-    val stadium: String
     val id: UUID
     
     fun toCSV(): String

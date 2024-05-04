@@ -5,6 +5,7 @@ import it.skrape.fetcher.HttpFetcher
 import it.skrape.fetcher.response
 import it.skrape.fetcher.skrape
 import it.skrape.selects.html5.div
+import it.skrape.selects.html5.iframe
 import it.skrape.selects.html5.table
 import it.skrape.selects.html5.tbody
 import model.*
@@ -342,6 +343,7 @@ object PLTScraper {
     fun getMatches(
         teamsUrl: String = "https://www.prvaliga.si/tekmovanja/default.asp?id_menu=101&id_sezone=${LocalDate.now().year}",
         teams: Teams = getTeams(),
+        stadiums: Stadiums = getStadiums(),
         cssSelector: String = "tr.klub_all"
     ): Matches {
         println("Getting matches...")
@@ -368,6 +370,7 @@ object PLTScraper {
                                 val played = scoreTimeData[0].trim().length == 1;
                                 val score = if (played) columns[2].text else null
                                 val time = if (!played) columns[2].text else null
+                                val stadiumName = locationData?.get(1)?.trim() ?: ""
                                 matches.add(
                                     Match(
                                         home = teams.find { it.name == columns[0].text }?.id
@@ -379,7 +382,7 @@ object PLTScraper {
                                             ?: throw Exception("Team not found"),
                                         date = LocalDate.from(date),
                                         location = locationData[0].trim(),
-                                        stadium = if (locationData.size == 2) locationData[1].trim() else "",
+                                        stadium = stadiums.find { it.name == stadiumName }?.id,
                                     )
                                 )
                             }

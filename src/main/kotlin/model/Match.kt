@@ -12,7 +12,7 @@ data class Match(
     override val played: Boolean = false,
     override val date: LocalDate,
     override val location: String,
-    override val stadium: String,
+    val stadium: UUID? = null,
     override val id: UUID = UUID.randomUUID()
 ) : IMatch {
     override fun toString(): String {

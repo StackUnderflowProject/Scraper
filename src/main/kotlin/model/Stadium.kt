@@ -6,10 +6,10 @@ import java.util.UUID
 data class Stadium(
     override val name: String,
     override val teamId: UUID,
-    override val capacity: UShort,
-    override val location: String,
-    override val buildYear: UShort,
-    override val imagePath: String,
+    override val capacity: UShort? = null,
+    override val location: String? = null,
+    override val buildYear: UShort? = null,
+    override val imagePath: String? = null,
     override val id: UUID = UUID.randomUUID(),
 ) : IStadium {
     override fun toCSV(): String {
