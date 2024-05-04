@@ -5,10 +5,10 @@ import java.time.LocalDate
 import java.util.UUID
 
 data class Match(
-    override val home: String,
+    override val home: UUID,
     override val score: String?,
     override val time: String?,
-    override val away: String,
+    override val away: UUID,
     override val played: Boolean = false,
     override val date: LocalDate,
     override val location: String,

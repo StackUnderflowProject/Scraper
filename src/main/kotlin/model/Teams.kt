@@ -4,17 +4,17 @@ import interfaces.ITeam
 import java.io.File
 
 class Teams : ArrayList<ITeam>() {
-    fun writeToCSV() {
+    fun writeToCSV(path: String = "teams.csv") {
         val csv = this.joinToString("\n") { it.toCSV() }
-        File("teams.csv").writeText(csv)
+        File(path).writeText(csv)
     }
 
-    fun writeToXML() {
+    fun writeToXML(path: String = "teams.xml") {
         val xml = "<teams>\n" + this.joinToString("\n") { it.toXML() } + "\n</teams>"
-        File("teams.xml").writeText(xml)
+        File(path).writeText(xml)
     }
 
-    fun writeToJSON() {
+    fun writeToJSON(path: String = "teams.json") {
         val json = """
 {
     "teams": [
@@ -29,6 +29,6 @@ class Teams : ArrayList<ITeam>() {
         }
     ]
 }""".trimIndent()
-        File("teams.json").writeText(json)
+        File(path).writeText(json)
     }
 }
