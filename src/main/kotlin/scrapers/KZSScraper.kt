@@ -1,6 +1,5 @@
 package scrapers
 
-import it.skrape.core.htmlDocument
 import it.skrape.fetcher.*
 import model.BasketballStanding
 import model.BasketballTeam
@@ -16,7 +15,6 @@ import java.time.Duration
 import java.util.*
 
 object KZSScraper {
-
     @Throws(Exception::class)
     fun getTeamIdGeneral(): List<String> {
         val idPattern = Regex("""/ekipa/(\d+).*""")
@@ -48,7 +46,7 @@ object KZSScraper {
         return teamIds
     }
 
-    fun getTeamMap(teamIds: List<String>): Map<String, String> {
+    fun getTeamMap(teamIds: List<String> = getTeamIdGeneral()): Map<String, String> {
         println("Fetching team page links from team IDs. This may take a while.")
         val teamMap = mutableMapOf<String, String>()
         teamIds.forEach { id ->
@@ -76,7 +74,7 @@ object KZSScraper {
         return teamMap
     }
 
-    fun getTeams(teamMap: Map<String, String>): Teams {
+    fun getTeams(teamMap: Map<String, String> = getTeamMap(), downloadImage: Boolean = false): Teams {
         val urlPattern = """.*url\((.*)\).*\n.*""".toRegex()
         val teams = Teams()
         
@@ -87,6 +85,10 @@ object KZSScraper {
                     addArguments("--headless")
                 })
             driver.get(link)
+            
+            val teamNameElement = WebDriverWait(driver, Duration.ofSeconds(10)).until(
+                ExpectedConditions.presenceOfElementLocated(ByCssSelector("h1.text-condensed"))
+            )
 
             val logoContainer = WebDriverWait(driver, Duration.ofSeconds(10)).until(
                 ExpectedConditions.presenceOfElementLocated(ByCssSelector("div.mb-8"))
@@ -95,12 +97,10 @@ object KZSScraper {
             val logoUrl = urlPattern.find(logoContainer.getAttribute("innerHTML"))
                 ?.groupValues?.get(1) ?: throw Exception("Logo URL not found")
             
-            
 
             val data = WebDriverWait(driver, Duration.ofSeconds(10)).until(
                 ExpectedConditions.presenceOfElementLocated(ByCssSelector("div.content-container"))
             ).text.split("\n")
-            driver.quit()
 
             val directorIdx = data.indexOfFirst { it.contains("Direktor:") }
             val director = if (directorIdx >= 0) data[directorIdx + 1] else "/"
@@ -108,36 +108,37 @@ object KZSScraper {
             val coachIdx = data.indexOfFirst { it.contains("Glavni trener:") }
             val coach = if (coachIdx >= 0) data[coachIdx + 1] else "/"
 
-            val logoPath = "src/main/resources/basketball_team_logos/${teamName}_logo.png"
-            ImageUtil.downloadImage(logoUrl, logoPath)
+            var logoPath = logoUrl
+            if(downloadImage) {
+                logoPath = "src/main/resources/basketball_team_logos/${teamName}_logo.png"
+                ImageUtil.downloadImage(logoUrl, logoPath)
+            }
             
             teams.add(
                 BasketballTeam(
-                    name = teamName,
+                    name = teamNameElement.text,
                     director = director,
                     coach = coach,
                     logoPath = logoPath
                 )
             )
+            driver.quit()
         }
         println("Fetched ${teams.size} teams")
         return teams
     }
     
-    fun getStandings(): Standings {
+    fun getStandings(teams: Teams = getTeams()): Standings {
         val standings = Standings()
 
-        val standingsUrl =
-            "https://www.sofascore.com/tournament/basketball/slovenia/liga-novakbm/745#id:54732"
-
-        val flashscore = "https://www.flashscore.com/basketball/slovenia/liga-nova-kbm/standings/#/CEL29zLf/table/overall"
+        val standingsUrl = "https://www.flashscore.com/basketball/slovenia/liga-nova-kbm/standings/#/CEL29zLf/table/overall"
         
         val chrome = ChromeDriver(
             ChromeOptions().apply {
                 addArguments("--headless")
             })
         
-        chrome.get(flashscore)
+        chrome.get(standingsUrl)
         
         val standingsContainer = WebDriverWait(chrome, Duration.ofSeconds(10)).until(
             ExpectedConditions.presenceOfElementLocated(ByCssSelector("div.ui-table__body"))
@@ -159,7 +160,7 @@ object KZSScraper {
             standings.add(
                 BasketballStanding(
                     place = place,
-                    team = team,
+                    teamName = team,
                     gamesPlayed = gamesPlayed,
                     wins = wins,
                     losses = losses,

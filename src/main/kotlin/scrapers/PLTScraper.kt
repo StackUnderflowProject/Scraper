@@ -47,7 +47,11 @@ object PLTScraper {
         return teamMap
     }
 
-    fun getTeams(teamMap: Map<String, String>): Teams {
+    fun getTeams(
+        teamMap: Map<String, String> = getTeamMap(LocalDate.now().year),
+        downloadLogo: Boolean = false,
+        saveToFile: Boolean = false
+    ): Teams {
         val baseUrl = "https://www.prvaliga.si/tekmovanja/default.asp?action=klub&id_menu=217&id_kluba="
         val teams = Teams()
 
@@ -57,7 +61,7 @@ object PLTScraper {
                 val (name, id) = entry
                 val teamUrl = "$baseUrl$id"
                 var imageFetchUrl = "https://www.prvaliga.si"
-                
+
 
                 skrape(HttpFetcher) {
                     request {
@@ -74,7 +78,9 @@ object PLTScraper {
                 }
 
                 val logoPath = "src/main/resources/football_team_logos/${name}_logo.png"
-                ImageUtil.downloadImage(imageFetchUrl, logoPath)
+                if (downloadLogo) {
+                    ImageUtil.downloadImage(imageFetchUrl, logoPath)
+                }
 
                 skrape(HttpFetcher) {
                     request {
@@ -100,7 +106,7 @@ object PLTScraper {
                                             president = president,
                                             director = director,
                                             coach = coach,
-                                            logoPath = logoPath
+                                            logoPath = if (downloadLogo) logoPath else imageFetchUrl
                                         )
                                     )
                                 }
@@ -110,6 +116,7 @@ object PLTScraper {
                     }
                 }
             }
+            if (saveToFile) teams.writeToJSON("src/main/resources/football_teams.json")
             println("Teams fetched successfully")
             return teams
         } catch (e: Exception) {
@@ -118,7 +125,7 @@ object PLTScraper {
         }
     }
 
-    fun getStandings(season: Int): Standings {
+    fun getStandings(season: Int = LocalDate.now().year, teams: Teams = getTeams()): Standings {
         println("Getting standings...")
         val searchURL = "https://www.prvaliga.si/tekmovanja/default.asp?action=lestvica&id_menu=102&id_sezone=$season"
         val standings = Standings()
@@ -144,19 +151,26 @@ object PLTScraper {
                                     val goalStats = columns[8].text.split(":").map { it.toUShort() }.toTypedArray()
                                     val goalDiff = columns[9].text
                                     val points = columns[10].text.toUShort()
-                                    standings.add(
-                                        DrawableStanding(
-                                            place = place,
-                                            team = team,
-                                            gamesPlayed = gamesPlayed,
-                                            wins = wins,
-                                            draws = draws,
-                                            losses = losses,
-                                            goalsScored = goalStats[0],
-                                            goalsConceded = goalStats[1],
-                                            points = points
+                                    try {
+
+
+                                        standings.add(
+                                            DrawableStanding(
+                                                place = place,
+                                                team = teams.find { it.name == team }?.id
+                                                    ?: throw Exception("Team not found"),
+                                                gamesPlayed = gamesPlayed,
+                                                wins = wins,
+                                                draws = draws,
+                                                losses = losses,
+                                                goalsScored = goalStats[0],
+                                                goalsConceded = goalStats[1],
+                                                points = points
+                                            )
                                         )
-                                    )
+                                    } catch (e: Exception) {
+                                        println("Error fetching standings: ${e.message}")
+                                    }
                                 }
                             }
                         }
@@ -168,7 +182,11 @@ object PLTScraper {
         return standings
     }
 
-    fun getStadiums(teamMap: Map<String, String>): Stadiums {
+    fun getStadiums(
+        teamMap: Map<String, String> = getTeamMap(LocalDate.now().year),
+        teams: Teams = getTeams(),
+        downloadImage: Boolean = false
+    ): Stadiums {
         val baseUrl = "https://www.prvaliga.si/tekmovanja/default.asp?action=klub&id_menu=217&id_kluba="
         val viewUrl = "&prikaz=3"
         val stadiums = Stadiums()
@@ -193,11 +211,17 @@ object PLTScraper {
                                     var buildYear = 0.toUShort()
                                     var capacity = 0.toUShort()
                                     var location = ""
-                                    val stadiumPath = "src/main/resources/football_stadiums/${name}_stadium.png"
+                                    var stadiumPath = ""
                                     div {
                                         withClass = "col-md-9.col-xs-12"
-                                        imageFetchUrl += findFirst("img").attribute("src").trimStart('.').replace(" ", "%20")
-                                        ImageUtil.downloadImage(imageFetchUrl, stadiumPath)
+                                        
+                                        imageFetchUrl += findFirst("img").attribute("src").trimStart('.')
+                                            .replace(" ", "%20")
+                                        stadiumPath = imageFetchUrl
+                                        if (downloadImage) {
+                                            stadiumPath = "src/main/resources/stadium_images/${name}_stadium.png"
+                                            ImageUtil.downloadImage(imageFetchUrl, stadiumPath)
+                                        }
                                         table {
                                             tbody {
                                                 val rows = findAll("tr")
@@ -223,6 +247,8 @@ object PLTScraper {
                                     stadiums.add(
                                         Stadium(
                                             name = stadiumName,
+                                            teamId = teams.find { it.name == name }?.id
+                                                ?: throw Exception("Team not found"),
                                             capacity = capacity,
                                             location = location,
                                             buildYear = buildYear,
@@ -236,6 +262,7 @@ object PLTScraper {
                 }
 
             }
+            println("Stadiums fetched successfully!")
             return stadiums
         } catch (e: Exception) {
             println("Error fetching stadiums: ${e.message}")
@@ -312,7 +339,11 @@ object PLTScraper {
         return season
     }
 
-    fun getMatches(teamsUrl: String, cssSelector: String): Matches {
+    fun getMatches(
+        teamsUrl: String = "https://www.prvaliga.si/tekmovanja/default.asp?id_menu=101&id_sezone=${LocalDate.now().year}",
+        teams: Teams = getTeams(),
+        cssSelector: String = "tr.klub_all"
+    ): Matches {
         println("Getting matches...")
         val dateFormatter =
             DateTimeFormatter.ofPattern("EEEE, d.MMMM yyyy", Locale.Builder().setLanguage("sl").setRegion("SI").build())
@@ -339,11 +370,13 @@ object PLTScraper {
                                 val time = if (!played) columns[2].text else null
                                 matches.add(
                                     Match(
-                                        home = columns[0].text,
+                                        home = teams.find { it.name == columns[0].text }?.id
+                                            ?: throw Exception("Team not found"),
                                         score = score,
                                         played = played,
                                         time = time,
-                                        away = columns[4].text,
+                                        away = teams.find { it.name == columns[4].text }?.id
+                                            ?: throw Exception("Team not found"),
                                         date = LocalDate.from(date),
                                         location = locationData[0].trim(),
                                         stadium = if (locationData.size == 2) locationData[1].trim() else "",
@@ -358,102 +391,31 @@ object PLTScraper {
         println("Matches fetched successfully!")
         return matches
     }
-
-    fun parseArgs(args: Array<String>): Map<String, String> {
-        val argMap = mutableMapOf<String, String>()
-        args.forEach {
-            val parts = it.split("=")
-            if (parts.size == 2) {
-                val key = parts[0].trimStart('-')
-                val value = parts[1].trim('\"')
-                validateArg(key, value)
-                argMap[key] = value
+    
+    fun saveAllData(fileType: FileType = FileType.JSON) {
+        val teams = getTeams()
+        val matches = getMatches(teams = teams)
+        val stadiums = getStadiums(teams = teams)
+        val standings = getStandings(teams = teams)
+        when(fileType) {
+            FileType.CSV -> {
+                teams.writeToCSV("teams.csv")
+                matches.writeToCSV("matches.csv")
+                stadiums.writeToCSV("stadiums.csv")
+                standings.writeToCSV("standings.csv")
             }
-        }
-        return argMap
-    }
-
-    private fun validateArg(key: String, value: String) {
-        when (key) {
-            "season" -> {
-                val season = value.toIntOrNull()
-                if (season == null || season !in 1992..2024) {
-                    throw IllegalArgumentException("Invalid season: $value. Please provide a season between 1992 and 2024.")
-                }
+            FileType.XML -> {
+                teams.writeToXML("teams.xml")
+                matches.writeToXML("matches.xml")
+                stadiums.writeToXML("stadiums.xml")
+                standings.writeToXML("standings.xml")
             }
-
-            "output" -> {
-                if (value !in listOf("csv", "xml", "json")) {
-                    throw IllegalArgumentException("Invalid output type: $value. Please provide one of csv, xml, or json.")
-                }
+            FileType.JSON -> {
+                teams.writeToJSON("teams.json")
+                matches.writeToJSON("matches.json")
+                stadiums.writeToJSON("stadiums.json")
+                standings.writeToJSON("standings.json")
             }
-
-            "standings", "matches", "interactive" -> {
-                if (value !in listOf("true", "false")) {
-                    throw IllegalArgumentException("Invalid value for $key: $value. Please provide true or false.")
-                }
-            }
-
-            "match-type" -> {
-                if (value !in listOf("played", "upcoming", "all")) {
-                    throw IllegalArgumentException("Invalid match type: $value. Please provide one of played, upcoming, or all.")
-                }
-            }
-
-            "team" -> {
-                if (value.first().isLowerCase()) {
-                    throw IllegalArgumentException("Invalid team name: $value. Please provide a team name starting with an uppercase letter.")
-                }
-            }
-        }
-    }
-
-    fun checkHelp(args: Array<String>) {
-        if (args.contains("--help") || args.isEmpty()) {
-            println("Scrape PrvaLiga Telekom Slovenije data.")
-            println("Usage: plt-scraper [OPTION]...")
-            println("Options:")
-            println("  --help\t\t\t\tDisplay this help message")
-            println("  --interactive=BOOL\tRun the scraper in interactive mode, default is false")
-            println("  --season=YEAR\t\t\tSet the season (1992-2024), default is current season")
-            println("  --output=TYPE\t\t\tSet the output type (csv, xml, json), default is json")
-            println("  --standings=BOOL\t\tSet whether to get standings (true, false), default is true")
-            println("  --matches=BOOL\t\tSet whether to get matches (true, false), default is false")
-            println("  --team=TEAM\t\t\tSet the team name (empty for all teams), default is empty")
-            println("  --match-type=TYPE\t\tSet the match type (played, upcoming, all), default is all")
-            println("Examples:")
-            println("\tplt-scraper --season=2022 --output=xml --standings=true --matches=true --team=Olimpija --match-type=all")
-            exitProcess(0)
-        }
-    }
-
-    fun setDefaultArgs(args: MutableMap<String, String>) {
-        if (args.containsKey("interactive").not()) {
-            args["interactive"] = "false"
-        }
-
-        if (args.containsKey("season").not()) {
-            args["season"] = LocalDate.now().year.toString()
-        }
-
-        if (args.containsKey("output").not()) {
-            args["output"] = FileType.JSON.value
-        }
-
-        if (args.containsKey("standings").not()) {
-            args["standings"] = "true"
-        }
-
-        if (args.containsKey("matches").not()) {
-            args["matches"] = "false"
-        }
-
-        if (args.containsKey("team").not()) {
-            args["team"] = ""
-        }
-
-        if (args.containsKey("match-type").not()) {
-            args["match-type"] = "all"
         }
     }
 }

@@ -4,7 +4,7 @@ import java.util.*
 
 interface IStanding {
     val place: UShort
-    val team: String
+    val team: UUID
     val gamesPlayed: UShort
     val wins: UShort
     val losses: UShort

@@ -5,13 +5,14 @@ import java.util.*
 
 data class BasketballStanding(
     override val place: UShort,
-    override val team: String,
+    val teamName: String,
     override val gamesPlayed: UShort,
     override val wins: UShort,
     override val losses: UShort,
     override val points: UShort,
     override val goalsScored: UShort,
     override val goalsConceded: UShort,
+    override val team: UUID = UUID.randomUUID(),
     override val id: UUID = UUID.randomUUID(),
 ) : IStanding {
     private val goalDiff = (goalsScored - goalsConceded).toShort()

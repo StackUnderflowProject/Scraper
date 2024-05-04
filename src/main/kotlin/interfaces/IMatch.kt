@@ -4,10 +4,10 @@ import java.time.LocalDate
 import java.util.*
 
 interface IMatch {
-    val home: String
+    val home: UUID
     val score: String?
     val time: String?
-    val away: String
+    val away: UUID
     val played: Boolean
     val date: LocalDate
     val location: String

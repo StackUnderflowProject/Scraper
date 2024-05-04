@@ -1,5 +1,6 @@
 package scrapers
 
+import com.gargoylesoftware.htmlunit.javascript.host.html.Image
 import it.skrape.core.htmlDocument
 import it.skrape.fetcher.HttpFetcher
 import it.skrape.fetcher.response
@@ -15,9 +16,10 @@ import util.ImageUtil
 import java.time.Duration
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
+import java.util.UUID
 
 object RZSScraper {
-    fun getTeams(): Teams {
+    fun getTeams(downloadImage: Boolean = false): Teams {
         val teams = Teams()
 
         val searchUrl = "https://www.rokometna-zveza.si/si/tekmovanja/1-a-drl-moski"
@@ -25,7 +27,7 @@ object RZSScraper {
         val presidentPattern = """.*Predsednik:\s(([\wšđčćž]+\s*){2})(\s*.*)?""".toRegex(RegexOption.IGNORE_CASE)
         val directorPattern = """.*Direktor:\s(([\wšđčćž]+\s*){2})(\s*.*)?""".toRegex(RegexOption.IGNORE_CASE)
 
-
+        println("Fetching teams...")
         skrape(HttpFetcher) {
             request {
                 url = searchUrl
@@ -52,11 +54,13 @@ object RZSScraper {
             }
         }
 
-        getTeamLogos(teams)
+        getTeamLogos(teams, downloadImage)
+        println("Teams fetched successfully!")
         return teams
     }
 
-    private fun getTeamLogos(teams: Teams) {
+    private fun getTeamLogos(teams: Teams, downloadImage: Boolean = false) {
+        println("Fetching team logos...")
         val teamsUrl = "https://livestat.rokometna-zveza.si/#/liga/1155/sezona/70/ekipe"
         val driver = ChromeDriver(
             ChromeOptions().apply {
@@ -75,19 +79,25 @@ object RZSScraper {
             val logoUrl = row.findElement(ByCssSelector("img")).getAttribute("src")
             val team = teams.find { it.name == teamName }
             if (team != null) {
-                ImageUtil.downloadImage(logoUrl, "src/main/resources/handball_team_logos/${teamName}_logo.png")
-                team.logoPath = "src/main/resources/handball_team_logos/${teamName}_logo.png"
+                if(downloadImage) {
+                    ImageUtil.downloadImage(logoUrl, "src/main/resources/handball_team_logos/${teamName}_logo.png")
+                    team.logoPath = "src/main/resources/handball_team_logos/${teamName}_logo.png"
+                } else {
+                    team.logoPath = logoUrl
+                }
             }
         }
         driver.quit()
+        println("Team logos fetched successfully!")
     }
 
-    fun getMatches(team: String = ""): Matches {
+    fun getMatches(team: String = "", teams: Teams = getTeams()): Matches {
         val matchesUrl = "https://livestat.rokometna-zveza.si/#/liga/1155/sezona/70/razpored"
         val datePattern = """.*-\s(\d{2}\.\d{2}\.\d{4}\s\d{2}:\d{2}).*""".toRegex(RegexOption.IGNORE_CASE)
         val dateFormatter = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm")
         val matches = Matches()
 
+        println("Fetching matches...")
         val chrome = ChromeDriver(
             ChromeOptions().apply {
                 addArguments("--headless")
@@ -130,8 +140,8 @@ object RZSScraper {
                         Match(
                             date = date.toLocalDate(),
                             stadium = arena,
-                            home = home,
-                            away = away,
+                            home = teams.find { it.name == home }?.id ?: throw Exception("Team not found"),
+                            away = teams.find { it.name == away }?.id ?: throw Exception("Team not found"),
                             score = score,
                             location = arena,
                             time = time,
@@ -146,13 +156,15 @@ object RZSScraper {
         }
 
         chrome.quit()
+        println("Matches fetched successfully!")
         return matches
     }
     
-    fun getStandings(): Standings {
+    fun getStandings(teams: Teams = getTeams()): Standings {
         val standings = Standings()
         val standingsUrl = "https://livestat.rokometna-zveza.si/#/liga/1155/sezona/70/lestvica"
 
+        println("Fetching standings...")
         val chrome = ChromeDriver(
             ChromeOptions().apply {
                 addArguments("--headless")
@@ -177,24 +189,51 @@ object RZSScraper {
             val goalsConceded = goalData[1].toInt()
             val points = row.findElement(ByCssSelector("td.game-player-result__ga > span.team-info__value")).text.toInt()
             
-            standings.add(
-                DrawableStanding(
-                    place = place.toUShort(),
-                    team = team,
-                    gamesPlayed = gamesPlayed.toUShort(),
-                    wins = wins.toUShort(),
-                    draws = draws.toUShort(),
-                    losses = losses.toUShort(),
-                    goalsScored = goalsScored.toUShort(),
-                    goalsConceded = goalsConceded.toUShort(),
-                    points = points.toUShort()
+            try {
+                standings.add(
+                    DrawableStanding(
+                        place = place.toUShort(),
+                        team = teams.find { it.name == team }?.id ?: throw Exception("Team not found"),
+                        gamesPlayed = gamesPlayed.toUShort(),
+                        wins = wins.toUShort(),
+                        draws = draws.toUShort(),
+                        losses = losses.toUShort(),
+                        goalsScored = goalsScored.toUShort(),
+                        goalsConceded = goalsConceded.toUShort(),
+                        points = points.toUShort()
+                    )
                 )
-            )
+            } catch (e: Exception) {
+                println(e)
+            }
         }
         
         chrome.quit()
-        
+        println("Standings fetched successfully!")
         return standings
     }
     
+    fun saveAllData(fileType: FileType = FileType.JSON) {
+        val teams = getTeams(downloadImage = true)
+        val matches = getMatches(teams = teams)
+        val standings = getStandings(teams = teams)
+        
+        when(fileType) {
+            FileType.JSON -> {
+                teams.writeToJSON("teams.json")
+                matches.writeToJSON("matches.json")
+                standings.writeToJSON("standings.json")
+            }
+            FileType.XML -> {
+                teams.writeToXML("teams.xml")
+                matches.writeToXML("matches.xml")
+                standings.writeToXML("standings.xml")
+            }
+            FileType.CSV -> {
+                teams.writeToCSV("teams.csv")
+                matches.writeToCSV("matches.csv")
+                standings.writeToCSV("standings.csv")
+            }
+        }
+    }
 }

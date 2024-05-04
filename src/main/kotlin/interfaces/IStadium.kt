@@ -4,6 +4,7 @@ import java.util.*
 
 interface IStadium {
     val name: String
+    val teamId: UUID
     val capacity: UShort
     val location: String
     val buildYear: UShort

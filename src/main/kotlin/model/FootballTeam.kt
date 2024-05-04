@@ -39,7 +39,7 @@ data class FootballTeam(
                 "name": "$name",
                 "president": "$president",
                 "director": "$director",
-                "coach": "$coach"
+                "coach": "$coach",
                 "logoPath": "$logoPath"
             },
         """.trimIndent()

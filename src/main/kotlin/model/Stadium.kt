@@ -5,6 +5,7 @@ import java.util.UUID
 
 data class Stadium(
     override val name: String,
+    override val teamId: UUID,
     override val capacity: UShort,
     override val location: String,
     override val buildYear: UShort,
@@ -12,13 +13,14 @@ data class Stadium(
     override val id: UUID = UUID.randomUUID(),
 ) : IStadium {
     override fun toCSV(): String {
-        return "$id;$name;$capacity;$location;$buildYear;$imagePath"
+        return "$id;$name;$teamId;$capacity;$location;$buildYear;$imagePath"
     }
 
     override fun toXML(): String {
         return """
             <stadium id="$id">
                 <name>$name</name>
+                <teamId>$teamId</teamId>
                 <capacity>$capacity</capacity>
                 <location>$location</location>
                 <buildYear>$buildYear</buildYear>
@@ -32,6 +34,7 @@ data class Stadium(
             {
                 "id": "$id",
                 "name": "$name",
+                "teamId": "$teamId",
                 "capacity": "$capacity",
                 "location": "$location",
                 "buildYear": "$buildYear",

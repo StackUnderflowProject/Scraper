@@ -5,7 +5,7 @@ import java.util.*
 
 data class DrawableStanding (
     override val place: UShort,
-    override val team: String,
+    override val team: UUID,
     override val gamesPlayed: UShort,
     override val wins: UShort,
     val draws: UShort,
