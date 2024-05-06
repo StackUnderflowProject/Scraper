@@ -1,11 +1,12 @@
 package model
 
 import interfaces.IStanding
+import org.bson.types.ObjectId
 import java.util.*
 
 data class DrawableStanding (
     override val place: UShort,
-    override val team: UUID,
+    override val team: ObjectId,
     override val gamesPlayed: UShort,
     override val wins: UShort,
     val draws: UShort,
@@ -13,7 +14,7 @@ data class DrawableStanding (
     override val goalsScored: UShort,
     override val goalsConceded: UShort,
     override val points: UShort,
-    override val id: UUID = UUID.randomUUID()
+    override val id: ObjectId = ObjectId()
 ): IStanding {
     
     private val goalDiff = (goalsScored - goalsConceded).toShort()

@@ -1,6 +1,7 @@
 package model
 
 import interfaces.IStanding
+import org.bson.types.ObjectId
 import java.util.*
 
 data class BasketballStanding(
@@ -11,8 +12,8 @@ data class BasketballStanding(
     override val points: UShort,
     override val goalsScored: UShort,
     override val goalsConceded: UShort,
-    override val team: UUID = UUID.randomUUID(),
-    override val id: UUID = UUID.randomUUID(),
+    override val team: ObjectId = ObjectId(),
+    override val id: ObjectId = ObjectId(),
 ) : IStanding {
     private val goalDiff = (goalsScored - goalsConceded).toShort()
     

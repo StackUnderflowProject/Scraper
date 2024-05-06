@@ -1,9 +1,9 @@
 package interfaces
 
-import java.util.UUID
+import org.bson.types.ObjectId
 
 interface ITeam {
-    val id: UUID
+    val id: ObjectId
     val name: String
     val director: String
     val coach: String

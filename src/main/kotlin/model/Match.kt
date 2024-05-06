@@ -1,19 +1,20 @@
 package model
 
 import interfaces.IMatch
+import org.bson.types.ObjectId
 import java.time.LocalDate
 import java.util.UUID
 
 data class Match(
-    override val home: UUID,
+    override val home: ObjectId,
     override val score: String?,
     override val time: String?,
-    override val away: UUID,
+    override val away: ObjectId,
     override val played: Boolean = false,
     override val date: LocalDate,
     override val location: String,
-    val stadium: UUID? = null,
-    override val id: UUID = UUID.randomUUID()
+    val stadium: ObjectId? = null,
+    override val id: ObjectId = ObjectId()
 ) : IMatch {
     override fun toString(): String {
         return when (played) {

@@ -1,10 +1,11 @@
 package model
 
 import interfaces.ITeam
+import org.bson.types.ObjectId
 import java.util.*
 
 class HandballTeam(
-    override val id: UUID = UUID.randomUUID(),
+    override val id: ObjectId = ObjectId(),
     override val name: String,
     override val director: String,
     val president: String,
