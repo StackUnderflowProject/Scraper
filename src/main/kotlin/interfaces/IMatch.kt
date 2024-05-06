@@ -1,17 +1,17 @@
 package interfaces
 
+import org.bson.types.ObjectId
 import java.time.LocalDate
-import java.util.*
 
 interface IMatch {
-    val home: UUID
+    val home: ObjectId
     val score: String?
     val time: String?
-    val away: UUID
+    val away: ObjectId
     val played: Boolean
     val date: LocalDate
     val location: String
-    val id: UUID
+    val id: ObjectId
     
     fun toCSV(): String
     fun toXML(): String

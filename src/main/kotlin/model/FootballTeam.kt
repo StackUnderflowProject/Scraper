@@ -1,6 +1,7 @@
 package model
 
 import interfaces.ITeam
+import org.bson.types.ObjectId
 import java.util.UUID
 
 data class FootballTeam(
@@ -9,7 +10,7 @@ data class FootballTeam(
     override val director: String,
     override val coach: String,
     override var logoPath: String,
-    override val id: UUID = UUID.randomUUID(),
+    override val id: ObjectId = ObjectId(),
 ): ITeam {
 
     override fun toString(): String {
