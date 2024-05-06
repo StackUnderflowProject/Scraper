@@ -370,23 +370,20 @@ object PLTScraper {
                                 val played = scoreTimeData[0].trim().length == 1;
                                 val score = if (played) columns[2].text else null
                                 val time = if (!played) columns[2].text else null
-                                val stadiumName = try {
-                                    locationData[1].trim()
-                                } catch (e: Exception) {
-                                    ""
-                                }
+                                val home = teams.find { it.name == columns[0].text }?.id
+                                    ?: throw Exception("Team not found")
+                                val away = teams.find { it.name == columns[4].text }?.id
+                                    ?: throw Exception("Team not found")
                                 matches.add(
                                     Match(
-                                        home = teams.find { it.name == columns[0].text }?.id
-                                            ?: throw Exception("Team not found"),
+                                        home = home,
                                         score = score,
                                         played = played,
                                         time = time,
-                                        away = teams.find { it.name == columns[4].text }?.id
-                                            ?: throw Exception("Team not found"),
+                                        away = away,
                                         date = LocalDate.from(date),
                                         location = locationData[0].trim(),
-                                        stadium = if(stadiumName.isNotEmpty()) stadiums.find { it.name.lowercase() == stadiumName.lowercase() }?.id else null
+                                        stadium = stadiums.find { it.teamId == home }?.id
                                     )
                                 )
                             }
@@ -401,9 +398,9 @@ object PLTScraper {
 
     fun saveAllData(fileType: FileType = FileType.JSON) {
         val teams = getTeams()
-        val matches = getMatches(teams = teams)
         val stadiums = getStadiums(teams = teams)
         val standings = getStandings(teams = teams)
+        val matches = getMatches(teams = teams, stadiums = stadiums)
         when (fileType) {
             FileType.CSV -> {
                 teams.writeToCSV("teams.csv")
