@@ -6,7 +6,7 @@ interface ITeam {
     val id: ObjectId
     val name: String
     val director: String
-    val coach: String
+    var coach: String
     var logoPath: String
     
     fun toCSV(): String

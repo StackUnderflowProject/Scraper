@@ -8,7 +8,7 @@ data class FootballTeam(
     override val name: String,
     val president: String,
     override val director: String,
-    override val coach: String,
+    override var coach: String,
     override var logoPath: String,
     override val id: ObjectId = ObjectId(),
 ): ITeam {

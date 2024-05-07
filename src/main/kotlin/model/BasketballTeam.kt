@@ -8,7 +8,7 @@ data class BasketballTeam(
     override val id: ObjectId = ObjectId(),
     override val name: String,
     override val director: String,
-    override val coach: String,
+    override var coach: String,
     override var logoPath: String
 ): ITeam {
     override fun toCSV(): String {

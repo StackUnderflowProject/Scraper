@@ -17,9 +17,39 @@ import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
 object RZSScraper {
+    fun getLocation(teams: Teams, arenas: Stadiums): Stadiums {
+        val teamUrlMap = mutableMapOf<String, String>()
+        val searchUrl = "https://www.rokometna-zveza.si/si/tekmovanja/1-a-drl-moski"
+        skrape(HttpFetcher) {
+            request {
+                url = searchUrl
+            }
+            response {
+                htmlDocument {
+                    val teamNames = findAll("div.contentTitle h3").map { it.text }
+                    val teamDataContainers = findAll("div.paragraph.paragraph-normal")
+                    teamDataContainers.forEachIndexed { idx, container ->
+                        var location = container.findAll("p")[1].text.split("(Telefon|Elektronski)".toRegex())[0].trim()
+                        location = if (location.isEmpty()) {
+                            container.findFirst("p").text.split(":")[1].trim()
+                        } else {
+                            location.split(":")[1].trim()
+                        }
+                        val team = teams.find { it.name == teamNames[idx] }
+                        if (team != null) {
+                            val arena = arenas.find { it.teamId == team.id }
+                            arena?.location = location
+                        }
+                    }
+                }
+            }
+        }
+        return arenas
+    }
+
+
     fun getTeams(downloadImage: Boolean = false): Teams {
         val teams = Teams()
-
         val searchUrl = "https://www.rokometna-zveza.si/si/tekmovanja/1-a-drl-moski"
         val coachPattern = """.*Trener:\s(([\wšđčćž]+\s*){2})(\s*.*)?""".toRegex(RegexOption.IGNORE_CASE)
         val presidentPattern = """.*Predsednik:\s(([\wšđčćž]+\s*){2})(\s*.*)?""".toRegex(RegexOption.IGNORE_CASE)
@@ -36,9 +66,9 @@ object RZSScraper {
 
                     val teamDataContainers = findAll("div.paragraph.paragraph-normal")
                     teamDataContainers.forEachIndexed { idx, container ->
-                        val coach = coachPattern.find(container.text)?.groups?.get(1)?.value ?: "/"
-                        val president = presidentPattern.find(container.text)?.groups?.get(1)?.value ?: "/"
-                        val director = directorPattern.find(container.text)?.groups?.get(1)?.value ?: "/"
+                        val coach = coachPattern.find(container.text)?.groups?.get(1)?.value?.trim() ?: "/"
+                        val president = presidentPattern.find(container.text)?.groups?.get(1)?.value?.trim() ?: "/"
+                        val director = directorPattern.find(container.text)?.groups?.get(1)?.value?.trim() ?: "/"
                         teams.add(
                             HandballTeam(
                                 name = teamNames[idx],
@@ -77,7 +107,7 @@ object RZSScraper {
             val logoUrl = row.findElement(ByCssSelector("img")).getAttribute("src")
             val team = teams.find { it.name == teamName }
             if (team != null) {
-                if(downloadImage) {
+                if (downloadImage) {
                     ImageUtil.downloadImage(logoUrl, "src/main/resources/handball_team_logos/${teamName}_logo.png")
                     team.logoPath = "src/main/resources/handball_team_logos/${teamName}_logo.png"
                 } else {
@@ -89,7 +119,7 @@ object RZSScraper {
         println("Team logos fetched successfully!")
     }
 
-    fun getMatches(team: String = "", teams: Teams = getTeams(), arenas: Stadiums = getArenas()) : Matches {
+    fun getMatches(team: String = "", teams: Teams = getTeams(), arenas: Stadiums = getArenas()): Matches {
         val matchesUrl = "https://livestat.rokometna-zveza.si/#/liga/1155/sezona/70/razpored"
         val datePattern = """.*-\s(\d{2}\.\d{2}\.\d{4}\s\d{2}:\d{2}).*""".toRegex(RegexOption.IGNORE_CASE)
         val dateFormatter = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm")
@@ -117,7 +147,7 @@ object RZSScraper {
                     val away =
                         match.findElement(ByCssSelector("div.widget-results__team--second > div > h5.widget-results__team-name")).text
 
-                    if(team.isNotEmpty() && (home != team && away != team)) {
+                    if (team.isNotEmpty() && (home != team && away != team)) {
                         break@matchLoop
                     }
 
@@ -134,12 +164,16 @@ object RZSScraper {
                     val played = score != "0 - 0"
 
                     val time = String.format("%02d:%02d", date.hour, date.minute)
+                    
+                    val stadiumId = arenas.find { it.name.lowercase() == arena.lowercase() }?.id
+                    val homeTeam = teams.find { it.name == home }?.id
+                    val awayTeam = teams.find { it.name == away }?.id
                     matches.add(
                         Match(
                             date = date.toLocalDate(),
-                            stadium = arenas.find { it.name.lowercase() == arena.lowercase() }?.id,
-                            home = teams.find { it.name == home }?.id ?: throw Exception("Team not found"),
-                            away = teams.find { it.name == away }?.id ?: throw Exception("Team not found"),
+                            stadium = stadiumId,
+                            home = homeTeam ?: throw Exception("Home team not found"),
+                            away = awayTeam ?: throw Exception("Away team not found"),
                             score = score,
                             location = arena,
                             time = time,
@@ -157,7 +191,7 @@ object RZSScraper {
         println("Matches fetched successfully!")
         return matches
     }
-    
+
     fun getStandings(teams: Teams = getTeams()): Standings {
         val standings = Standings()
         val standingsUrl = "https://livestat.rokometna-zveza.si/#/liga/1155/sezona/70/lestvica"
@@ -167,17 +201,18 @@ object RZSScraper {
             ChromeOptions().apply {
                 addArguments("--headless")
             })
-        
+
         chrome.get(standingsUrl)
-        
+
         val table = WebDriverWait(chrome, Duration.ofSeconds(10)).until(
             ExpectedConditions.presenceOfElementLocated(ByCssSelector("tbody"))
         )
-        
+
         val rows = table.findElements(ByCssSelector("tr"))
-        rows.forEach {row ->
+        rows.forEach { row ->
             val place = row.findElement(ByCssSelector("td.game-player-result__date > h6")).text.toInt()
-            val team = row.findElement(ByCssSelector("td.game-player-result__vs > a > div > div > h6.team-meta__name")).text
+            val team =
+                row.findElement(ByCssSelector("td.game-player-result__vs > a > div > div > h6.team-meta__name")).text
             val gamesPlayed = row.findElement(ByCssSelector("td.game-player-result__score")).text.toInt()
             val wins = row.findElement(ByCssSelector("td.game-player-result__min")).text.toInt()
             val draws = row.findElement(ByCssSelector("td.game-player-result__ts")).text.toInt()
@@ -185,8 +220,9 @@ object RZSScraper {
             val goalData = row.findElement(ByCssSelector("td.game-player-result__st")).text.split(":")
             val goalsScored = goalData[0].toInt()
             val goalsConceded = goalData[1].toInt()
-            val points = row.findElement(ByCssSelector("td.game-player-result__ga > span.team-info__value")).text.toInt()
-            
+            val points =
+                row.findElement(ByCssSelector("td.game-player-result__ga > span.team-info__value")).text.toInt()
+
             try {
                 standings.add(
                     DrawableStanding(
@@ -205,70 +241,74 @@ object RZSScraper {
                 println(e)
             }
         }
-        
+
         chrome.quit()
         println("Standings fetched successfully!")
         return standings
     }
-    
+
     fun getArenas(teams: Teams = getTeams()): Stadiums {
         val arenas = Stadiums()
         val arenasUrl = "https://livestat.rokometna-zveza.si/#/liga/1155/sezona/70/ekipe"
-        
         println("Fetching arenas...")
         val chrome = ChromeDriver(
             ChromeOptions().apply {
                 addArguments("--headless")
             })
-        
+
         chrome.get(arenasUrl)
-        
+
         val table = WebDriverWait(chrome, Duration.ofSeconds(10)).until(
             ExpectedConditions.presenceOfElementLocated(ByCssSelector("tbody"))
         )
-        
+
         val rows = table.findElements(ByCssSelector("tr"))
         rows.forEach { row ->
             val teamName = row.findElement(ByTagName("h6")).text
-            val arenaArr = row.findElement(ByCssSelector("td:nth-child(4)")).text.split('\n')
-            arenaArr.forEach { arena ->
-                val team = teams.find { it.name == teamName }
-                if(team != null) {
-                    arenas.add(
-                        Stadium(
-                            name = arena,
-                            teamId = team.id
-                        )
-                    )
-                }
-                
+            val arena = row.findElement(ByCssSelector("td:nth-child(4)")).text.split('\n')[0]
+            if (arena.isEmpty()) {
+                return@forEach
             }
-        }
+            val team = teams.find { it.name == teamName }
+            if (team != null) {
+                arenas.add(
+                    Stadium(
+                        name = arena,
+                        teamId = team.id
+                    )
+                )
+            }
+
         
+        }
+
         chrome.quit()
         println("Arenas fetched successfully!")
-        return arenas
+
+        return getLocation(teams, arenas)
     }
-    
+
     fun saveAllData(fileType: FileType = FileType.JSON, downloadImage: Boolean = false) {
         val teams = getTeams(downloadImage)
         val arenas = getArenas(teams = teams)
         val standings = getStandings(teams = teams)
         val matches = getMatches(teams = teams, arenas = arenas)
-        
-        when(fileType) {
+
+        when (fileType) {
             FileType.JSON -> {
                 teams.writeToJSON("teams.json")
                 standings.writeToJSON("standings.json")
                 arenas.writeToJSON("arenas.json")
                 matches.writeToJSON("matches.json")
             }
+
             FileType.XML -> {
                 teams.writeToXML("teams.xml")
                 standings.writeToXML("standings.xml")
                 arenas.writeToXML("arenas.xml")
                 matches.writeToXML("matches.xml")
             }
+
             FileType.CSV -> {
                 teams.writeToCSV("teams.csv")
                 standings.writeToCSV("standings.csv")
