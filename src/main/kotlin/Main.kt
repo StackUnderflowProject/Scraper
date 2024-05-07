@@ -1,5 +1,6 @@
 import scrapers.PLTScraper
+import scrapers.RZSScraper
 
 fun main() {
-    PLTScraper.saveAllData()
+    RZSScraper.saveAllData()
 }

@@ -250,26 +250,30 @@ object RZSScraper {
         return arenas
     }
     
-    fun saveAllData(fileType: FileType = FileType.JSON) {
-        val teams = getTeams(downloadImage = true)
-        val matches = getMatches(teams = teams)
+    fun saveAllData(fileType: FileType = FileType.JSON, downloadImage: Boolean = false) {
+        val teams = getTeams(downloadImage)
+        val arenas = getArenas(teams = teams)
         val standings = getStandings(teams = teams)
+        val matches = getMatches(teams = teams, arenas = arenas)
         
         when(fileType) {
             FileType.JSON -> {
                 teams.writeToJSON("teams.json")
-                matches.writeToJSON("matches.json")
                 standings.writeToJSON("standings.json")
+                arenas.writeToJSON("arenas.json")
+                matches.writeToJSON("matches.json")
             }
             FileType.XML -> {
                 teams.writeToXML("teams.xml")
-                matches.writeToXML("matches.xml")
                 standings.writeToXML("standings.xml")
+                arenas.writeToXML("arenas.xml")
+                matches.writeToXML("matches.xml")
             }
             FileType.CSV -> {
                 teams.writeToCSV("teams.csv")
-                matches.writeToCSV("matches.csv")
                 standings.writeToCSV("standings.csv")
+                arenas.writeToCSV("arenas.csv")
+                matches.writeToCSV("matches.csv")
             }
         }
     }
