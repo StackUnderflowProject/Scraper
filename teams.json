@@ -1,0 +1,84 @@
+{
+  "teams": [
+    {
+      "id": "663b9b918521172027ef0702",
+      "name": "Celje",
+      "president": "Valeriy Kolotilo",
+      "director": "Zoran Podkoritnik",
+      "coach": "Damir Krznar",
+      "logoPath": "https://www.prvaliga.si/Img/Grafika_klubov/Grbi/start/231_Celje-new.png"
+    },
+    {
+      "id": "663b9b918521172027ef0703",
+      "name": "Olimpija Ljubljana",
+      "president": "Adam Delius",
+      "director": "Igor Barišić",
+      "coach": "Zoran Zeljković",
+      "logoPath": "https://www.prvaliga.si/Img/Grafika_klubov/Grbi/start/231_Olimpija.png"
+    },
+    {
+      "id": "663b9b918521172027ef0704",
+      "name": "Maribor",
+      "president": "Drago Cotar",
+      "director": "Bojan Ban",
+      "coach": "Ante Šimundža",
+      "logoPath": "https://www.prvaliga.si/Img/Grafika_klubov/Grbi_veliki/maribor_zvezdica.jpg"
+    },
+    {
+      "id": "663b9b918521172027ef0705",
+      "name": "Koper",
+      "president": "Anto Guberac",
+      "director": "Matej Pirjevec",
+      "coach": "Oliver Bogatinov",
+      "logoPath": "https://www.prvaliga.si/Img/Grafika_klubov/Grbi/start/231_KoperFC.png"
+    },
+    {
+      "id": "663b9b928521172027ef0706",
+      "name": "Bravo Kostel",
+      "president": "Luka Brezovec",
+      "director": "Dejan Močnik",
+      "coach": "Aleš Arnol",
+      "logoPath": "https://www.prvaliga.si/Img/Grafika_klubov/Grbi_veliki/NKBRAVO_2017_znak_231px.png"
+    },
+    {
+      "id": "663b9b928521172027ef0707",
+      "name": "Mura",
+      "president": "Robert Kuzmič",
+      "director": "Aleš Kegelj",
+      "coach": "Anton Žlogar",
+      "logoPath": "https://www.prvaliga.si/Img/Grafika_klubov/Grbi_veliki/231-NSMura.png"
+    },
+    {
+      "id": "663b9b928521172027ef0708",
+      "name": "Domžale",
+      "president": "Stane Oražem",
+      "director": "Matej Oražem",
+      "coach": "/",
+      "logoPath": "https://www.prvaliga.si/Img/Grafika_klubov/Grbi/start/231-domzale2017.png"
+    },
+    {
+      "id": "663b9b928521172027ef0709",
+      "name": "Rogaška",
+      "president": "Bojan Jeršečič",
+      "director": "Nino Ivačič",
+      "coach": "Oskar Drobne",
+      "logoPath": "https://www.prvaliga.si/Img/Grafika_klubov/Grbi_veliki/231Rogaska%20(1).png"
+    },
+    {
+      "id": "663b9b928521172027ef070a",
+      "name": "Kalcer Radomlje",
+      "president": "Matjaž Marinšek",
+      "director": "Grega Marinšek",
+      "coach": "/",
+      "logoPath": "https://www.prvaliga.si/Img/Grafika_klubov/Grbi/start/231_Radomlje.png"
+    },
+    {
+      "id": "663b9b938521172027ef070b",
+      "name": "Aluminij",
+      "president": "Marko Drobnič",
+      "director": "Borut Arlič",
+      "coach": "Robert Pevnik",
+      "logoPath": "https://www.prvaliga.si/Img/Grafika_klubov/Grbi_veliki/Aluminij.jpg"
+    }
+  ]
+}
