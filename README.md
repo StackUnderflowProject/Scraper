@@ -1,6 +1,6 @@
 # Scraper
 
-This project is a web scraper for football , handball 🤾‍♂️ and basketball 🏀 data. 
+This project is a web scraper for football ⚽, handball 🤾‍♂️ and basketball 🏀 data. 
 
 It fetches and processes data from the Slovenian Football League ([Prva liga Telemach](https://www.prvaliga.si/tekmovanja/?id_menu=101)), 
 Handball League ([1. A DRŽAVNA MOŠKA ROKOMETNA LIGA](https://livestat.rokometna-zveza.si/#/liga/1155/sezona/70/lestvica)) 
