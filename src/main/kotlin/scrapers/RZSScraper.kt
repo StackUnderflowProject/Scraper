@@ -12,6 +12,7 @@ import org.openqa.selenium.chrome.ChromeOptions
 import org.openqa.selenium.support.ui.ExpectedConditions
 import org.openqa.selenium.support.ui.WebDriverWait
 import util.ImageUtil
+import util.LocationUtil
 import java.time.Duration
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
@@ -38,7 +39,7 @@ object RZSScraper {
                         val team = teams.find { it.name == teamNames[idx] }
                         if (team != null) {
                             val arena = arenas.find { it.teamId == team.id }
-                            arena?.location = location
+                            arena?.location = LocationUtil.getLocation(location)
                         }
                     }
                 }

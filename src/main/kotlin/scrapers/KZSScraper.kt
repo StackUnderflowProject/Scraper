@@ -1,5 +1,6 @@
 package scrapers
 
+import util.LocationUtil
 import it.skrape.core.htmlDocument
 import it.skrape.fetcher.*
 import it.skrape.selects.html5.div
@@ -134,7 +135,7 @@ object KZSScraper {
                                             name = stadiumName,
                                             capacity = capacity,
                                             imagePath = stadiumImagePath,
-                                            location = address,
+                                            location = LocationUtil.getLocation(address),
                                             teamId = teams.find { it.name.contains(team) }?.id
                                                 ?: throw Exception("Team $team not found")
                                         )

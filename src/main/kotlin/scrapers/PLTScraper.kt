@@ -10,6 +10,7 @@ import it.skrape.selects.html5.table
 import it.skrape.selects.html5.tbody
 import model.*
 import util.ImageUtil
+import util.LocationUtil
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 import java.util.*
@@ -251,7 +252,7 @@ object PLTScraper {
                                             teamId = teams.find { it.name == name }?.id
                                                 ?: throw Exception("Team not found"),
                                             capacity = capacity,
-                                            location = location,
+                                            location = LocationUtil.getLocation(location),
                                             buildYear = buildYear,
                                             imagePath = stadiumPath
                                         )
