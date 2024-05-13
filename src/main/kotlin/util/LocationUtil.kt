@@ -13,6 +13,7 @@ object LocationUtil {
     data class Result(val geometry: Geometry)
     data class GeocodeResponse(val results: List<Result>)
 
+    // TODO set own map api key
     private const val MAP_API_KEY = "AIzaSyDVd_pBgyIrTNWl9iizuJcMiwSVcTk4lR8"
     
     fun getLocation(address: String): Location? {
