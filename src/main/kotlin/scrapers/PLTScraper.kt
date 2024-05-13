@@ -5,7 +5,6 @@ import it.skrape.fetcher.HttpFetcher
 import it.skrape.fetcher.response
 import it.skrape.fetcher.skrape
 import it.skrape.selects.html5.div
-import it.skrape.selects.html5.iframe
 import it.skrape.selects.html5.table
 import it.skrape.selects.html5.tbody
 import model.*
@@ -14,10 +13,16 @@ import util.LocationUtil
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 import java.util.*
-import kotlin.system.exitProcess
 
 object PLTScraper {
-    fun getTeamMap(season: Int): Map<String, String> {
+
+    /**
+     * getTeamMap():
+     *  - receives season: Int
+     *  - returns a map of all the teams playing in that season, where the key is the clubs name and
+     *  the value is the CSS class attribute which defines the element on the web page
+     */
+    private fun getTeamMap(season: Int): Map<String, String> {
         val idPattern = Regex(""".*id_kluba=(\d+).*""")
         val teamMap = mutableMapOf<String, String>()
 
@@ -49,10 +54,15 @@ object PLTScraper {
         return teamMap
     }
 
+    /**
+     * getTeams():
+     *  - receives optional parameters teamMap, which contains the query ids for each team,
+     *  downloadLogo, which determines whether to download the image or not
+     *  - It returns a Teams object with all the teams defined in the teamMap
+     */
     fun getTeams(
         teamMap: Map<String, String> = getTeamMap(LocalDate.now().year),
         downloadLogo: Boolean = false,
-        saveToFile: Boolean = false
     ): Teams {
         val baseUrl = "https://www.prvaliga.si/tekmovanja/default.asp?action=klub&id_menu=217&id_kluba="
         val teams = Teams()
@@ -100,8 +110,6 @@ object PLTScraper {
                                     val coachRow = rows.find { it.text.contains("Glavni trener") }
                                     val coach = coachRow?.findFirst("td")?.text?.split(":")?.get(1)?.trim() ?: ""
 
-
-
                                     teams.add(
                                         FootballTeam(
                                             name = name,
@@ -118,7 +126,6 @@ object PLTScraper {
                     }
                 }
             }
-            if (saveToFile) teams.writeToJSON("src/main/resources/football_teams.json")
             println("Teams fetched successfully")
             return teams
         } catch (e: Exception) {
@@ -127,6 +134,12 @@ object PLTScraper {
         }
     }
 
+    /**
+     * getStanding():
+     *  - receives optional parameters season and teams, which is used to reference each team by id inside standing
+     *  instead of name
+     *  - it returns a Standings object, which contains a Standing (placement) for each team inside teams
+     */
     fun getStandings(season: Int = LocalDate.now().year, teams: Teams = getTeams()): Standings {
         println("Getting standings...")
         val searchURL = "https://www.prvaliga.si/tekmovanja/default.asp?action=lestvica&id_menu=102&id_sezone=$season"
@@ -151,7 +164,6 @@ object PLTScraper {
                                     val draws = columns[6].text.toUShort()
                                     val losses = columns[7].text.toUShort()
                                     val goalStats = columns[8].text.split(":").map { it.toUShort() }.toTypedArray()
-                                    val goalDiff = columns[9].text
                                     val points = columns[10].text.toUShort()
                                     try {
 
@@ -184,6 +196,12 @@ object PLTScraper {
         return standings
     }
 
+    /**
+     * getStadiums():
+     *  - receives optional parameters teamMap, teams and downloadImage
+     *  - it returns a Stadiums object containing the stadium for each team given in the teams parameter,
+     *  given it finds teh right data on the website
+     */
     fun getStadiums(
         teamMap: Map<String, String> = getTeamMap(LocalDate.now().year),
         teams: Teams = getTeams(),
@@ -272,81 +290,18 @@ object PLTScraper {
         }
     }
 
-    @Throws(IllegalArgumentException::class)
-    fun getTeam(teamMap: Map<String, String>): String {
-        for (key in teamMap.keys) {
-            println(key)
-        }
-        print("Enter team name (empty for all teams): ")
-        var team = readln().replaceFirstChar { if (it.isLowerCase()) it.uppercase() else it.toString() }
-        if (team.isEmpty()) return ""
-
-        while (teamMap.containsKey(team).not()) {
-            print("Team not found, try again: ")
-            team = readln().replaceFirstChar { if (it.isLowerCase()) it.uppercase() else it.toString() }
-        }
-        return teamMap[team] ?: throw IllegalArgumentException("Team not found")
-    }
-
-    fun getCssSelector(teamId: String, matchTypeArg: String? = null): String {
-        var matchType = matchTypeArg ?: ""
-        if (matchType.isEmpty()) {
-            println("model.Match type:\n1. Played\n2. Upcoming\n3. All")
-            matchType = when (readln().toIntOrNull()) {
-                1 -> "played"
-                2 -> "upcoming"
-                else -> "all"
-            }
-        }
-
-        val clubId = if (teamId.isEmpty()) "" else ".klub_$teamId"
-        var cssSelector = "tr.hidden-xs.klub_all$clubId"
-        when (matchType) {
-            "played" -> {
-                cssSelector += ".odigrano"
-            }
-
-            "upcoming" -> {
-                cssSelector += ".neodigrano"
-            }
-
-            else -> {
-            }
-        }
-        return cssSelector
-    }
-
-    @Throws(IllegalArgumentException::class)
-    fun getOutputType(): FileType {
-        println("Output type:\n1. CSV\n2. XML\n3. JSON")
-        var outputType = readln().toIntOrNull() ?: 0
-        while (outputType !in 1..3) {
-            println("Invalid output type, try again: ")
-            outputType = readln().toIntOrNull() ?: 0
-        }
-        return when (outputType) {
-            1 -> FileType.CSV
-            2 -> FileType.XML
-            3 -> FileType.JSON
-            else -> throw IllegalArgumentException("Invalid output type")
-        }
-    }
-
-    fun getSeason(): Int {
-        var season = 0
-        while (season !in 1992..2024) {
-            println("Enter season (1992-2024, empty current season): ")
-            season = readln().toIntOrNull() ?: LocalDate.now().year
-        }
-        return season
-    }
-
+    /**
+     * getMatches():
+     *  - receives optional parameters season, teams and stadiums
+     *  - it returns a Matches object containing all matches played and upcoming for all teams in the given season with
+     *  references to teams and stadiums via ids
+     */
     fun getMatches(
-        teamsUrl: String = "https://www.prvaliga.si/tekmovanja/default.asp?id_menu=101&id_sezone=${LocalDate.now().year}",
+        season: Int = LocalDate.now().year,
         teams: Teams = getTeams(),
         stadiums: Stadiums = getStadiums(),
-        cssSelector: String = "tr.klub_all"
     ): Matches {
+        val teamsUrl = "https://www.prvaliga.si/tekmovanja/default.asp?id_menu=101&id_sezone=${season}"
         println("Getting matches...")
         val dateFormatter =
             DateTimeFormatter.ofPattern("EEEE, d.MMMM yyyy", Locale.Builder().setLanguage("sl").setRegion("SI").build())
@@ -361,14 +316,14 @@ object PLTScraper {
                     table {
                         withClass = "tekme"
                         tbody {
-                            val rows = findAll(cssSelector = cssSelector)
+                            val rows = findAll("tr.klub_all")
                             rows.map { row ->
                                 val columns = row.findAll("td")
                                 val geoData = columns[5].text.split('|')
                                 val date = dateFormatter.parse(geoData[0].trim().lowercase())
                                 val locationData = geoData[1].trim().split(',')
                                 val scoreTimeData = columns[2].text.split(':')
-                                val played = scoreTimeData[0].trim().length == 1;
+                                val played = scoreTimeData[0].trim().length == 1
                                 val score = if (played) columns[2].text else null
                                 val time = if (!played) columns[2].text else null
                                 val home = teams.find { it.name == columns[0].text }?.id
@@ -397,11 +352,17 @@ object PLTScraper {
         return matches
     }
 
-    fun saveAllData(fileType: FileType = FileType.JSON) {
-        val teams = getTeams()
-        val stadiums = getStadiums(teams = teams)
-        val standings = getStandings(teams = teams)
-        val matches = getMatches(teams = teams, stadiums = stadiums)
+    /**
+     * saveAllData():
+     * - a helper method that call all other methods to get the data and then save it to the desired file type 
+     * - receives optional parameters season and fileType
+     */
+    fun saveAllData(season: Int = LocalDate.now().year, fileType: FileType = FileType.JSON) {
+        val teamMap = getTeamMap(season)
+        val teams = getTeams(teamMap = teamMap)
+        val stadiums = getStadiums(teamMap = teamMap, teams = teams)
+        val standings = getStandings(season = season, teams = teams)
+        val matches = getMatches(season = season, teams = teams, stadiums = stadiums)
         when (fileType) {
             FileType.CSV -> {
                 teams.writeToCSV("teams.csv")

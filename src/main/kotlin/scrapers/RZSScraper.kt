@@ -1,9 +1,5 @@
 package scrapers
 
-import it.skrape.core.htmlDocument
-import it.skrape.fetcher.HttpFetcher
-import it.skrape.fetcher.response
-import it.skrape.fetcher.skrape
 import model.*
 import org.openqa.selenium.By.ByCssSelector
 import org.openqa.selenium.By.ByTagName
@@ -11,117 +7,83 @@ import org.openqa.selenium.chrome.ChromeDriver
 import org.openqa.selenium.chrome.ChromeOptions
 import org.openqa.selenium.support.ui.ExpectedConditions
 import org.openqa.selenium.support.ui.WebDriverWait
-import util.ImageUtil
 import util.LocationUtil
 import java.time.Duration
+import java.time.LocalDate
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
 object RZSScraper {
-    fun getLocation(teams: Teams, arenas: Stadiums): Stadiums {
-        val teamUrlMap = mutableMapOf<String, String>()
-        val searchUrl = "https://www.rokometna-zveza.si/si/tekmovanja/1-a-drl-moski"
-        skrape(HttpFetcher) {
-            request {
-                url = searchUrl
-            }
-            response {
-                htmlDocument {
-                    val teamNames = findAll("div.contentTitle h3").map { it.text }
-                    val teamDataContainers = findAll("div.paragraph.paragraph-normal")
-                    teamDataContainers.forEachIndexed { idx, container ->
-                        var location = container.findAll("p")[1].text.split("(Telefon|Elektronski)".toRegex())[0].trim()
-                        location = if (location.isEmpty()) {
-                            container.findFirst("p").text.split(":")[1].trim()
-                        } else {
-                            location.split(":")[1].trim()
-                        }
-                        val team = teams.find { it.name == teamNames[idx] }
-                        if (team != null) {
-                            val arena = arenas.find { it.teamId == team.id }
-                            arena?.location = LocationUtil.getLocation(location)
-                        }
-                    }
-                }
-            }
-        }
-        return arenas
-    }
+    private val seasonMap = mapOf(
+        2024 to 70,
+        2023 to 69,
+        2022 to 66,
+        2021 to 65,
+        2020 to 64,
+        2019 to 63,
+        2018 to 59,
+    )
 
-
-    fun getTeams(downloadImage: Boolean = false): Teams {
+    fun getTeams(season: Int = LocalDate.now().year): Teams {
         val teams = Teams()
-        val searchUrl = "https://www.rokometna-zveza.si/si/tekmovanja/1-a-drl-moski"
-        val coachPattern = """.*Trener:\s(([\wšđčćž]+\s*){2})(\s*.*)?""".toRegex(RegexOption.IGNORE_CASE)
-        val presidentPattern = """.*Predsednik:\s(([\wšđčćž]+\s*){2})(\s*.*)?""".toRegex(RegexOption.IGNORE_CASE)
-        val directorPattern = """.*Direktor:\s(([\wšđčćž]+\s*){2})(\s*.*)?""".toRegex(RegexOption.IGNORE_CASE)
+        val searchUrl = "https://livestat.rokometna-zveza.si/#/liga/1155/sezona/${seasonMap[season]}/ekipe"
 
         println("Fetching teams...")
-        skrape(HttpFetcher) {
-            request {
-                url = searchUrl
-            }
-            response {
-                htmlDocument {
-                    val teamNames = findAll("div.contentTitle h3").map { it.text }
-
-                    val teamDataContainers = findAll("div.paragraph.paragraph-normal")
-                    teamDataContainers.forEachIndexed { idx, container ->
-                        val coach = coachPattern.find(container.text)?.groups?.get(1)?.value?.trim() ?: "/"
-                        val president = presidentPattern.find(container.text)?.groups?.get(1)?.value?.trim() ?: "/"
-                        val director = directorPattern.find(container.text)?.groups?.get(1)?.value?.trim() ?: "/"
-                        teams.add(
-                            HandballTeam(
-                                name = teamNames[idx],
-                                coach = coach,
-                                president = president,
-                                director = director
-                            )
-                        )
-                    }
-                }
-            }
-        }
-
-        getTeamLogos(teams, downloadImage)
-        println("Teams fetched successfully!")
-        return teams
-    }
-
-    private fun getTeamLogos(teams: Teams, downloadImage: Boolean = false) {
-        println("Fetching team logos...")
-        val teamsUrl = "https://livestat.rokometna-zveza.si/#/liga/1155/sezona/70/ekipe"
-        val driver = ChromeDriver(
+        val chrome = ChromeDriver(
             ChromeOptions().apply {
                 addArguments("--headless")
             })
 
-        driver.get(teamsUrl)
+        chrome.get(searchUrl)
 
-        val table = WebDriverWait(driver, Duration.ofSeconds(10)).until(
+        val table = WebDriverWait(chrome, Duration.ofSeconds(10)).until(
             ExpectedConditions.presenceOfElementLocated(ByCssSelector("tbody"))
         )
 
         val rows = table.findElements(ByCssSelector("tr"))
         rows.forEach { row ->
+            val teamLogo = row.findElement(ByCssSelector("img")).getAttribute("src")
             val teamName = row.findElement(ByTagName("h6")).text
-            val logoUrl = row.findElement(ByCssSelector("img")).getAttribute("src")
-            val team = teams.find { it.name == teamName }
-            if (team != null) {
-                if (downloadImage) {
-                    ImageUtil.downloadImage(logoUrl, "src/main/resources/handball_team_logos/${teamName}_logo.png")
-                    team.logoPath = "src/main/resources/handball_team_logos/${teamName}_logo.png"
-                } else {
-                    team.logoPath = logoUrl
-                }
-            }
+            val siteLink = row.findElement(ByCssSelector("td:nth-child(5) > a")).getAttribute("href")
+            val coach = getCoach(siteLink)
+            teams.add(
+                HandballTeam(
+                    name = teamName,
+                    coach = coach,
+                    president = "/",
+                    director = "/",
+                    logoPath = teamLogo
+                )
+            )
         }
-        driver.quit()
-        println("Team logos fetched successfully!")
+
+        chrome.quit()
+        println("Teams fetched successfully!")
+        return teams
     }
 
-    fun getMatches(team: String = "", teams: Teams = getTeams(), arenas: Stadiums = getArenas()): Matches {
-        val matchesUrl = "https://livestat.rokometna-zveza.si/#/liga/1155/sezona/70/razpored"
+    private fun getCoach(teamSite: String): String {
+        val chrome = ChromeDriver(
+            ChromeOptions().apply {
+                addArguments("--headless")
+            })
+
+        chrome.get(teamSite)
+
+        val coachElement = WebDriverWait(chrome, Duration.ofSeconds(10)).until(
+            ExpectedConditions.presenceOfElementLocated(
+                ByCssSelector(
+                    "div.row div.col-md-6 aside.widget-team-info:not([data-v-386fec58]) div.widget__content ul.team-info-list li:nth-child(7) span.team-info__value"
+                )
+            )
+        )
+        val coach = coachElement.text
+        chrome.quit()
+        return coach
+    }
+
+    fun getMatches(season: Int = LocalDate.now().year, teams: Teams = getTeams(), arenas: Stadiums = getArenas()): Matches {
+        val matchesUrl = "https://livestat.rokometna-zveza.si/#/liga/1155/sezona/${seasonMap[season]}/razpored"
         val datePattern = """.*-\s(\d{2}\.\d{2}\.\d{4}\s\d{2}:\d{2}).*""".toRegex(RegexOption.IGNORE_CASE)
         val dateFormatter = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm")
         val matches = Matches()
@@ -140,17 +102,13 @@ object RZSScraper {
 
         matchLegContainers.forEach { matchLegContainer ->
             val matchList = matchLegContainer.findElements(ByCssSelector("li.widget-results__item"))
-            matchLoop@ for (match in matchList) {
+            matchList.forEach { match ->
                 try {
                     val home =
-                        match.findElement(ByCssSelector("div.widget-results__team--first > div > h5.widget-results__team-name")).text
+                        match.findElement(ByCssSelector("div.widget-results__team--first")).text
 
                     val away =
-                        match.findElement(ByCssSelector("div.widget-results__team--second > div > h5.widget-results__team-name")).text
-
-                    if (team.isNotEmpty() && (home != team && away != team)) {
-                        break@matchLoop
-                    }
+                        match.findElement(ByCssSelector("div.widget-results__team--second")).text
 
                     val dateStr =
                         datePattern.find(match.findElement(ByCssSelector("div.widget-results__title strong")).text)
@@ -165,7 +123,7 @@ object RZSScraper {
                     val played = score != "0 - 0"
 
                     val time = String.format("%02d:%02d", date.hour, date.minute)
-                    
+
                     val stadiumId = arenas.find { it.name.lowercase() == arena.lowercase() }?.id
                     val homeTeam = teams.find { it.name == home }?.id
                     val awayTeam = teams.find { it.name == away }?.id
@@ -193,9 +151,9 @@ object RZSScraper {
         return matches
     }
 
-    fun getStandings(teams: Teams = getTeams()): Standings {
+    fun getStandings(season: Int = LocalDate.now().year, teams: Teams = getTeams()): Standings {
         val standings = Standings()
-        val standingsUrl = "https://livestat.rokometna-zveza.si/#/liga/1155/sezona/70/lestvica"
+        val standingsUrl = "https://livestat.rokometna-zveza.si/#/liga/1155/sezona/${seasonMap[season]}/lestvica"
 
         println("Fetching standings...")
         val chrome = ChromeDriver(
@@ -248,9 +206,9 @@ object RZSScraper {
         return standings
     }
 
-    fun getArenas(teams: Teams = getTeams()): Stadiums {
+    fun getArenas(season: Int = LocalDate.now().year, teams: Teams = getTeams()): Stadiums {
         val arenas = Stadiums()
-        val arenasUrl = "https://livestat.rokometna-zveza.si/#/liga/1155/sezona/70/ekipe"
+        val arenasUrl = "https://livestat.rokometna-zveza.si/#/liga/1155/sezona/${seasonMap[season]}/ekipe"
         println("Fetching arenas...")
         val chrome = ChromeDriver(
             ChromeOptions().apply {
@@ -266,34 +224,30 @@ object RZSScraper {
         val rows = table.findElements(ByCssSelector("tr"))
         rows.forEach { row ->
             val teamName = row.findElement(ByTagName("h6")).text
+            val address = row.findElement(ByCssSelector("td:nth-child(2)")).text.replace("\n", " ").trim(',').trim()
             val arena = row.findElement(ByCssSelector("td:nth-child(4)")).text.split('\n')[0]
-            if (arena.isEmpty()) {
-                return@forEach
-            }
             val team = teams.find { it.name == teamName }
             if (team != null) {
                 arenas.add(
                     Stadium(
                         name = arena,
-                        teamId = team.id
+                        teamId = team.id,
+                        location = LocationUtil.getLocation(address),
                     )
                 )
             }
-
-        
         }
 
         chrome.quit()
         println("Arenas fetched successfully!")
-
-        return getLocation(teams, arenas)
+        return arenas
     }
 
-    fun saveAllData(fileType: FileType = FileType.JSON, downloadImage: Boolean = false) {
-        val teams = getTeams(downloadImage)
-        val arenas = getArenas(teams = teams)
-        val standings = getStandings(teams = teams)
-        val matches = getMatches(teams = teams, arenas = arenas)
+    fun saveAllData(season: Int = LocalDate.now().year, fileType: FileType = FileType.JSON) {
+        val teams = getTeams(season)
+        val arenas = getArenas(season = season, teams = teams)
+        val standings = getStandings(season = season, teams = teams)
+        val matches = getMatches(season = season, teams = teams, arenas = arenas)
 
         when (fileType) {
             FileType.JSON -> {
