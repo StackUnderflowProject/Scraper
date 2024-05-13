@@ -34,30 +34,32 @@ object RZSScraper {
                 addArguments("--headless")
             })
 
-        chrome.get(searchUrl)
+        try {
+            chrome.get(searchUrl)
 
-        val table = WebDriverWait(chrome, Duration.ofSeconds(10)).until(
-            ExpectedConditions.presenceOfElementLocated(ByCssSelector("tbody"))
-        )
-
-        val rows = table.findElements(ByCssSelector("tr"))
-        rows.forEach { row ->
-            val teamLogo = row.findElement(ByCssSelector("img")).getAttribute("src")
-            val teamName = row.findElement(ByTagName("h6")).text
-            val siteLink = row.findElement(ByCssSelector("td:nth-child(5) > a")).getAttribute("href")
-            val coach = getCoach(siteLink)
-            teams.add(
-                HandballTeam(
-                    name = teamName,
-                    coach = coach,
-                    president = "/",
-                    director = "/",
-                    logoPath = teamLogo
-                )
+            val table = WebDriverWait(chrome, Duration.ofSeconds(10)).until(
+                ExpectedConditions.presenceOfElementLocated(ByCssSelector("tbody"))
             )
-        }
 
-        chrome.quit()
+            val rows = table.findElements(ByCssSelector("tr"))
+            rows.forEach { row ->
+                val teamLogo = row.findElement(ByCssSelector("img")).getAttribute("src")
+                val teamName = row.findElement(ByTagName("h6")).text
+                val siteLink = row.findElement(ByCssSelector("td:nth-child(5) > a")).getAttribute("href")
+                val coach = getCoach(siteLink)
+                teams.add(
+                    HandballTeam(
+                        name = teamName,
+                        coach = coach,
+                        president = "/",
+                        director = "/",
+                        logoPath = teamLogo
+                    )
+                )
+            }
+        } finally {
+            chrome.quit()
+        }
         println("Teams fetched successfully!")
         return teams
     }
@@ -68,21 +70,28 @@ object RZSScraper {
                 addArguments("--headless")
             })
 
-        chrome.get(teamSite)
+        try {
+            chrome.get(teamSite)
 
-        val coachElement = WebDriverWait(chrome, Duration.ofSeconds(10)).until(
-            ExpectedConditions.presenceOfElementLocated(
-                ByCssSelector(
-                    "div.row div.col-md-6 aside.widget-team-info:not([data-v-386fec58]) div.widget__content ul.team-info-list li:nth-child(7) span.team-info__value"
+            val coachElement = WebDriverWait(chrome, Duration.ofSeconds(10)).until(
+                ExpectedConditions.presenceOfElementLocated(
+                    ByCssSelector(
+                        "div.row div.col-md-6 aside.widget-team-info:not([data-v-386fec58]) div.widget__content ul.team-info-list li:nth-child(7) span.team-info__value"
+                    )
                 )
             )
-        )
-        val coach = coachElement.text
-        chrome.quit()
-        return coach
+            val coach = coachElement.text
+            return coach
+        } finally {
+            chrome.quit()
+        }
     }
 
-    fun getMatches(season: Int = LocalDate.now().year, teams: Teams = getTeams(), arenas: Stadiums = getArenas()): Matches {
+    fun getMatches(
+        season: Int = LocalDate.now().year,
+        teams: Teams = getTeams(),
+        arenas: Stadiums = getArenas()
+    ): Matches {
         val matchesUrl = "https://livestat.rokometna-zveza.si/#/liga/1155/sezona/${seasonMap[season]}/razpored"
         val datePattern = """.*-\s(\d{2}\.\d{2}\.\d{4}\s\d{2}:\d{2}).*""".toRegex(RegexOption.IGNORE_CASE)
         val dateFormatter = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm")
@@ -94,59 +103,62 @@ object RZSScraper {
                 addArguments("--headless")
             })
 
-        chrome.get(matchesUrl)
+        try {
+            chrome.get(matchesUrl)
 
-        val matchLegContainers = WebDriverWait(chrome, Duration.ofSeconds(10)).until(
-            ExpectedConditions.presenceOfAllElementsLocatedBy(ByCssSelector("aside.widget.widget--sidebar.card.card--has-table.widget-leaders"))
-        )
+            val matchLegContainers = WebDriverWait(chrome, Duration.ofSeconds(10)).until(
+                ExpectedConditions.presenceOfAllElementsLocatedBy(ByCssSelector("aside.widget.widget--sidebar.card.card--has-table.widget-leaders"))
+            )
 
-        matchLegContainers.forEach { matchLegContainer ->
-            val matchList = matchLegContainer.findElements(ByCssSelector("li.widget-results__item"))
-            matchList.forEach { match ->
-                try {
-                    val home =
-                        match.findElement(ByCssSelector("div.widget-results__team--first")).text
+            matchLegContainers.forEach { matchLegContainer ->
+                val matchList = matchLegContainer.findElements(ByCssSelector("li.widget-results__item"))
+                matchList.forEach { match ->
+                    try {
+                        val home =
+                            match.findElement(ByCssSelector("div.widget-results__team--first")).text
 
-                    val away =
-                        match.findElement(ByCssSelector("div.widget-results__team--second")).text
+                        val away =
+                            match.findElement(ByCssSelector("div.widget-results__team--second")).text
 
-                    val dateStr =
-                        datePattern.find(match.findElement(ByCssSelector("div.widget-results__title strong")).text)
-                            ?.groups?.get(1)?.value ?: throw Exception("Date not found")
+                        val dateStr =
+                            datePattern.find(match.findElement(ByCssSelector("div.widget-results__title strong")).text)
+                                ?.groups?.get(1)?.value ?: throw Exception("Date not found")
 
-                    val date = LocalDateTime.from(dateFormatter.parse(dateStr))
+                        val date = LocalDateTime.from(dateFormatter.parse(dateStr))
 
-                    val arena = match.findElement(ByCssSelector("div.widget-results__title > strong:nth-child(2)")).text
+                        val arena =
+                            match.findElement(ByCssSelector("div.widget-results__title > strong:nth-child(2)")).text
 
-                    val score = match.findElement(ByCssSelector("div.widget-results__score div")).text
+                        val score = match.findElement(ByCssSelector("div.widget-results__score div")).text
 
-                    val played = score != "0 - 0"
+                        val played = score != "0 - 0"
 
-                    val time = String.format("%02d:%02d", date.hour, date.minute)
+                        val time = String.format("%02d:%02d", date.hour, date.minute)
 
-                    val stadiumId = arenas.find { it.name.lowercase() == arena.lowercase() }?.id
-                    val homeTeam = teams.find { it.name == home }?.id
-                    val awayTeam = teams.find { it.name == away }?.id
-                    matches.add(
-                        Match(
-                            date = date.toLocalDate(),
-                            stadium = stadiumId,
-                            home = homeTeam ?: throw Exception("Home team not found"),
-                            away = awayTeam ?: throw Exception("Away team not found"),
-                            score = score,
-                            location = arena,
-                            time = time,
-                            played = played
+                        val stadiumId = arenas.find { it.name.lowercase() == arena.lowercase() }?.id
+                        val homeTeam = teams.find { it.name == home }?.id
+                        val awayTeam = teams.find { it.name == away }?.id
+                        matches.add(
+                            Match(
+                                date = date.toLocalDate(),
+                                stadium = stadiumId,
+                                home = homeTeam ?: throw Exception("Home team not found"),
+                                away = awayTeam ?: throw Exception("Away team not found"),
+                                score = score,
+                                location = arena,
+                                time = time,
+                                played = played
+                            )
                         )
-                    )
 
-                } catch (e: Exception) {
-                    println(e)
+                    } catch (e: Exception) {
+                        println(e)
+                    }
                 }
             }
+        } finally {
+            chrome.quit()
         }
-
-        chrome.quit()
         println("Matches fetched successfully!")
         return matches
     }
@@ -160,48 +172,49 @@ object RZSScraper {
             ChromeOptions().apply {
                 addArguments("--headless")
             })
+        try {
+            chrome.get(standingsUrl)
 
-        chrome.get(standingsUrl)
+            val table = WebDriverWait(chrome, Duration.ofSeconds(10)).until(
+                ExpectedConditions.presenceOfElementLocated(ByCssSelector("tbody"))
+            )
 
-        val table = WebDriverWait(chrome, Duration.ofSeconds(10)).until(
-            ExpectedConditions.presenceOfElementLocated(ByCssSelector("tbody"))
-        )
+            val rows = table.findElements(ByCssSelector("tr"))
+            rows.forEach { row ->
+                val place = row.findElement(ByCssSelector("td.game-player-result__date > h6")).text.toInt()
+                val team =
+                    row.findElement(ByCssSelector("td.game-player-result__vs > a > div > div > h6.team-meta__name")).text
+                val gamesPlayed = row.findElement(ByCssSelector("td.game-player-result__score")).text.toInt()
+                val wins = row.findElement(ByCssSelector("td.game-player-result__min")).text.toInt()
+                val draws = row.findElement(ByCssSelector("td.game-player-result__ts")).text.toInt()
+                val losses = row.findElement(ByCssSelector("td.game-player-result__tg")).text.toInt()
+                val goalData = row.findElement(ByCssSelector("td.game-player-result__st")).text.split(":")
+                val goalsScored = goalData[0].toInt()
+                val goalsConceded = goalData[1].toInt()
+                val points =
+                    row.findElement(ByCssSelector("td.game-player-result__ga > span.team-info__value")).text.toInt()
 
-        val rows = table.findElements(ByCssSelector("tr"))
-        rows.forEach { row ->
-            val place = row.findElement(ByCssSelector("td.game-player-result__date > h6")).text.toInt()
-            val team =
-                row.findElement(ByCssSelector("td.game-player-result__vs > a > div > div > h6.team-meta__name")).text
-            val gamesPlayed = row.findElement(ByCssSelector("td.game-player-result__score")).text.toInt()
-            val wins = row.findElement(ByCssSelector("td.game-player-result__min")).text.toInt()
-            val draws = row.findElement(ByCssSelector("td.game-player-result__ts")).text.toInt()
-            val losses = row.findElement(ByCssSelector("td.game-player-result__tg")).text.toInt()
-            val goalData = row.findElement(ByCssSelector("td.game-player-result__st")).text.split(":")
-            val goalsScored = goalData[0].toInt()
-            val goalsConceded = goalData[1].toInt()
-            val points =
-                row.findElement(ByCssSelector("td.game-player-result__ga > span.team-info__value")).text.toInt()
-
-            try {
-                standings.add(
-                    DrawableStanding(
-                        place = place.toUShort(),
-                        team = teams.find { it.name == team }?.id ?: throw Exception("Team not found"),
-                        gamesPlayed = gamesPlayed.toUShort(),
-                        wins = wins.toUShort(),
-                        draws = draws.toUShort(),
-                        losses = losses.toUShort(),
-                        goalsScored = goalsScored.toUShort(),
-                        goalsConceded = goalsConceded.toUShort(),
-                        points = points.toUShort()
+                try {
+                    standings.add(
+                        DrawableStanding(
+                            place = place.toUShort(),
+                            team = teams.find { it.name == team }?.id ?: throw Exception("Team not found"),
+                            gamesPlayed = gamesPlayed.toUShort(),
+                            wins = wins.toUShort(),
+                            draws = draws.toUShort(),
+                            losses = losses.toUShort(),
+                            goalsScored = goalsScored.toUShort(),
+                            goalsConceded = goalsConceded.toUShort(),
+                            points = points.toUShort()
+                        )
                     )
-                )
-            } catch (e: Exception) {
-                println(e)
+                } catch (e: Exception) {
+                    println(e)
+                }
             }
+        } finally {
+            chrome.quit()
         }
-
-        chrome.quit()
         println("Standings fetched successfully!")
         return standings
     }
@@ -215,30 +228,32 @@ object RZSScraper {
                 addArguments("--headless")
             })
 
-        chrome.get(arenasUrl)
+        try {
+            chrome.get(arenasUrl)
 
-        val table = WebDriverWait(chrome, Duration.ofSeconds(10)).until(
-            ExpectedConditions.presenceOfElementLocated(ByCssSelector("tbody"))
-        )
+            val table = WebDriverWait(chrome, Duration.ofSeconds(10)).until(
+                ExpectedConditions.presenceOfElementLocated(ByCssSelector("tbody"))
+            )
 
-        val rows = table.findElements(ByCssSelector("tr"))
-        rows.forEach { row ->
-            val teamName = row.findElement(ByTagName("h6")).text
-            val address = row.findElement(ByCssSelector("td:nth-child(2)")).text.replace("\n", " ").trim(',').trim()
-            val arena = row.findElement(ByCssSelector("td:nth-child(4)")).text.split('\n')[0]
-            val team = teams.find { it.name == teamName }
-            if (team != null) {
-                arenas.add(
-                    Stadium(
-                        name = arena,
-                        teamId = team.id,
-                        location = LocationUtil.getLocation(address),
+            val rows = table.findElements(ByCssSelector("tr"))
+            rows.forEach { row ->
+                val teamName = row.findElement(ByTagName("h6")).text
+                val address = row.findElement(ByCssSelector("td:nth-child(2)")).text.replace("\n", " ").trim(',').trim()
+                val arena = row.findElement(ByCssSelector("td:nth-child(4)")).text.split('\n')[0]
+                val team = teams.find { it.name == teamName }
+                if (team != null) {
+                    arenas.add(
+                        Stadium(
+                            name = arena,
+                            teamId = team.id,
+                            location = LocationUtil.getLocation(address),
+                        )
                     )
-                )
+                }
             }
+        } finally {
+            chrome.quit()
         }
-
-        chrome.quit()
         println("Arenas fetched successfully!")
         return arenas
     }
