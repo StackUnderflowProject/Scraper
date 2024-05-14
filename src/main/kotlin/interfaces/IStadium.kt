@@ -2,7 +2,6 @@ package interfaces
 
 import org.bson.types.ObjectId
 import util.LocationUtil
-import java.util.*
 
 interface IStadium {
     val name: String

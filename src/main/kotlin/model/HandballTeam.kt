@@ -2,7 +2,6 @@ package model
 
 import interfaces.ITeam
 import org.bson.types.ObjectId
-import java.util.*
 
 class HandballTeam(
     override val id: ObjectId = ObjectId(),
@@ -11,7 +10,7 @@ class HandballTeam(
     val president: String,
     override var coach: String,
     override var logoPath: String = "src/main/resources/default_logo.png"
-): ITeam {
+) : ITeam {
     override fun toCSV(): String {
         return "$id;$name;$director;$president;$coach;$logoPath"
     }

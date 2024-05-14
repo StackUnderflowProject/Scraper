@@ -14,8 +14,14 @@ object LocationUtil {
     data class GeocodeResponse(val results: List<Result>)
 
     // TODO set own map api key
-    private const val MAP_API_KEY = "AIzaSyDVd_pBgyIrTNWl9iizuJcMiwSVcTk4lR8"
-    
+    private const val MAP_API_KEY = ""
+
+    /**
+     * Fetches the geographical location (latitude and longitude) of a given address.
+     *
+     * @param address The address to geocode.
+     * @return A Location object containing the latitude and longitude of the address, or null if the address could not be geocoded.
+     */
     fun getLocation(address: String): Location? {
         val encodedAddress = URLEncoder.encode(address, "UTF-8")
         val apiUrl = "https://maps.googleapis.com/maps/api/geocode/json?address=$encodedAddress&key=$MAP_API_KEY"

@@ -2,7 +2,6 @@ package model
 
 import interfaces.ITeam
 import org.bson.types.ObjectId
-import java.util.*
 
 data class BasketballTeam(
     override val id: ObjectId = ObjectId(),
@@ -10,7 +9,7 @@ data class BasketballTeam(
     override val director: String,
     override var coach: String,
     override var logoPath: String
-): ITeam {
+) : ITeam {
     override fun toCSV(): String {
         return "$name;$director;$coach;$logoPath"
     }

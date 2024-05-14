@@ -3,7 +3,6 @@ package model
 import interfaces.IMatch
 import org.bson.types.ObjectId
 import java.time.LocalDate
-import java.util.UUID
 
 data class Match(
     override val home: ObjectId,

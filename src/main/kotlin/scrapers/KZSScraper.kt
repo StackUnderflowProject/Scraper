@@ -1,19 +1,27 @@
 package scrapers
 
-import util.LocationUtil
 import it.skrape.core.htmlDocument
-import it.skrape.fetcher.*
+import it.skrape.fetcher.HttpFetcher
+import it.skrape.fetcher.response
+import it.skrape.fetcher.skrape
 import it.skrape.selects.html5.div
 import it.skrape.selects.html5.table
 import it.skrape.selects.html5.tbody
 import model.*
-import org.bson.types.ObjectId
+import util.LocationUtil
 import java.text.SimpleDateFormat
 import java.time.LocalDate
 import java.time.ZoneId
 import java.util.*
 
 object KZSScraper {
+
+    /**
+     * Fetches the geographical location (latitude and longitude) of a given address.
+     *
+     * @param address The address to geocode.
+     * @return A Location object containing the latitude and longitude of the address, or null if the address could not be geocoded.
+     */
     fun getTeamMapUrl(): Map<String, String> {
         val teamUrlMap: MutableMap<String, String> = mutableMapOf()
         val teamsUrl = "https://www.eurobasket.com/Slovenia/basketball-Liga-Nova-KBM-Teams.aspx"
@@ -37,6 +45,12 @@ object KZSScraper {
         return teamUrlMap
     }
 
+    /**
+     * Fetches the teams from the website.
+     *
+     * @param teamUrlMap A map of team names to their corresponding URLs on the website. If not provided, it defaults to the URLs fetched by getTeamMapUrl().
+     * @return A Teams object containing all the fetched teams.
+     */
     fun getTeams(teamUrlMap: Map<String, String> = getTeamMapUrl()): Teams {
         val teamsUrl = "https://www.eurobasket.com/Slovenia/basketball-Liga-Nova-KBM-Teams.aspx"
         println("Fetching teams from $teamsUrl")
@@ -71,6 +85,13 @@ object KZSScraper {
         return teams
     }
 
+    /**
+     * Fetches the coaches of the teams from the website.
+     *
+     * @param teams A Teams object containing the teams. If not provided, it defaults to the teams fetched by getTeams().
+     * @param teamUrlMap A map of team names to their corresponding URLs on the website. If not provided, it defaults to the URLs fetched by getTeamMapUrl().
+     * @return A Teams object containing all the fetched teams with their coaches.
+     */
     fun getCoaches(teams: Teams = getTeams(), teamUrlMap: Map<String, String> = getTeamMapUrl()): Teams {
         val coachPattern = """.*:\s(\w+\s\w+).*""".toRegex()
         teamUrlMap.entries.forEach { (team, link) ->
@@ -97,6 +118,13 @@ object KZSScraper {
         return teams
     }
 
+    /**
+     * Fetches the arenas of the teams from the website.
+     *
+     * @param teams A Teams object containing the teams. If not provided, it defaults to the teams fetched by getTeams().
+     * @param teamUrlMap A map of team names to their corresponding URLs on the website. If not provided, it defaults to the URLs fetched by getTeamMapUrl().
+     * @return A Stadiums object containing all the fetched arenas.
+     */
     fun getArenas(teams: Teams = getTeams(), teamUrlMap: Map<String, String> = getTeamMapUrl()): Stadiums {
         val arenas = Stadiums()
         val arenaPattern = """Home\sCourt:\s(\w+\s\w+)\s\(([\d.,]+)\)""".toRegex()
@@ -152,6 +180,12 @@ object KZSScraper {
         return arenas
     }
 
+    /**
+     * Fetches the standings from the website.
+     *
+     * @param teams A Teams object containing the teams. If not provided, it defaults to the teams fetched by getTeams().
+     * @return A Standings object containing all the fetched standings.
+     */
     fun getStandings(teams: Teams = getTeams()): Standings {
         val standingsUrl = "https://www.eurobasket.com/Slovenia/basketball-Liga-Nova-KBM-Standings.aspx"
         println("Fetching standings from $standingsUrl")
@@ -198,7 +232,14 @@ object KZSScraper {
         return standings
     }
 
-    fun getMatches(teams: Teams = getTeams(), arenas: Stadiums): Matches {
+    /**
+     * Fetches the matches from the website.
+     *
+     * @param teams A Teams object containing the teams. If not provided, it defaults to the teams fetched by getTeams().
+     * @param arenas A Stadiums object containing the arenas. If not provided, it defaults to the arenas fetched by getArenas().
+     * @return A Matches object containing all the fetched matches.
+     */
+    fun getMatches(teams: Teams = getTeams(), arenas: Stadiums = getArenas()): Matches {
         val currentYear = LocalDate.now().year
         val dateMap = mapOf(
             "Jan" to currentYear,
@@ -268,6 +309,11 @@ object KZSScraper {
         return matches
     }
 
+    /**
+     * Fetches all data (teams, coaches, arenas, standings, matches) from the website and saves it in a specified file format.
+     *
+     * @param fileType The file format in which to save the data. If not provided, it defaults to JSON.
+     */
     fun saveAllData(fileType: FileType = FileType.JSON) {
         val teamUrlMap = getTeamMapUrl()
         val teams = getTeams(teamUrlMap = teamUrlMap)

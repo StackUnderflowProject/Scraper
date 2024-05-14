@@ -17,7 +17,7 @@ class Stadiums : ArrayList<Stadium>() {
         File(path).writeText(xml)
     }
 
-    fun writeToJSON(path: String = "stadiums.json"){
+    fun writeToJSON(path: String = "stadiums.json") {
         val json = """
 {
     "stadiums": [

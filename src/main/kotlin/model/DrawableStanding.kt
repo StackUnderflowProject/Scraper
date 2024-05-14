@@ -2,9 +2,8 @@ package model
 
 import interfaces.IStanding
 import org.bson.types.ObjectId
-import java.util.*
 
-data class DrawableStanding (
+data class DrawableStanding(
     override val place: UShort,
     override val team: ObjectId,
     override val gamesPlayed: UShort,
@@ -15,14 +14,14 @@ data class DrawableStanding (
     override val goalsConceded: UShort,
     override val points: UShort,
     override val id: ObjectId = ObjectId()
-): IStanding {
-    
+) : IStanding {
+
     private val goalDiff = (goalsScored - goalsConceded).toShort()
-    
+
     override fun toCSV(): String {
         return "$place;$team;$gamesPlayed;$wins;$draws;$losses;$goalsScored;$goalsConceded;$goalDiff;$points"
     }
-    
+
     override fun toXML(): String {
         return """
             <standing id="$id">
@@ -39,7 +38,7 @@ data class DrawableStanding (
             </standing>
         """.trimIndent()
     }
-    
+
     override fun toJSON(): String {
         return """
               {

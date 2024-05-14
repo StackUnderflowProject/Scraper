@@ -2,7 +2,6 @@ package model
 
 import interfaces.ITeam
 import org.bson.types.ObjectId
-import java.util.UUID
 
 data class FootballTeam(
     override val name: String,
@@ -11,12 +10,12 @@ data class FootballTeam(
     override var coach: String,
     override var logoPath: String,
     override val id: ObjectId = ObjectId(),
-): ITeam {
+) : ITeam {
 
     override fun toString(): String {
         return "Team(id=$id, name='$name', president='$president', director='$director', coach='$coach', logoPath='$logoPath')"
     }
-    
+
     override fun toCSV(): String {
         return "$id;$name;$president;$director;$coach;$logoPath"
     }

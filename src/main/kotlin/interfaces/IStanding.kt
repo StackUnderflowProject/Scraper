@@ -12,7 +12,7 @@ interface IStanding {
     val goalsConceded: UShort
     val points: UShort
     val id: ObjectId
-    
+
     fun toCSV(): String
     fun toXML(): String
     fun toJSON(): String

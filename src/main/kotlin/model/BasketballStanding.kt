@@ -2,7 +2,6 @@ package model
 
 import interfaces.IStanding
 import org.bson.types.ObjectId
-import java.util.*
 
 data class BasketballStanding(
     override val place: UShort,
@@ -16,7 +15,7 @@ data class BasketballStanding(
     override val id: ObjectId = ObjectId(),
 ) : IStanding {
     private val goalDiff = (goalsScored - goalsConceded).toShort()
-    
+
     override fun toCSV(): String {
         return "$place;$team;$gamesPlayed;$wins;$losses;$points;$goalsScored;$goalsConceded;$goalDiff"
     }

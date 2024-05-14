@@ -1,9 +1,7 @@
 package util
 
 import java.io.File
-import java.io.FileOutputStream
 import java.net.URI
-import java.net.URL.*
 
 object ImageUtil {
     fun downloadImage(imageUrl: String, destinationFile: String) {

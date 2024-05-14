@@ -17,10 +17,11 @@ import java.util.*
 object PLTScraper {
 
     /**
-     * getTeamMap():
-     *  - receives season: Int
-     *  - returns a map of all the teams playing in that season, where the key is the clubs name and
-     *  the value is the CSS class attribute which defines the element on the web page
+     * Fetches team data from the website.
+     *
+     * @param teamMap A map of team names to their corresponding IDs on the website. If not provided, it defaults to the current year's teams.
+     * @param downloadLogo A boolean indicating whether to download the team's logo or not. If true, the logo will be downloaded and saved locally. If false, the logo's URL will be saved.
+     * @return A Teams object containing all the fetched teams.
      */
     private fun getTeamMap(season: Int): Map<String, String> {
         val idPattern = Regex(""".*id_kluba=(\d+).*""")
@@ -31,7 +32,6 @@ object PLTScraper {
             request {
                 url = teamsUrl
             }
-
             response {
                 htmlDocument {
                     table {
@@ -55,10 +55,11 @@ object PLTScraper {
     }
 
     /**
-     * getTeams():
-     *  - receives optional parameters teamMap, which contains the query ids for each team,
-     *  downloadLogo, which determines whether to download the image or not
-     *  - It returns a Teams object with all the teams defined in the teamMap
+     * Fetches team data from the website.
+     *
+     * @param teamMap A map of team names to their corresponding IDs on the website. If not provided, it defaults to the current year's teams.
+     * @param downloadLogo A boolean indicating whether to download the team's logo or not. If true, the logo will be downloaded and saved locally. If false, the logo's URL will be saved.
+     * @return A Teams object containing all the fetched teams.
      */
     fun getTeams(
         teamMap: Map<String, String> = getTeamMap(LocalDate.now().year),
@@ -135,10 +136,11 @@ object PLTScraper {
     }
 
     /**
-     * getStanding():
-     *  - receives optional parameters season and teams, which is used to reference each team by id inside standing
-     *  instead of name
-     *  - it returns a Standings object, which contains a Standing (placement) for each team inside teams
+     * Fetches the standings data from the website.
+     *
+     * @param season An integer representing the season year. If not provided, it defaults to the current year.
+     * @param teams A Teams object containing all the teams. If not provided, it defaults to the result of the getTeams() function.
+     * @return A Standings object containing all the fetched standings.
      */
     fun getStandings(season: Int = LocalDate.now().year, teams: Teams = getTeams()): Standings {
         println("Getting standings...")
@@ -197,10 +199,12 @@ object PLTScraper {
     }
 
     /**
-     * getStadiums():
-     *  - receives optional parameters teamMap, teams and downloadImage
-     *  - it returns a Stadiums object containing the stadium for each team given in the teams parameter,
-     *  given it finds teh right data on the website
+     * Fetches stadium data from the website.
+     *
+     * @param teamMap A map of team names to their corresponding IDs on the website. If not provided, it defaults to the current year's teams.
+     * @param teams A Teams object containing all the teams. If not provided, it defaults to the result of the getTeams() function.
+     * @param downloadImage A boolean indicating whether to download the stadium's image or not. If true, the image will be downloaded and saved locally. If false, the image's URL will be saved.
+     * @return A Stadiums object containing all the fetched stadiums.
      */
     fun getStadiums(
         teamMap: Map<String, String> = getTeamMap(LocalDate.now().year),
@@ -291,10 +295,12 @@ object PLTScraper {
     }
 
     /**
-     * getMatches():
-     *  - receives optional parameters season, teams and stadiums
-     *  - it returns a Matches object containing all matches played and upcoming for all teams in the given season with
-     *  references to teams and stadiums via ids
+     * Fetches match data from the website.
+     *
+     * @param season An integer representing the season year. If not provided, it defaults to the current year.
+     * @param teams A Teams object containing all the teams. If not provided, it defaults to the result of the getTeams() function.
+     * @param stadiums A Stadiums object containing all the stadiums. If not provided, it defaults to the result of the getStadiums() function.
+     * @return A Matches object containing all the fetched matches.
      */
     fun getMatches(
         season: Int = LocalDate.now().year,
@@ -353,9 +359,18 @@ object PLTScraper {
     }
 
     /**
-     * saveAllData():
-     * - a helper method that call all other methods to get the data and then save it to the desired file type 
-     * - receives optional parameters season and fileType
+     * Fetches all data (teams, stadiums, standings, matches) for a given season and saves it to files in a specified format.
+     *
+     * @param season An integer representing the season year. If not provided, it defaults to the current year.
+     * @param fileType A FileType enum value indicating the format in which to save the data. If not provided, it defaults to JSON.
+     *
+     * The method performs the following steps:
+     * 1. Fetches a map of team names to their corresponding IDs on the website for the given season.
+     * 2. Fetches team data using the fetched team map.
+     * 3. Fetches stadium data using the fetched team map and team data.
+     * 4. Fetches standings data for the given season using the fetched team data.
+     * 5. Fetches match data for the given season using the fetched team data and stadium data.
+     * 6. Depending on the specified fileType, it saves the fetched data to CSV, XML, or JSON files.
      */
     fun saveAllData(season: Int = LocalDate.now().year, fileType: FileType = FileType.JSON) {
         val teamMap = getTeamMap(season)

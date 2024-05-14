@@ -24,6 +24,12 @@ object RZSScraper {
         2018 to 59,
     )
 
+    /**
+     * Fetches team data from the RZS website for a given season.
+     *
+     * @param season The season for which to fetch the team data. Defaults to the current year.
+     * @return A Teams object containing all the fetched teams.
+     */
     fun getTeams(season: Int = LocalDate.now().year): Teams {
         val teams = Teams()
         val searchUrl = "https://livestat.rokometna-zveza.si/#/liga/1155/sezona/${seasonMap[season]}/ekipe"
@@ -64,6 +70,12 @@ object RZSScraper {
         return teams
     }
 
+    /**
+     * Fetches the coach's name for a given team from the RZS website.
+     *
+     * @param teamSite The URL of the team's page on the RZS website.
+     * @return A String containing the coach's name.
+     */
     private fun getCoach(teamSite: String): String {
         val chrome = ChromeDriver(
             ChromeOptions().apply {
@@ -87,6 +99,14 @@ object RZSScraper {
         }
     }
 
+    /**
+     * Fetches match data from the RZS website for a given season.
+     *
+     * @param season The season for which to fetch the match data. Defaults to the current year.
+     * @param teams The Teams object containing all the teams for the season. Defaults to the result of the getTeams() function.
+     * @param arenas The Stadiums object containing all the arenas for the season. Defaults to the result of the getArenas() function.
+     * @return A Matches object containing all the fetched matches.
+     */
     fun getMatches(
         season: Int = LocalDate.now().year,
         teams: Teams = getTeams(),
@@ -163,6 +183,13 @@ object RZSScraper {
         return matches
     }
 
+    /**
+     * Fetches the standings from the RZS website for a given season.
+     *
+     * @param season The season for which to fetch the standings. Defaults to the current year.
+     * @param teams The Teams object containing all the teams for the season. Defaults to the result of the getTeams() function.
+     * @return A Standings object containing all the fetched standings.
+     */
     fun getStandings(season: Int = LocalDate.now().year, teams: Teams = getTeams()): Standings {
         val standings = Standings()
         val standingsUrl = "https://livestat.rokometna-zveza.si/#/liga/1155/sezona/${seasonMap[season]}/lestvica"
@@ -219,6 +246,13 @@ object RZSScraper {
         return standings
     }
 
+    /**
+     * Fetches the arenas from the RZS website for a given season.
+     *
+     * @param season The season for which to fetch the arenas. Defaults to the current year.
+     * @param teams The Teams object containing all the teams for the season. Defaults to the result of the getTeams() function.
+     * @return A Stadiums object containing all the fetched arenas.
+     */
     fun getArenas(season: Int = LocalDate.now().year, teams: Teams = getTeams()): Stadiums {
         val arenas = Stadiums()
         val arenasUrl = "https://livestat.rokometna-zveza.si/#/liga/1155/sezona/${seasonMap[season]}/ekipe"
@@ -258,6 +292,19 @@ object RZSScraper {
         return arenas
     }
 
+    /**
+     * Fetches all data (teams, arenas, standings, matches) for a given season and saves it in a specified file format.
+     *
+     * @param season The season for which to fetch the data. Defaults to the current year.
+     * @param fileType The file format in which to save the data. Defaults to JSON.
+     *
+     * The function performs the following steps:
+     * 1. Fetches the teams for the given season.
+     * 2. Fetches the arenas for the given season.
+     * 3. Fetches the standings for the given season.
+     * 4. Fetches the matches for the given season.
+     * 5. Depending on the specified file format, it saves the fetched data in JSON, XML, or CSV files.
+     */
     fun saveAllData(season: Int = LocalDate.now().year, fileType: FileType = FileType.JSON) {
         val teams = getTeams(season)
         val arenas = getArenas(season = season, teams = teams)

@@ -3,7 +3,6 @@ package model
 import interfaces.IStadium
 import org.bson.types.ObjectId
 import util.LocationUtil
-import java.util.UUID
 
 data class Stadium(
     override val name: String,
