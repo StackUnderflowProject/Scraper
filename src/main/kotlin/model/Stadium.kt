@@ -3,6 +3,7 @@ package model
 import interfaces.IStadium
 import org.bson.types.ObjectId
 import util.LocationUtil
+import java.time.LocalDate
 
 data class Stadium(
     override val name: String,
@@ -11,10 +12,11 @@ data class Stadium(
     override var location: LocationUtil.Location? = null,
     override val buildYear: UShort? = null,
     override val imagePath: String? = null,
+    override val season: UShort = LocalDate.now().year.toUShort(),
     override val id: ObjectId = ObjectId(),
 ) : IStadium {
     override fun toCSV(): String {
-        return "$id;$name;$teamId;$capacity;$location;$buildYear;$imagePath"
+        return "$id;$name;$teamId;$capacity;$location;$buildYear;$imagePath;$season"
     }
 
     override fun toXML(): String {
@@ -32,6 +34,7 @@ data class Stadium(
                 $location
                 <buildYear>$buildYear</buildYear>
                 <imageUrl>$imagePath</imageUrl>
+                <season>$season</season>
             </stadium>
         """.trimIndent()
     }
@@ -48,10 +51,11 @@ data class Stadium(
                 "id": "$id",
                 "name": "$name",
                 "teamId": "$teamId",
-                "capacity": "$capacity",
+                ${if(capacity != null) {""" "capacity": "$capacity", """.trimIndent()} else ""}
                 $location
-                "buildYear": "$buildYear",
-                "imageUrl": "$imagePath"
+                ${if(buildYear != null) {""" "buildYear": "$buildYear", """.trimIndent()} else ""}
+                ${if(imagePath != null) {""" "imageUrl": "$imagePath", """.trimIndent()} else ""}  
+                "season": "$season"
             },
         """.trimIndent()
     }

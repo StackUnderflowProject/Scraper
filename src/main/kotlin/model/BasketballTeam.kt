@@ -2,13 +2,15 @@ package model
 
 import interfaces.ITeam
 import org.bson.types.ObjectId
+import java.time.LocalDate
 
 data class BasketballTeam(
     override val id: ObjectId = ObjectId(),
     override val name: String,
     override val director: String,
     override var coach: String,
-    override var logoPath: String
+    override var logoPath: String,
+    override val season: UShort = LocalDate.now().year.toUShort()
 ) : ITeam {
     override fun toCSV(): String {
         return "$name;$director;$coach;$logoPath"
@@ -21,6 +23,7 @@ data class BasketballTeam(
             <director>$director</director>
             <coach>$coach</coach>
             <logoPath>$logoPath</logoPath>
+            <season>$season</season>
         </team>
         """.trimIndent()
     }
@@ -32,7 +35,8 @@ data class BasketballTeam(
             "name": "$name",
             "director": "$director",
             "coach": "$coach",
-            "logoPath": "$logoPath"
+            "logoPath": "$logoPath",
+            "season": "$season"
         },
         """.trimIndent()
     }

@@ -12,6 +12,7 @@ interface IStanding {
     val goalsConceded: UShort
     val points: UShort
     val id: ObjectId
+    val season: UShort
 
     fun toCSV(): String
     fun toXML(): String

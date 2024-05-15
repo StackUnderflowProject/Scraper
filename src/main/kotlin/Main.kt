@@ -1,5 +1,6 @@
+import scrapers.PLTScraper
 import scrapers.RZSScraper
 
 fun main() {
-    RZSScraper.saveAllData(2023)
+    PLTScraper.saveAllData(2020.toUShort())
 }

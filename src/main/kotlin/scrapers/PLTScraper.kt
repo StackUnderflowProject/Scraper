@@ -17,13 +17,12 @@ import java.util.*
 object PLTScraper {
 
     /**
-     * Fetches team data from the website.
+     * Fetches a map of team names to their corresponding IDs on the website.
      *
-     * @param teamMap A map of team names to their corresponding IDs on the website. If not provided, it defaults to the current year's teams.
-     * @param downloadLogo A boolean indicating whether to download the team's logo or not. If true, the logo will be downloaded and saved locally. If false, the logo's URL will be saved.
-     * @return A Teams object containing all the fetched teams.
+     * @param season An UShort representing the season year. If not provided, it defaults to the current year.
+     * @return A map of team names to their corresponding IDs on the website.
      */
-    private fun getTeamMap(season: Int): Map<String, String> {
+    private fun getTeamMap(season: UShort): Map<String, String> {
         val idPattern = Regex(""".*id_kluba=(\d+).*""")
         val teamMap = mutableMapOf<String, String>()
 
@@ -57,12 +56,14 @@ object PLTScraper {
     /**
      * Fetches team data from the website.
      *
+     * @param season An UShort representing the season year. If not provided, it defaults to the current year.
      * @param teamMap A map of team names to their corresponding IDs on the website. If not provided, it defaults to the current year's teams.
      * @param downloadLogo A boolean indicating whether to download the team's logo or not. If true, the logo will be downloaded and saved locally. If false, the logo's URL will be saved.
      * @return A Teams object containing all the fetched teams.
      */
     fun getTeams(
-        teamMap: Map<String, String> = getTeamMap(LocalDate.now().year),
+        season: UShort = LocalDate.now().year.toUShort(),
+        teamMap: Map<String, String> = getTeamMap(LocalDate.now().year.toUShort()),
         downloadLogo: Boolean = false,
     ): Teams {
         val baseUrl = "https://www.prvaliga.si/tekmovanja/default.asp?action=klub&id_menu=217&id_kluba="
@@ -117,7 +118,8 @@ object PLTScraper {
                                             president = president,
                                             director = director,
                                             coach = coach,
-                                            logoPath = if (downloadLogo) logoPath else imageFetchUrl
+                                            logoPath = if (downloadLogo) logoPath else imageFetchUrl,
+                                            season = season
                                         )
                                     )
                                 }
@@ -138,11 +140,11 @@ object PLTScraper {
     /**
      * Fetches the standings data from the website.
      *
-     * @param season An integer representing the season year. If not provided, it defaults to the current year.
+     * @param season An UShort representing the season year. If not provided, it defaults to the current year.
      * @param teams A Teams object containing all the teams. If not provided, it defaults to the result of the getTeams() function.
      * @return A Standings object containing all the fetched standings.
      */
-    fun getStandings(season: Int = LocalDate.now().year, teams: Teams = getTeams()): Standings {
+    fun getStandings(season: UShort = LocalDate.now().year.toUShort(), teams: Teams = getTeams()): Standings {
         println("Getting standings...")
         val searchURL = "https://www.prvaliga.si/tekmovanja/default.asp?action=lestvica&id_menu=102&id_sezone=$season"
         val standings = Standings()
@@ -168,8 +170,6 @@ object PLTScraper {
                                     val goalStats = columns[8].text.split(":").map { it.toUShort() }.toTypedArray()
                                     val points = columns[10].text.toUShort()
                                     try {
-
-
                                         standings.add(
                                             DrawableStanding(
                                                 place = place,
@@ -181,7 +181,8 @@ object PLTScraper {
                                                 losses = losses,
                                                 goalsScored = goalStats[0],
                                                 goalsConceded = goalStats[1],
-                                                points = points
+                                                points = points,
+                                                season = season
                                             )
                                         )
                                     } catch (e: Exception) {
@@ -201,13 +202,15 @@ object PLTScraper {
     /**
      * Fetches stadium data from the website.
      *
+     * @param season An UShort representing the season year. If not provided, it defaults to the current year.
      * @param teamMap A map of team names to their corresponding IDs on the website. If not provided, it defaults to the current year's teams.
      * @param teams A Teams object containing all the teams. If not provided, it defaults to the result of the getTeams() function.
      * @param downloadImage A boolean indicating whether to download the stadium's image or not. If true, the image will be downloaded and saved locally. If false, the image's URL will be saved.
      * @return A Stadiums object containing all the fetched stadiums.
      */
     fun getStadiums(
-        teamMap: Map<String, String> = getTeamMap(LocalDate.now().year),
+        season: UShort = LocalDate.now().year.toUShort(),
+        teamMap: Map<String, String> = getTeamMap(LocalDate.now().year.toUShort()),
         teams: Teams = getTeams(),
         downloadImage: Boolean = false
     ): Stadiums {
@@ -255,8 +258,11 @@ object PLTScraper {
                                                     rows[0].findAll("td")[1].text
                                                 }
                                                 buildYear = rows[1].findAll("td")[1].text.toUShort()
-                                                capacity = rows[2].findAll("td")[1].text.split(' ')[0].replace(".", "")
-                                                    .toUShort()
+                                                capacity = rows.find { it.text.contains("Kapaciteta") }
+                                                    ?.findAll("td")?.get(1)?.text
+                                                    ?.split(" ")?.get(0)
+                                                    ?.replace(".", "")
+                                                    ?.toUShort() ?: 0.toUShort()
                                             }
                                         }
                                     }
@@ -276,7 +282,8 @@ object PLTScraper {
                                             capacity = capacity,
                                             location = LocationUtil.getLocation(location),
                                             buildYear = buildYear,
-                                            imagePath = stadiumPath
+                                            imagePath = stadiumPath,
+                                            season = season
                                         )
                                     )
                                 }
@@ -297,13 +304,13 @@ object PLTScraper {
     /**
      * Fetches match data from the website.
      *
-     * @param season An integer representing the season year. If not provided, it defaults to the current year.
+     * @param season An UShort representing the season year. If not provided, it defaults to the current year.
      * @param teams A Teams object containing all the teams. If not provided, it defaults to the result of the getTeams() function.
      * @param stadiums A Stadiums object containing all the stadiums. If not provided, it defaults to the result of the getStadiums() function.
      * @return A Matches object containing all the fetched matches.
      */
     fun getMatches(
-        season: Int = LocalDate.now().year,
+        season: UShort = LocalDate.now().year.toUShort(),
         teams: Teams = getTeams(),
         stadiums: Stadiums = getStadiums(),
     ): Matches {
@@ -345,7 +352,8 @@ object PLTScraper {
                                         away = away,
                                         date = LocalDate.from(date),
                                         location = locationData[0].trim(),
-                                        stadium = stadiums.find { it.teamId == home }?.id
+                                        stadium = stadiums.find { it.teamId == home }?.id,
+                                        season = season
                                     )
                                 )
                             }
@@ -372,10 +380,10 @@ object PLTScraper {
      * 5. Fetches match data for the given season using the fetched team data and stadium data.
      * 6. Depending on the specified fileType, it saves the fetched data to CSV, XML, or JSON files.
      */
-    fun saveAllData(season: Int = LocalDate.now().year, fileType: FileType = FileType.JSON) {
+    fun saveAllData(season: UShort = LocalDate.now().year.toUShort(), fileType: FileType = FileType.JSON) {
         val teamMap = getTeamMap(season)
-        val teams = getTeams(teamMap = teamMap)
-        val stadiums = getStadiums(teamMap = teamMap, teams = teams)
+        val teams = getTeams(season = season, teamMap = teamMap)
+        val stadiums = getStadiums(season = season, teamMap = teamMap, teams = teams)
         val standings = getStandings(season = season, teams = teams)
         val matches = getMatches(season = season, teams = teams, stadiums = stadiums)
         when (fileType) {
