@@ -47,5 +47,7 @@ JSON).
 
 ## Acknowledgments
 
-- Thanks to the Slovenian Football, Handball and Basketball League for providing the data
+- Thanks to the Slovenian Football, Handball and Basketball League for providing the data 
 - Thanks to all contributors to this project
+- Special thanks to your mother for anal support
+- 
