@@ -167,8 +167,8 @@ object RZSScraper {
 
                         val time = String.format("%02d:%02d", date.hour, date.minute)
 
-                        val stadiumId = arenas.find { it.name.lowercase() == arena.lowercase() }?.id
                         val homeTeam = teams.find { it.name == home }?.id
+                        val stadiumId = arenas.find { it.teamId == homeTeam }?.id
                         val awayTeam = teams.find { it.name == away }?.id
                         matches.add(
                             Match(
