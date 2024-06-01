@@ -328,10 +328,10 @@ object RZSScraper {
 
         when (fileType) {
             FileType.JSON -> {
-                teams.writeToJSON("teams.json")
-                standings.writeToJSON("standings.json")
-                arenas.writeToJSON("arenas.json")
-                matches.writeToJSON("matches.json")
+                teams.writeToJSON("${season}teams.json")
+                standings.writeToJSON("${season}standings.json")
+                arenas.writeToJSON("${season}arenas.json")
+                matches.writeToJSON("${season}matches.json")
             }
 
             FileType.XML -> {

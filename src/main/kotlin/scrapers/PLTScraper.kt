@@ -402,10 +402,10 @@ object PLTScraper {
             }
 
             FileType.JSON -> {
-                teams.writeToJSON("teams.json")
-                matches.writeToJSON("matches.json")
-                stadiums.writeToJSON("stadiums.json")
-                standings.writeToJSON("standings.json")
+                teams.writeToJSON("${season}teams.json")
+                matches.writeToJSON("${season}matches.json")
+                stadiums.writeToJSON("${season}stadiums.json")
+                standings.writeToJSON("${season}standings.json")
             }
         }
     }
