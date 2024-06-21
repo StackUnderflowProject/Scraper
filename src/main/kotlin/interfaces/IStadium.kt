@@ -11,6 +11,7 @@ interface IStadium {
     val buildYear: UShort?
     val imagePath: String?
     val id: ObjectId
+    val season: UShort
 
     fun toCSV(): String
     fun toXML(): String

@@ -22,7 +22,7 @@ object KZSScraper {
      * @param address The address to geocode.
      * @return A Location object containing the latitude and longitude of the address, or null if the address could not be geocoded.
      */
-    fun getTeamMapUrl(): Map<String, String> {
+    fun getTeamUrlMap(): Map<String, String> {
         val teamUrlMap: MutableMap<String, String> = mutableMapOf()
         val teamsUrl = "https://www.eurobasket.com/Slovenia/basketball-Liga-Nova-KBM-Teams.aspx"
         skrape(HttpFetcher) {
@@ -51,7 +51,7 @@ object KZSScraper {
      * @param teamUrlMap A map of team names to their corresponding URLs on the website. If not provided, it defaults to the URLs fetched by getTeamMapUrl().
      * @return A Teams object containing all the fetched teams.
      */
-    fun getTeams(teamUrlMap: Map<String, String> = getTeamMapUrl()): Teams {
+    fun getTeams(teamUrlMap: Map<String, String> = getTeamUrlMap()): Teams {
         val teamsUrl = "https://www.eurobasket.com/Slovenia/basketball-Liga-Nova-KBM-Teams.aspx"
         println("Fetching teams from $teamsUrl")
         val teams = Teams()
@@ -92,7 +92,7 @@ object KZSScraper {
      * @param teamUrlMap A map of team names to their corresponding URLs on the website. If not provided, it defaults to the URLs fetched by getTeamMapUrl().
      * @return A Teams object containing all the fetched teams with their coaches.
      */
-    fun getCoaches(teams: Teams = getTeams(), teamUrlMap: Map<String, String> = getTeamMapUrl()): Teams {
+    fun getCoaches(teams: Teams = getTeams(), teamUrlMap: Map<String, String> = getTeamUrlMap()): Teams {
         val coachPattern = """.*:\s(\w+\s\w+).*""".toRegex()
         teamUrlMap.entries.forEach { (team, link) ->
             skrape(HttpFetcher) {
@@ -125,7 +125,7 @@ object KZSScraper {
      * @param teamUrlMap A map of team names to their corresponding URLs on the website. If not provided, it defaults to the URLs fetched by getTeamMapUrl().
      * @return A Stadiums object containing all the fetched arenas.
      */
-    fun getArenas(teams: Teams = getTeams(), teamUrlMap: Map<String, String> = getTeamMapUrl()): Stadiums {
+    fun getArenas(teams: Teams = getTeams(), teamUrlMap: Map<String, String> = getTeamUrlMap()): Stadiums {
         val arenas = Stadiums()
         val arenaPattern = """Home\sCourt:\s(\w+\s\w+)\s\(([\d.,]+)\)""".toRegex()
 
@@ -315,7 +315,7 @@ object KZSScraper {
      * @param fileType The file format in which to save the data. If not provided, it defaults to JSON.
      */
     fun saveAllData(fileType: FileType = FileType.JSON) {
-        val teamUrlMap = getTeamMapUrl()
+        val teamUrlMap = getTeamUrlMap()
         val teams = getTeams(teamUrlMap = teamUrlMap)
         val arenas = getArenas(teams = teams, teamUrlMap = teamUrlMap)
         val standings = getStandings(teams)

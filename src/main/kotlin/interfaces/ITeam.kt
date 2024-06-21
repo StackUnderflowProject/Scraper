@@ -8,6 +8,7 @@ interface ITeam {
     val director: String
     var coach: String
     var logoPath: String
+    val season: UShort
 
     fun toCSV(): String
     fun toXML(): String

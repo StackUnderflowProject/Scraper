@@ -12,6 +12,7 @@ interface IMatch {
     val date: LocalDate
     val location: String
     val id: ObjectId
+    val season: UShort
 
     fun toCSV(): String
     fun toXML(): String

@@ -2,6 +2,7 @@ package model
 
 import interfaces.ITeam
 import org.bson.types.ObjectId
+import java.time.LocalDate
 
 class HandballTeam(
     override val id: ObjectId = ObjectId(),
@@ -9,10 +10,11 @@ class HandballTeam(
     override val director: String,
     val president: String,
     override var coach: String,
-    override var logoPath: String = "src/main/resources/default_logo.png"
+    override var logoPath: String = "src/main/resources/default_logo.png",
+    override val season: UShort = LocalDate.now().year.toUShort()
 ) : ITeam {
     override fun toCSV(): String {
-        return "$id;$name;$director;$president;$coach;$logoPath"
+        return "$id;$name;$director;$president;$coach;$logoPath;$season"
     }
 
     override fun toXML(): String {
@@ -23,6 +25,7 @@ class HandballTeam(
                 <president>$president</president>
                 <coach>$coach</coach>
                 <logoPath>$logoPath</logoPath>
+                <season>$season</season>
             </team>
         """.trimIndent()
     }
@@ -35,7 +38,8 @@ class HandballTeam(
                 "director": "$director",
                 "president": "$president",
                 "coach": "$coach",
-                "logoPath": "$logoPath"
+                "logoPath": "$logoPath",
+                "season": "$season"
             },
         """.trimIndent()
     }

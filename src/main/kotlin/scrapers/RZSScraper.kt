@@ -14,23 +14,34 @@ import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
 object RZSScraper {
-    private val seasonMap = mapOf(
-        2024 to 70,
-        2023 to 69,
-        2022 to 66,
-        2021 to 65,
-        2020 to 64,
-        2019 to 63,
-        2018 to 59,
+    private val seasonMap: Map<UShort, UShort> = mapOf(
+        2024.toUShort() to 70.toUShort(),
+        2023.toUShort() to 69.toUShort(),
+        2022.toUShort() to 66.toUShort(),
+        2021.toUShort() to 65.toUShort(),
+        2020.toUShort() to 64.toUShort(),
+        2019.toUShort() to 63.toUShort(),
+        2018.toUShort() to 59.toUShort(),
     )
 
     /**
-     * Fetches team data from the RZS website for a given season.
+     * Fetches the teams for a given season from the RZS website.
      *
-     * @param season The season for which to fetch the team data. Defaults to the current year.
+     * @param season The season for which to fetch the teams. Defaults to the current year.
      * @return A Teams object containing all the fetched teams.
+     *
+     * The function performs the following steps:
+     * 1. Initializes a Teams object to store the fetched teams.
+     * 2. Constructs the URL of the teams page on the RZS website for the given season.
+     * 3. Opens a headless Chrome browser and navigates to the teams page.
+     * 4. Waits until the table containing the teams is loaded.
+     * 5. Fetches the rows of the table, each row representing a team.
+     * 6. For each row, it fetches the team's logo, name, and the URL of the team's page.
+     * 7. Calls the getCoach() function to fetch the coach's name for the team.
+     * 8. Adds the fetched team to the Teams object.
+     * 9. After all teams have been fetched, it closes the browser and returns the Teams object.
      */
-    fun getTeams(season: Int = LocalDate.now().year): Teams {
+    fun getTeams(season: UShort = LocalDate.now().year.toUShort()): Teams {
         val teams = Teams()
         val searchUrl = "https://livestat.rokometna-zveza.si/#/liga/1155/sezona/${seasonMap[season]}/ekipe"
 
@@ -59,7 +70,8 @@ object RZSScraper {
                         coach = coach,
                         president = "/",
                         director = "/",
-                        logoPath = teamLogo
+                        logoPath = teamLogo,
+                        season = season
                     )
                 )
             }
@@ -108,7 +120,7 @@ object RZSScraper {
      * @return A Matches object containing all the fetched matches.
      */
     fun getMatches(
-        season: Int = LocalDate.now().year,
+        season: UShort = LocalDate.now().year.toUShort(),
         teams: Teams = getTeams(),
         arenas: Stadiums = getArenas()
     ): Matches {
@@ -155,8 +167,8 @@ object RZSScraper {
 
                         val time = String.format("%02d:%02d", date.hour, date.minute)
 
-                        val stadiumId = arenas.find { it.name.lowercase() == arena.lowercase() }?.id
                         val homeTeam = teams.find { it.name == home }?.id
+                        val stadiumId = arenas.find { it.teamId == homeTeam }?.id
                         val awayTeam = teams.find { it.name == away }?.id
                         matches.add(
                             Match(
@@ -167,7 +179,8 @@ object RZSScraper {
                                 score = score,
                                 location = arena,
                                 time = time,
-                                played = played
+                                played = played,
+                                season = season
                             )
                         )
 
@@ -190,7 +203,7 @@ object RZSScraper {
      * @param teams The Teams object containing all the teams for the season. Defaults to the result of the getTeams() function.
      * @return A Standings object containing all the fetched standings.
      */
-    fun getStandings(season: Int = LocalDate.now().year, teams: Teams = getTeams()): Standings {
+    fun getStandings(season: UShort = LocalDate.now().year.toUShort(), teams: Teams = getTeams()): Standings {
         val standings = Standings()
         val standingsUrl = "https://livestat.rokometna-zveza.si/#/liga/1155/sezona/${seasonMap[season]}/lestvica"
 
@@ -232,7 +245,8 @@ object RZSScraper {
                             losses = losses.toUShort(),
                             goalsScored = goalsScored.toUShort(),
                             goalsConceded = goalsConceded.toUShort(),
-                            points = points.toUShort()
+                            points = points.toUShort(),
+                            season = season
                         )
                     )
                 } catch (e: Exception) {
@@ -253,7 +267,7 @@ object RZSScraper {
      * @param teams The Teams object containing all the teams for the season. Defaults to the result of the getTeams() function.
      * @return A Stadiums object containing all the fetched arenas.
      */
-    fun getArenas(season: Int = LocalDate.now().year, teams: Teams = getTeams()): Stadiums {
+    fun getArenas(season: UShort = LocalDate.now().year.toUShort(), teams: Teams = getTeams()): Stadiums {
         val arenas = Stadiums()
         val arenasUrl = "https://livestat.rokometna-zveza.si/#/liga/1155/sezona/${seasonMap[season]}/ekipe"
         println("Fetching arenas...")
@@ -281,6 +295,7 @@ object RZSScraper {
                             name = arena,
                             teamId = team.id,
                             location = LocationUtil.getLocation(address),
+                            season = season
                         )
                     )
                 }
@@ -305,7 +320,7 @@ object RZSScraper {
      * 4. Fetches the matches for the given season.
      * 5. Depending on the specified file format, it saves the fetched data in JSON, XML, or CSV files.
      */
-    fun saveAllData(season: Int = LocalDate.now().year, fileType: FileType = FileType.JSON) {
+    fun saveAllData(season: UShort = LocalDate.now().year.toUShort(), fileType: FileType = FileType.JSON) {
         val teams = getTeams(season)
         val arenas = getArenas(season = season, teams = teams)
         val standings = getStandings(season = season, teams = teams)
@@ -313,10 +328,10 @@ object RZSScraper {
 
         when (fileType) {
             FileType.JSON -> {
-                teams.writeToJSON("teams.json")
-                standings.writeToJSON("standings.json")
-                arenas.writeToJSON("arenas.json")
-                matches.writeToJSON("matches.json")
+                teams.writeToJSON("${season}teams.json")
+                standings.writeToJSON("${season}standings.json")
+                arenas.writeToJSON("${season}arenas.json")
+                matches.writeToJSON("${season}matches.json")
             }
 
             FileType.XML -> {

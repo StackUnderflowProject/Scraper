@@ -13,6 +13,7 @@ data class Match(
     override val date: LocalDate,
     override val location: String,
     val stadium: ObjectId? = null,
+    override val season: UShort = LocalDate.now().year.toUShort(),
     override val id: ObjectId = ObjectId()
 ) : IMatch {
     override fun toString(): String {
@@ -23,7 +24,7 @@ data class Match(
     }
 
     override fun toCSV(): String {
-        return "$date;${time ?: ""};$home;$away;${score ?: ""};$location;$stadium"
+        return "$date;${time ?: ""};$home;$away;${score ?: ""};$location;$stadium;$played;$season;$id"
     }
 
     override fun toXML(): String {
@@ -33,9 +34,11 @@ data class Match(
                 <time>${time ?: ""}</time>
                 <home>$home</home>
                 <away>$away</away>
+                <played>$played</played>
                 <score>${score ?: ""}</score>
                 <location>$location</location>
                 <stadium>$stadium</stadium>
+                <played>$played</played>
             </match>
         """.trimIndent()
     }
@@ -50,7 +53,9 @@ data class Match(
                 "away": "$away",
                 "score": "${score ?: ""}",
                 "location": "$location",
-                "stadium": "$stadium"
+                "stadium": "$stadium",
+                "season": "$season",
+                "played": "$played"
             },
         """.trimIndent()
     }

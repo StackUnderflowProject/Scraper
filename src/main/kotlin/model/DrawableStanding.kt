@@ -2,6 +2,7 @@ package model
 
 import interfaces.IStanding
 import org.bson.types.ObjectId
+import java.time.LocalDate
 
 data class DrawableStanding(
     override val place: UShort,
@@ -13,19 +14,21 @@ data class DrawableStanding(
     override val goalsScored: UShort,
     override val goalsConceded: UShort,
     override val points: UShort,
+    override val season: UShort = LocalDate.now().year.toUShort(),
     override val id: ObjectId = ObjectId()
 ) : IStanding {
 
     private val goalDiff = (goalsScored - goalsConceded).toShort()
 
     override fun toCSV(): String {
-        return "$place;$team;$gamesPlayed;$wins;$draws;$losses;$goalsScored;$goalsConceded;$goalDiff;$points"
+        return "$place;$season;$team;$gamesPlayed;$wins;$draws;$losses;$goalsScored;$goalsConceded;$goalDiff;$points"
     }
 
     override fun toXML(): String {
         return """
             <standing id="$id">
                 <place>$place</place>
+                <season>$season</season>
                 <team>$team</team>
                 <gamesPlayed>$gamesPlayed</gamesPlayed>
                 <wins>$wins</wins>
@@ -43,6 +46,7 @@ data class DrawableStanding(
         return """
               {
                 "id": "$id",
+                "season": "$season",
                 "place": "$place",
                 "team": "$team",
                 "gamesPlayed": "$gamesPlayed",
