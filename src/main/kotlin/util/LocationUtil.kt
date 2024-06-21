@@ -14,7 +14,7 @@ object LocationUtil {
     data class GeocodeResponse(val results: List<Result>)
 
     // TODO set own map api key
-    private const val MAP_API_KEY = "AIzaSyDVd_pBgyIrTNWl9iizuJcMiwSVcTk4lR8"
+    private const val MAP_API_KEY = ""
 
     /**
      * Fetches the geographical location (latitude and longitude) of a given address.
