@@ -1,9 +1,14 @@
 plugins {
     kotlin("jvm") version "1.9.23"
+    application
 }
 
 group = "org.example"
 version = "1.0-SNAPSHOT"
+
+application {
+    mainClass.set("MainKt")
+}
 
 repositories {
     mavenCentral()
@@ -21,6 +26,9 @@ dependencies {
 tasks.test {
     useJUnitPlatform()
 }
+
 kotlin {
-    jvmToolchain(21)
+    jvmToolchain {
+        (this as JavaToolchainSpec).languageVersion.set(JavaLanguageVersion.of(21))
+    }
 }
